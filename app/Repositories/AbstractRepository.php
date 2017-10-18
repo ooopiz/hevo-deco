@@ -2,23 +2,12 @@
 
 namespace App\Repositories;
 
-use Illuminate\Support\Facades\DB;
-
 abstract class AbstractRepository
 {
     /**
      * Define Model
      */
     protected $model;
-
-    const CREATED_AT = 'created_at';
-
-    const UPDATED_AT = 'updated_at';
-
-    private function isModelhasColumn($column)
-    {
-        return $this->model->getConnection()->getSchemaBuilder()->hasColumn($this->model->getTable(), $column);
-    }
 
     public function getModel()
     {
@@ -44,14 +33,6 @@ abstract class AbstractRepository
      */
     public function insertOne(array $data)
     {
-        $hasCreatedAt = $this->isModelhasColumn(self::CREATED_AT);
-        $hasUpdatedAt = $this->isModelhasColumn(self::UPDATED_AT);
-        if ($hasCreatedAt) {
-            array_set($data, self::CREATED_AT, DB::raw('CURRENT_TIMESTAMP'));
-        }
-        if ($hasUpdatedAt) {
-            array_set($data, self::UPDATED_AT, DB::raw('CURRENT_TIMESTAMP'));
-        }
         return $this->model->insert($data);
     }
 
@@ -63,18 +44,6 @@ abstract class AbstractRepository
      */
     public function insertAll(array $data)
     {
-        $hasCreatedAt = $this->isModelhasColumn(self::CREATED_AT);
-        $hasUpdatedAt = $this->isModelhasColumn(self::UPDATED_AT);
-        if ($hasCreatedAt  || $hasUpdatedAt) {
-            foreach ($data as $key => $val) {
-                if ($hasCreatedAt) {
-                    array_set($data[$key], self::CREATED_AT, DB::raw('CURRENT_TIMESTAMP'));
-                }
-                if ($hasUpdatedAt) {
-                    array_set($data[$key], self::UPDATED_AT, DB::raw('CURRENT_TIMESTAMP'));
-                }
-            }
-        }
         return $this->model->insert($data);
     }
 

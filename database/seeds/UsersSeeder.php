@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
     {
         User::truncate();
         $data = array(
-            ['name'=>'admin', 'email'=>'admin@xxx.com', 'password'=>bcrypt('admin'), 'created_at'=> DB::raw('CURRENT_TIMESTAMP'), 'updated_at'=> DB::raw('CURRENT_TIMESTAMP')],
+            ['name'=>'admin', 'email'=>'admin@xxx.com', 'password'=>bcrypt('admin'), 'remember_token' => ''],
         );
         User::insert($data);
     }
