@@ -13,6 +13,8 @@
 
 Route::get('/', 'Pages\PagesController@index');
 Route::get('product', 'Pages\PagesController@product');
+Route::get('product/category', 'Pages\PagesController@category');
+Route::get('product/series', 'Pages\PagesController@series');
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
     Route::get('login', 'LoginController@login');

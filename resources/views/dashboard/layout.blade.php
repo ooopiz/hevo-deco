@@ -13,6 +13,15 @@
     <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Din, Noto Sans TC, sans-serif;
+        }
+        ul, li, p, a {
+            font-family: Din, Noto Sans TC, sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,9 +71,9 @@
                     <li>
                         <a href="{{ URL_DASHBOARD_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>產品管理</a>
                     </li>
-                    <li>
-                        <a href="{{ URL_DASHBOARD_AUTHORITY_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>權限管理</a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a href="{{ URL_DASHBOARD_AUTHORITY_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>權限管理</a>--}}
+                    {{--</li>--}}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

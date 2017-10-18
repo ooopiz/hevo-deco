@@ -3,12 +3,6 @@
 @section('title', '產品 ｜日何百鐵')
 
 @section('inner-css')
-    <style>
-        .item-header {
-            border-bottom: 1px solid #ddd;
-            margin: 0 0 15px 0;
-        }
-    </style>
 @endsection
 
 @section('content')

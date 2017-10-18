@@ -25,6 +25,7 @@ ul, li, p, a {
     font-weight: lighter;
 }
 #nav-main ul li {
+    padding: 0 50px 0 0;
     display: block;
 }
 
@@ -36,9 +37,13 @@ ul, li, p, a {
     padding: 36px;
 }
 
-.logo {
-    width : 100%;
+#header {
+    text-align: center;
 }
+#header .logo {
+    width : 150px;
+}
+
 .main-body {
     min-height: 500px;
 }
@@ -52,4 +57,9 @@ ul, li, p, a {
 }
 #home-product-list img {
     width: 100%;
+}
+
+.item-header {
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 15px 0;
 }

@@ -25,11 +25,7 @@
     <div class="page-wrapper">
         <header class="container">
             <div id="header">
-                <div class="row">
-                    <div class="col-md-2 col-md-offset-5">
-                        <img class="logo" src="imgs/logo.png">
-                    </div>
-                </div>
+                <img class="logo" src="/imgs/logo.png">
             </div>
         </header>
         <nav class="container">

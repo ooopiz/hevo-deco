@@ -47,4 +47,14 @@ class PagesController extends Controller
 
         return view('pages.product', compact('categories', 'series'));
     }
+
+    public function category()
+    {
+        return view('pages.category');
+    }
+
+    public function series()
+    {
+        return view('pages.series');
+    }
 }
