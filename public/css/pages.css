@@ -9,9 +9,12 @@ nav {
 h1, h2, h3, h4, h5, h6 {
     font-family: Din, Noto Sans TC, sans-serif;
     font-weight: bold;
+    letter-spacing: 0.1rem;
 }
 ul, li, p, a {
     font-family: Din, Noto Sans TC, sans-serif;
+    letter-spacing: 0.1rem;
+    font-weight: lighter;
 }
 /*---------------------Global End---------------------------------------------*/
 
@@ -31,10 +34,17 @@ ul, li, p, a {
 
 #footer {
     border-top: 1px solid #ddd;
-    padding: 0px 24px 0px 24px;
+    padding: 0 36px 0 36px;
 }
 #footer .footer-item {
-    padding: 36px;
+    padding: 10px 0 0 0;
+}
+#footer .footer-item ul{
+    padding: 0 0 0 16px;
+}
+#footer .footer-item ul li {
+    margin: 0 0 5px 0;
+    display: block;
 }
 
 #header {
@@ -50,12 +60,12 @@ ul, li, p, a {
 /*----------------------------------------------------------------------------*/
 
 #home-product-list {
-    margin: 70px;
+    margin: 30px;
 }
 #home-product-list .product-item {
     padding: 18px;
 }
-#home-product-list img {
+#home-product-list .product-item img {
     width: 100%;
 }
 

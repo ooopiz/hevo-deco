@@ -29,8 +29,8 @@
             </div>
         </header>
         <nav class="container">
-            <div id="nav-main" class="">
-                <ul class="">
+            <div id="nav-main">
+                <ul>
                     <li><a href="{{ URL_HOME }}">Home | 最新消息</a></li>
                     <li><a href="{{ URL_PRODUCT }}">Product | 產品</a></li>
                     {{--<li><a href="#">Shop | 商店</a></li>--}}
@@ -47,29 +47,40 @@
             <div id="footer" class="row">
                 <div class="col-md-3 footer-item">
                     <h4>Contact | 聯絡方式</h4>
-                    <p>hevodeco@gmail.com</p>
-                    <p>+886 912345678</p>
-                    <p>GMT +8 10:00~18:00</p>
+                    <ul>
+                        <li>hevodeco@gmail.com</li>
+                        <li>+886 912345678</li>
+                        <li>GMT +8 10:00~18:00</li>
+                    </ul>
                 </div>
                 <div class="col-md-3 footer-item">
                     <h4>Social | 社群</h4>
-                    <p><a href="https://www.facebook.com/hevodeco">Facebook</a></p>
-                    <p><a>Pinterest</a></p>
-                    <p><a href="https://www.instagram.com/hevo_deco/">Instagram</a></p>
+                    <ul>
+                        <li><a href="https://www.facebook.com/hevodeco">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="https://www.instagram.com/hevo_deco/">Instagram</a></li>
+                    </ul>
+
                 </div>
                 <div class="col-md-3 footer-item">
                     <h4>Downloads | 型錄</h4>
-                    <p><a>Brochure AW17</a></p>
-                    <p><a>Media Kit</a></p>
-                    <p><a>Customization Guide</a></p>
+                    <ul>
+                        <li><a href="#">Brochure AW17</a></li>
+                        <li><a href="#">Media Kit</a></li>
+                        <li><a href="#">Customization Guide</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3 footer-item">
                     <h4>Subscribe | 訂閱</h4>
-                    <p>隨時掌握新品訊息</p>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="請輸入你的e-mail">
-                        <input type="submit" value="確認">
-                    </div>
+                    <ul>
+                        <li>隨時掌握新品訊息</li>
+                        <li>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="請輸入你的e-mail">
+                                <input type="submit" value="確認">
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </footer>
