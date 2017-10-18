@@ -2,7 +2,6 @@
 
 use App\Eloquent\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class UsersSeeder extends Seeder
 {

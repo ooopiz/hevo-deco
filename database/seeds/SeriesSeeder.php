@@ -2,7 +2,6 @@
 
 use App\Eloquent\Series;
 use Illuminate\Database\Seeder;
-use \Illuminate\Support\Facades\DB;
 
 class SeriesSeeder extends Seeder
 {
