@@ -1,0 +1,55 @@
+/*---------------------Global-------------------------------------------------*/
+
+header, footer {
+    margin: 5em;
+}
+nav {
+    margin: 2em;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Din, Noto Sans TC, sans-serif;
+    font-weight: bold;
+}
+ul, li, p, a {
+    font-family: Din, Noto Sans TC, sans-serif;
+}
+/*---------------------Global End---------------------------------------------*/
+
+#nav-main {
+    border-bottom: 1px solid #ddd;
+    padding: 24px;
+}
+#nav-main ul {
+    display: flex;
+    justify-content: space-around;
+    font-weight: lighter;
+}
+#nav-main ul li {
+    display: block;
+}
+
+#footer {
+    border-top: 1px solid #ddd;
+    padding: 0px 24px 0px 24px;
+}
+#footer .footer-item {
+    padding: 36px;
+}
+
+.logo {
+    width : 100%;
+}
+.main-body {
+    min-height: 500px;
+}
+/*----------------------------------------------------------------------------*/
+
+#home-product-list {
+    margin: 70px;
+}
+#home-product-list .product-item {
+    padding: 18px;
+}
+#home-product-list img {
+    width: 100%;
+}
