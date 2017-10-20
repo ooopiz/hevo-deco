@@ -28,7 +28,8 @@
                 <img class="logo" src="/imgs/logo.png">
             </div>
         </header>
-        <nav class="container">
+
+        <nav class="container m-shift">
             <div id="nav-main">
                 <ul>
                     <li><a href="{{ URL_HOME }}">Home | 最新消息</a></li>

@@ -60,16 +60,16 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="{{ URL_DASHBOARD }}"><i class="fa fa-fw fa-dashboard"></i>網站設定</a>
+                        <a href="{{ URL_DASHBOARD }}"><i class="fa fa-fw fa-anchor"></i>網站設定</a>
                     </li>
                     <li>
-                        <a href="{{ URL_DASHBOARD_CATEGORY }}"><i class="fa fa-fw fa-dashboard"></i>類別管理</a>
+                        <a href="{{ URL_DASHBOARD_CATEGORY }}"><i class="fa fa-fw fa-bookmark"></i>類別管理</a>
                     </li>
                     <li>
-                        <a href="{{ URL_DASHBOARD_SERIES }}"><i class="fa fa-fw fa-dashboard"></i>系列管理</a>
+                        <a href="{{ URL_DASHBOARD_SERIES }}"><i class="fa fa-fw fa-tag"></i>系列管理</a>
                     </li>
                     <li>
-                        <a href="{{ URL_DASHBOARD_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>產品管理</a>
+                        <a href="{{ URL_DASHBOARD_PRODUCT }}"><i class="fa fa-fw fa-pencil"></i>產品管理</a>
                     </li>
                     {{--<li>--}}
                         {{--<a href="{{ URL_DASHBOARD_AUTHORITY_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>權限管理</a>--}}
