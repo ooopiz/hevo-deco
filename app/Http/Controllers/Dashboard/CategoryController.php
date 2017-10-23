@@ -66,6 +66,8 @@ class CategoryController extends Controller
         $categoryDisplay = $request->get('category_display');
         $categoryActive = $request->get('category_active');
 
+        $categoryDesc = is_null($categoryDesc) ? '' : $categoryDesc;
+
         $arrId = array('id' => $categoryID);
         $arrData = array(
             'name' => $categoryName,

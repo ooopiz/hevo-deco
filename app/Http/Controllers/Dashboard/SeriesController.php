@@ -62,6 +62,8 @@ class SeriesController extends Controller
         $seriesDisplay = $request->get('series_display');
         $seriesActive = $request->get('series_active');
 
+        $seriesDesc = is_null($seriesDesc) ? '' : $seriesDesc;
+
         $arrId = array('id' => $seriesID);
         $arrData = array(
             'name' => $seriesName,

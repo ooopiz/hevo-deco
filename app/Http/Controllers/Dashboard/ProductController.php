@@ -113,6 +113,8 @@ class ProductController extends Controller
         $categoryIds = $request->get('category_ids');
         $seriesIds = $request->get('series_ids');
 
+        $productDesc = is_null($productDesc) ? '' : $productDesc;
+
         $arrId = array('id' => $productID);
         $arrData = array(
             'name' => $productName,
