@@ -37,7 +37,7 @@
                             @foreach($categories as $key => $val)
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-xs btn-link" onclick="location.href='{{ URL_DASHBOARD_CATEGORY_EDIT . $val->id }}';">
+                                        <button type="button" class="btn btn-xs btn-link" onclick="location.href='{{ URL_DASHBOARD_CATEGORY_EDIT . '/' . $val->id }}';">
                                             {{ $siteVar['sn_prefix'] . str_pad($val->id, 3, '0', STR_PAD_LEFT) }}
                                         </button>
                                     </td>

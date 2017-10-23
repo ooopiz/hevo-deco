@@ -12,13 +12,13 @@
         <div class="col-sm-3">
             <div class="list-group">
                 @foreach($categories as $key => $val)
-                    <a href="#" class="list-group-item">{{ $val->name  }}</a>
+                    <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
                 @endforeach
             </div>
 
             <div class="list-group">
                 @foreach($series as $key => $val)
-                    <a href="#" class="list-group-item">{{ $val->name  }}</a>
+                    <a href="{{ URL_SERIES . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
                 @endforeach
             </div>
         </div>
