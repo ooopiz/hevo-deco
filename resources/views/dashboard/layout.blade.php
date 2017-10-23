@@ -69,6 +69,9 @@
                         <a href="{{ URL_DASHBOARD_SERIES }}"><i class="fa fa-fw fa-tag"></i>系列管理</a>
                     </li>
                     <li>
+                        <a href="{{ URL_DASHBOARD_MATERIAL }}"><i class="fa fa-fw fa-eyedropper"></i>材質管理</a>
+                    </li>
+                    <li>
                         <a href="{{ URL_DASHBOARD_PRODUCT }}"><i class="fa fa-fw fa-pencil"></i>產品管理</a>
                     </li>
                     {{--<li>--}}

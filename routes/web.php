@@ -40,6 +40,11 @@ Route::group([
         Route::get('series/edit/{id?}', 'SeriesController@edit')->where(['id' => '[0-9]+']);;
         Route::post('series/do_edit', 'SeriesController@doEdit');
 
+        /* Material */
+        Route::get('material', 'MaterialController@index');
+        Route::get('material/edit/{id?}', 'MaterialController@edit')->where(['id' => '[0-9]+']);;
+        Route::post('material/do_edit', 'MaterialController@doEdit');
+
         /* Product */
         Route::get('product', 'ProductController@index');
         Route::get('product/edit/{id?}', 'ProductController@edit')->where(['id' => '[0-9]+']);

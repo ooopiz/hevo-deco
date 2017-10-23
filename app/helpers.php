@@ -22,6 +22,10 @@ const URL_DASHBOARD_PRODUCT = '/dashboard/product';
 const URL_DASHBOARD_PRODUCT_EDIT = '/dashboard/product/edit';
 const URL_DASHBOARD_PRODUCT_DO_EDIT = '/dashboard/product/do_edit';
 
+const URL_DASHBOARD_MATERIAL = '/dashboard/material';
+const URL_DASHBOARD_MATERIAL_EDIT = '/dashboard/material/edit';
+const URL_DASHBOARD_MATERIAL_DO_EDIT = '/dashboard/material/do_edit';
+
 const URL_DASHBOARD_AUTHORITY_PRODUCT = '/dashboard/authority/user';
 const URL_DASHBOARD_AUTHORITY_PRODUCT_EDIT = '/dashboard/authority/user/edit';
 const URL_DASHBOARD_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard/authority/user/do_edit';

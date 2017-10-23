@@ -20,19 +20,20 @@
             <button type="button" class="btn btn-primary" onclick="location.href='{{ URL_DASHBOARD_PRODUCT_EDIT }}';">新增</button>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <h2></h2>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
                                 <th>SN.</th>
-                                <th>產品名稱</th>
+                                <th>產品</th>
+                                <th>尺寸</th>
                                 <th>類別</th>
                                 <th>系列</th>
                                 <th>顯示</th>
                                 <th>有效</th>
-                                <th>備註</th>
+                                <th>內文</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,6 +45,7 @@
                                         </button>
                                     </td>
                                     <td>{{ $val->name }}</td>
+                                    <td>{{ $val->length . 'x' . $val->width . 'x' . $val->height }}</td>
                                     <td>
                                         @foreach($val->categoryLists as $ser_key => $ser_val)
                                             {{ $ser_val->category->name }}
@@ -56,7 +58,7 @@
                                     </td>
                                     <td>{{ $val->display }}</td>
                                     <td>{{ $val->active }}</td>
-                                    <td>{{ $val->desc }}</td>
+                                    <td>{{ $val->content }}</td>
                                 </tr>
                             @endforeach
                             </tbody>

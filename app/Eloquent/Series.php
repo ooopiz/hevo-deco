@@ -12,7 +12,7 @@ class Series extends Model
      * @var array
      */
     protected $fillable = [
-        'sn', 'name', 'desc', 'display', 'active'
+        'name', 'desc', 'display', 'active'
     ];
 
     /**

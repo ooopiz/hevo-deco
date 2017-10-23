@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>類別名稱</label>
+                            <label>類別名稱 (100)</label>
                             <input name="category_name" class="form-control" value="{{ $category->name }}">
                         </div>
 
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>描述(500)</label>
+                            <label>描述 (250)</label>
                             <textarea name="category_desc" class="form-control" rows="3">{{ $category->desc }}</textarea>
                         </div>
 

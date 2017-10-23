@@ -107,18 +107,26 @@ class ProductController extends Controller
     {
         $productID = $request->get('product_id');
         $productName = $request->get('product_name');
-        $productDesc = $request->get('product_desc');
+        $productSubtitle = $request->get('product_subtitle');
+        $productContent = $request->get('product_content');
+        $productLength = $request->get('product_length');
+        $productWidth = $request->get('product_width');
+        $productHeight = $request->get('product_height');
         $productDisplay = $request->get('product_display');
         $productActive = $request->get('product_active');
         $categoryIds = $request->get('category_ids');
         $seriesIds = $request->get('series_ids');
 
-        $productDesc = is_null($productDesc) ? '' : $productDesc;
+        $productContent = is_null($productContent) ? '' : $productContent;
 
         $arrId = array('id' => $productID);
         $arrData = array(
             'name' => $productName,
-            'desc' => $productDesc,
+            'subtitle' => $productSubtitle,
+            'content' => $productContent,
+            'length' => $productLength,
+            'width' => $productWidth,
+            'height' => $productHeight,
             'display' => $productDisplay,
             'active' => $productActive,
             'delete' => 'N',

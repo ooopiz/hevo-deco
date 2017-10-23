@@ -31,8 +31,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label>產品名稱</label>
+                            <label>標題 / 產品名稱 (100)</label>
                             <input name="product_name" class="form-control" value="{{ $product->name }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>副標題 (100)</label>
+                            <input name="product_subtitle" class="form-control" value="{{ $product->subtitle }}">
                         </div>
 
                         {{--<div class="form-group">--}}
@@ -64,6 +69,21 @@
                         </div>
 
                         <div class="form-group">
+                            <label>長 / length</label>
+                            <input name="product_length" class="form-control" value="{{ $product->length }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>寬 / width</label>
+                            <input name="product_width" class="form-control" value="{{ $product->width }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>高 / height</label>
+                            <input name="product_height" class="form-control" value="{{ $product->height }}">
+                        </div>
+
+                        <div class="form-group">
                             <label>顯示</label>
                             <select name="product_display" class="form-control">
                                 <option value="Y" {{ $product->display === "Y" ? "selected=\"selected\"" : "" }}>是</option>
@@ -80,8 +100,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>描述(500)</label>
-                            <textarea name="product_desc" class="form-control" rows="3">{{ $product->desc }}</textarea>
+                            <label>描述 (500)</label>
+                            <textarea name="product_content" class="form-control" rows="3">{{ $product->content }}</textarea>
                         </div>
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
