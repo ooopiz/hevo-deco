@@ -87,9 +87,11 @@
         </footer>
     </div>
 
+    {{--<script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
+
 @yield('inner-js')
 
-    <script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>
-    <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
