@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>登入</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -16,29 +16,75 @@
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+    <style>
+        body {
+            font-family: Raleway,sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #636b6f;
+        }
+        .panel-default {
+            border-color: #d3e0e9;
+        }
+        .panel-default .panel-heading {
+            color: #333;
+            background-color: #fff;
+            border-color: #d3e0e9;
+        }
+        .panel-body {
+            padding: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            text-align: right;
+            margin-bottom: 0;
+            padding-top: 7px;
+        }
+        .btn-login {
+            color: #fff;
+            background-color: #3097D1;
+            border-color: #2a88bd;
+        }
+        .btn-login:hover {
+            color: #fff;
+            background-color: #2579a9;
+            border-color: #1f648b;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">登入</h3>
+                        <h3 class="panel-title">Login</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="{{ URL_USER_DO_LOGIN }}">
-                            <fieldset>
-                                <div class="form-group">
+                        <form role="form" method="post" action="{{ URL_USER_DO_LOGIN }}" class="form-horizontal">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div class="form-group">
+                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <div class="col-md-6">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus value="admin@xxx.com">
                                 </div>
-                                <div class="form-group">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-md-4 control-label">Password</label>
+                                <div class="col-md-6">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="admin">
                                 </div>
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <input class="btn btn-lg btn-success btn-block" type="submit">
-                            </fieldset>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <input class="btn btn-block btn-login" type="submit" value="Login">
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
