@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h2>Title__</h2>
+                    <h2></h2>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
