@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
@@ -14,12 +15,17 @@
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
+@yield('inner-css')
+
     <style>
         h1, h2, h3, h4, h5, h6 {
             font-family: Din, Noto Sans TC, sans-serif;
         }
         ul, li, p, a {
             font-family: Din, Noto Sans TC, sans-serif;
+        }
+        #page-wrapper {
+            margin-bottom: 150px;
         }
     </style>
 </head>
@@ -87,8 +93,12 @@
     </div>
     <!-- /#wrapper -->
 
-    <script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>
+    {{--<script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
+
+@yield('inner-js')
+
 </body>
 
 </html>
