@@ -10,15 +10,17 @@
 @section('content')
     <div class="container">
         <div id="home-slide" class="owl-carousel owl-theme">
-            <div class="item">
-                <img src="/imgs/_MG_0733-.jpg" alt="桌上的工廠系列">
-            </div>
-            <div class="item">
-                <img src="/imgs/f2_2016-10-07.jpg" alt="桌上的工廠系列">
-            </div>
-            <div class="item">
-                <img src="/imgs/banner-dark.jpg" alt="桌上的工廠系列">
-            </div>
+            @foreach($banner as $key => $val)
+                <div class="item">
+                    <img src="{{ '/storage/' . $val->value }}">
+                </div>
+            @endforeach
+
+            @if(isset($banner))
+                <div class="item">
+                    <img src="http://placehold.it/1140x640">
+                </div>
+            @endif
         </div>
 
         <div id="home-product-list">

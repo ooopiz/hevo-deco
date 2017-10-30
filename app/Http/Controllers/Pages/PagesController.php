@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Repositories\CategoriesRepository;
+use App\Repositories\OptionsRepository;
 use App\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,13 +16,20 @@ class PagesController extends Controller
     /** @var SeriesRepository */
     private $seriesRepository;
 
+    /** @var OptionsRepository */
+    private $optionsRepository;
+
     public function __construct()
     {
     }
 
-    public function index()
+    public function index(OptionsRepository $optionsRepository)
     {
-        return view('pages.index');
+        //get banner
+        $banner = $optionsRepository->findAllBy(['key' => 'banner']);
+        $banner = $banner->sortBy('sub_key');
+
+        return view('pages.index', compact('banner'));
     }
 
     public function product(CategoriesRepository $categoriesRepository, SeriesRepository $seriesRepository)
