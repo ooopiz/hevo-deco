@@ -203,7 +203,7 @@ class ProductController extends Controller
     }
 
     public function uploadImg(Request $request)
-    {
+    {dd($request->all());
         if (!$request->hasFile('file')) {
             return response()->json(['status' => false]);
         }
@@ -229,8 +229,6 @@ class ProductController extends Controller
 
         $uploaded = Storage::disk('public')->put($fileSaveName, $fileContents);
         if ($uploaded) {
-            $imageUrl = '/storage/' . $fileSaveName;
-
             $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
             if (is_null($materialImage)) {
                 $order = 1;
@@ -238,6 +236,7 @@ class ProductController extends Controller
                 $order = $materialImage->max('order') + 1;
             }
 
+            $imageUrl = '/storage/' . $fileSaveName;
             $arrData = array([
                 'material_list_id' => $materialList->id,
                 'product_id' => $productId,

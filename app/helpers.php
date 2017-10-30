@@ -10,6 +10,10 @@ const URL_USER_DO_LOGIN = '/user/do_login';
 const URL_USER_LOGOUT = '/user/logout';
 
 const URL_DASHBOARD = '/dashboard';
+
+const URL_DASHBOARD_HOTNEWS = '/dashboard/hotnews';
+const URL_DASHBOARD_HOTNEWS_DO_EDIT = '/dashboard/hotnews/do_edit';
+
 const URL_DASHBOARD_CATEGORY = '/dashboard/category';
 const URL_DASHBOARD_CATEGORY_EDIT = '/dashboard/category/edit';
 const URL_DASHBOARD_CATEGORY_DO_EDIT = '/dashboard/category/do_edit';
@@ -33,3 +37,5 @@ const URL_DASHBOARD_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard/authority/user/do_ed
 
 const API_PRODUCT_IMAGES_GET = '/api/product/images/get';
 const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload';
+
+const API_HOTNEWS_DO_DELETE = '/api/hotnews/do_delete';

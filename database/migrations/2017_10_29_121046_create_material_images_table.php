@@ -19,7 +19,7 @@ class CreateMaterialImagesTable extends Migration
             $table->integer('product_id');
             $table->integer('material_id');
             $table->smallInteger('order');
-            $table->string('image_url', 150);
+            $table->string('image_url', 200);
 
             $table->index('material_list_id');
             $table->unique(['product_id', 'material_id', 'order']);

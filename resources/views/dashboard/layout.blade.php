@@ -15,19 +15,10 @@
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
+    <link href="{{ asset('/css/dashboard.css') }}" rel="stylesheet" type="text/css">
+
 @yield('inner-css')
 
-    <style>
-        h1, h2, h3, h4, h5, h6 {
-            font-family: Din, Noto Sans TC, sans-serif;
-        }
-        ul, li, p, a {
-            font-family: Din, Noto Sans TC, sans-serif;
-        }
-        #page-wrapper {
-            margin-bottom: 150px;
-        }
-    </style>
 </head>
 
 <body>
@@ -67,6 +58,9 @@
                 <ul class="nav navbar-nav side-nav">
                     <li>
                         <a href="{{ URL_DASHBOARD }}"><i class="fa fa-fw fa-anchor"></i>網站設定</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL_DASHBOARD_HOTNEWS }}"><i class="fa fa-fw fa-anchor"></i>最新消息</a>
                     </li>
                     <li>
                         <a href="{{ URL_DASHBOARD_CATEGORY }}"><i class="fa fa-fw fa-bookmark"></i>類別管理</a>

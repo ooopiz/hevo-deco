@@ -30,6 +30,10 @@ Route::group([
     function() {
         Route::get('/', 'IndexController@index');
 
+        /* HotNews */
+        Route::get('hotnews', 'HotNewsController@index');
+        Route::post('hotnews/do_edit', 'HotNewsController@doEdit');
+
         /* Categroies */
         Route::get('category', 'CategoryController@index');
         Route::get('category/edit/{id?}', 'CategoryController@edit')->where(['id' => '[0-9]+']);;
