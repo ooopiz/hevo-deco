@@ -35,7 +35,7 @@ class HotNewsController extends Controller
 
     public function index()
     {
-        $condition = array(['id', '>', 0], ['delete', '<>', 'Y']);
+        $condition = array(['id', '>', 0]);
         $hotNews = $this->hotNewsRepsoitory->findAllBy($condition);
 
         $loginUser = $this->loginUser;
@@ -66,8 +66,7 @@ class HotNewsController extends Controller
             $arrId = array('id' => $newsId);
             $arrData = array(
                 'desc' => $newsDesc,
-                'image_url' => $imageUrl,
-                'delete' => 'N'
+                'image_url' => $imageUrl
             );
             $this->hotNewsRepsoitory->updateOrCreate($arrId, $arrData);
         }

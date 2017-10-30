@@ -1,5 +1,7 @@
 <?php
 
+const IMAGE_URL = '/storage/';
+
 const URL_HOME = '/';
 const URL_PRODUCT = '/product';
 const URL_CATEGORY = '/category';

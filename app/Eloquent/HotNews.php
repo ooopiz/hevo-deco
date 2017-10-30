@@ -14,13 +14,4 @@ class HotNews extends Model
     protected $fillable = [
         'desc', 'image_url'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'delete' => 'N',
-    ];
 }
