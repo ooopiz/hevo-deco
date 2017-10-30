@@ -60,6 +60,9 @@
                         <a href="{{ URL_DASHBOARD }}"><i class="fa fa-fw fa-anchor"></i>網站設定</a>
                     </li>
                     <li>
+                        <a href="{{ URL_DASHBOARD_BANNER }}"><i class="fa fa-fw fa-anchor"></i>Banner</a>
+                    </li>
+                    <li>
                         <a href="{{ URL_DASHBOARD_HOTNEWS }}"><i class="fa fa-fw fa-anchor"></i>最新消息</a>
                     </li>
                     <li>

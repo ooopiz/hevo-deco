@@ -30,6 +30,10 @@ Route::group([
     function() {
         Route::get('/', 'IndexController@index');
 
+        /* Bannner */
+        Route::get('banner', 'BannerController@index');
+        Route::post('banner/do_edit', 'BannerController@doEdit');
+
         /* HotNews */
         Route::get('hotnews', 'HotNewsController@index');
         Route::post('hotnews/do_edit', 'HotNewsController@doEdit');

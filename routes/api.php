@@ -20,4 +20,5 @@ use Illuminate\Http\Request;
 Route::get('product/images/get', 'DashBoard\ProductController@getImg');
 Route::post('product/images/upload', 'DashBoard\ProductController@uploadImg');
 
+Route::post('banner/do_delete', 'DashBoard\BannerController@doDelete');
 Route::post('hotnews/do_delete', 'DashBoard\HotNewsController@doDelete');
