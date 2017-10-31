@@ -14,7 +14,7 @@ class SeriesSeeder extends Seeder
     {
         Series::truncate();
         $data = array(
-            ['name' => 'F+ctory | 桌上的工廠', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
+            ['name' => 'F+ctory | 桌上的工廠', 'desc' => '', 'display' => 'Y'],
         );
         Series::insert($data);
     }

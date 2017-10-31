@@ -32,7 +32,7 @@ class SeriesController extends Controller
 
     public function index()
     {
-        $condition = array(['id', '>', 0], ['delete', '<>', 'Y']);
+        $condition = array(['id', '>', 0]);
         $series = $this->seriesRepository->findAllBy($condition);
         $series = $series->sortByDesc('id');
 
@@ -41,26 +41,12 @@ class SeriesController extends Controller
         return view('dashboard.series', compact('siteVar', 'loginUser', 'series'));
     }
 
-    public function edit($id = null)
-    {
-        $loginUser = $this->loginUser;
-        $siteVar = $this->siteVar;
-
-        if (is_null($id)) {
-            $series = $this->seriesRepository->getModel();
-        } else {
-            $series = $this->seriesRepository->findOneById($id);
-        }
-        return view('dashboard.series_edit', compact('siteVar', 'loginUser', 'series'));
-    }
-
     public function doEdit(Request $request)
     {
         $seriesID = $request->get('series_id');
         $seriesName = $request->get('series_name');
         $seriesDesc = $request->get('series_desc');
         $seriesDisplay = $request->get('series_display');
-        $seriesActive = $request->get('series_active');
 
         $seriesDesc = is_null($seriesDesc) ? '' : $seriesDesc;
 
@@ -68,13 +54,23 @@ class SeriesController extends Controller
         $arrData = array(
             'name' => $seriesName,
             'desc' => $seriesDesc,
-            'display' => $seriesDisplay,
-            'active' => $seriesActive,
-            'delete' => 'N'
+            'display' => $seriesDisplay
         );
 
         $series = $this->seriesRepository->updateOrCreate($arrId, $arrData);
 
         return redirect(URL_DASHBOARD_SERIES);
+    }
+
+    public function doDelete(Request $request)
+    {
+        $seriesId = $request->get('series_id');
+        $bool = $this->seriesRepository->delete(['id' => $seriesId]);
+
+        if ($bool) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
     }
 }

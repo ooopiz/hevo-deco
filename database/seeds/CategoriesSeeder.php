@@ -14,12 +14,12 @@ class CategoriesSeeder extends Seeder
     {
         Category::truncate();
         $data = array(
-            ['name' => 'Furniture | 家具', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
-            ['name' => 'Lighting | 燈具', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
-            ['name' => 'On the desk | 辦公用具', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
-            ['name' => 'Home Acessory | 家飾配件', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
-            ['name' => 'Odds and goods | 小物', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
-            ['name' => 'Art Pieces | 定製品', 'desc' => '', 'display' => 'Y', 'active' => 'Y', 'delete' => 'N'],
+            ['name' => 'Furniture | 家具', 'desc' => '', 'display' => 'Y'],
+            ['name' => 'Lighting | 燈具', 'desc' => '', 'display' => 'Y'],
+            ['name' => 'On the desk | 辦公用具', 'desc' => '', 'display' => 'Y'],
+            ['name' => 'Home Acessory | 家飾配件', 'desc' => '', 'display' => 'Y'],
+            ['name' => 'Odds and goods | 小物', 'desc' => '', 'display' => 'Y'],
+            ['name' => 'Art Pieces | 定製品', 'desc' => '', 'display' => 'Y'],
         );
         Category::insert($data);
     }

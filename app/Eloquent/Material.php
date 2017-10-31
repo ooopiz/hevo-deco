@@ -14,13 +14,4 @@ class Material extends Model
     protected $fillable = [
         'name'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'delete' => 'N',
-    ];
 }

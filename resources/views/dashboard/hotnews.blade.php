@@ -18,7 +18,7 @@
 
             <button id="news-add" type="button" class="btn btn-primary">新增</button>
 
-            <div id="news-container" class="row">
+            <div class="row">
                 <div id="news-list" class="col-lg-6">
                     <h2></h2>
                     <div class="table-responsive">
@@ -83,7 +83,7 @@
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="text-center form-button">
-                            <button type="button" class="btn btn-primary" onclick="document.querySelector('#news-edit form').submit();">Save</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             <button type="reset" class="btn btn-primary">Reset</button>
                         </div>
                     </form>

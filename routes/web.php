@@ -40,17 +40,14 @@ Route::group([
 
         /* Categroies */
         Route::get('category', 'CategoryController@index');
-        Route::get('category/edit/{id?}', 'CategoryController@edit')->where(['id' => '[0-9]+']);;
         Route::post('category/do_edit', 'CategoryController@doEdit');
 
         /* Series */
         Route::get('series', 'SeriesController@index');
-        Route::get('series/edit/{id?}', 'SeriesController@edit')->where(['id' => '[0-9]+']);;
         Route::post('series/do_edit', 'SeriesController@doEdit');
 
         /* Material */
         Route::get('material', 'MaterialController@index');
-        Route::get('material/edit/{id?}', 'MaterialController@edit')->where(['id' => '[0-9]+']);;
         Route::post('material/do_edit', 'MaterialController@doEdit');
 
         /* Product */

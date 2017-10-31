@@ -12,15 +12,6 @@ class Series extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'desc', 'display', 'active'
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'delete' => 'N',
+        'name', 'desc', 'display'
     ];
 }

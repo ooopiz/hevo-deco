@@ -22,3 +22,6 @@ Route::post('product/images/upload', 'DashBoard\ProductController@uploadImg');
 
 Route::post('banner/do_delete', 'DashBoard\BannerController@doDelete');
 Route::post('hotnews/do_delete', 'DashBoard\HotNewsController@doDelete');
+Route::post('category/do_delete', 'DashBoard\CategoryController@doDelete');
+Route::post('series/do_delete', 'DashBoard\SeriesController@doDelete');
+Route::post('material/do_delete', 'DashBoard\MaterialController@doDelete');

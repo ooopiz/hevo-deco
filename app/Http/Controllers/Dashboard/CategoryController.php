@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $condition = array(['id', '>', 0], ['delete', '<>', 'Y']);
+        $condition = array(['id', '>', 0]);
         $categories = $this->categoriesRepository->findAllBy($condition);
         $categories = $categories->sortByDesc('id');
 
@@ -45,26 +45,12 @@ class CategoryController extends Controller
         return view('dashboard.category', compact('siteVar', 'loginUser', 'categories'));
     }
 
-    public function edit($id = null)
-    {
-        $loginUser = $this->loginUser;
-        $siteVar = $this->siteVar;
-
-        if (is_null($id)) {
-            $category = $this->categoriesRepository->getModel();
-        } else {
-            $category = $this->categoriesRepository->findOneById($id);
-        }
-        return view('dashboard.category_edit', compact('siteVar', 'loginUser', 'category'));
-    }
-
     public function doEdit(Request $request)
     {
         $categoryID = $request->get('category_id');
         $categoryName = $request->get('category_name');
         $categoryDesc = $request->get('category_desc');
         $categoryDisplay = $request->get('category_display');
-        $categoryActive = $request->get('category_active');
 
         $categoryDesc = is_null($categoryDesc) ? '' : $categoryDesc;
 
@@ -72,13 +58,23 @@ class CategoryController extends Controller
         $arrData = array(
             'name' => $categoryName,
             'desc' => $categoryDesc,
-            'display' => $categoryDisplay,
-            'active' => $categoryActive,
-            'delete' => 'N'
+            'display' => $categoryDisplay
         );
 
         $category = $this->categoriesRepository->updateOrCreate($arrId, $arrData);
 
         return redirect(URL_DASHBOARD_CATEGORY);
+    }
+
+    public function doDelete(Request $request)
+    {
+        $categoryId = $request->get('category_id');
+        $bool = $this->categoriesRepository->delete(['id' => $categoryId]);
+
+        if ($bool) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
     }
 }

@@ -36,26 +36,13 @@ class MaterialController extends Controller
 
     public function index()
     {
-        $condition = array(['id', '>', 0], ['delete', '<>', 'Y']);
+        $condition = array(['id', '>', 0]);
         $materials = $this->materialRepository->findAllBy($condition);
         $materials = $materials->sortByDesc('id');
 
         $siteVar = $this->siteVar;
         $loginUser = $this->loginUser;
         return view('dashboard.material', compact('siteVar', 'loginUser', 'materials'));
-    }
-
-    public function edit($id = null)
-    {
-        $loginUser = $this->loginUser;
-        $siteVar = $this->siteVar;
-
-        if (is_null($id)) {
-            $material = $this->materialRepository->getModel();
-        } else {
-            $material = $this->materialRepository->findOneById($id);
-        }
-        return view('dashboard.material_edit', compact('siteVar', 'loginUser', 'material'));
     }
 
     public function doEdit(Request $request)
@@ -66,11 +53,22 @@ class MaterialController extends Controller
         $arrId = array('id' => $materialID);
         $arrData = array(
             'name' => $materialName,
-            'delete' => 'N'
         );
 
         $material = $this->materialRepository->updateOrCreate($arrId, $arrData);
 
         return redirect(URL_DASHBOARD_MATERIAL);
+    }
+
+    public function doDelete(Request $request)
+    {
+        $materialId = $request->get('material_id');
+        $bool = $this->materialRepository->delete(['id' => $materialId]);
+
+        if ($bool) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
     }
 }

@@ -20,11 +20,9 @@ const URL_DASHBOARD_HOTNEWS = '/dashboard/hotnews';
 const URL_DASHBOARD_HOTNEWS_DO_EDIT = '/dashboard/hotnews/do_edit';
 
 const URL_DASHBOARD_CATEGORY = '/dashboard/category';
-const URL_DASHBOARD_CATEGORY_EDIT = '/dashboard/category/edit';
 const URL_DASHBOARD_CATEGORY_DO_EDIT = '/dashboard/category/do_edit';
 
 const URL_DASHBOARD_SERIES = '/dashboard/series';
-const URL_DASHBOARD_SERIES_EDIT = '/dashboard/series/edit';
 const URL_DASHBOARD_SERIES_DO_EDIT = '/dashboard/series/do_edit';
 
 const URL_DASHBOARD_PRODUCT = '/dashboard/product';
@@ -45,3 +43,6 @@ const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload';
 
 const API_BANNER_DO_DELETE = '/api/banner/do_delete';
 const API_HOTNEWS_DO_DELETE = '/api/hotnews/do_delete';
+const API_CATEGORY_DO_DELETE = '/api/category/do_delete';
+const API_SERIES_DO_DELETE = '/api/series/do_delete';
+const API_MATERIAL_DO_DELETE = '/api/material/do_delete';
