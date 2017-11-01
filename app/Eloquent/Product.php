@@ -15,15 +15,6 @@ class Product extends Model
         'name', 'subtitle', 'content', 'length', 'width', 'height', 'display', 'active'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'delete' => 'N',
-    ];
-
     public function categoryLists()
     {
         return $this->hasMany('App\Eloquent\CategoryList', 'product_id', 'id');

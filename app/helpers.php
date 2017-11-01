@@ -26,7 +26,6 @@ const URL_DASHBOARD_SERIES = '/dashboard/series';
 const URL_DASHBOARD_SERIES_DO_EDIT = '/dashboard/series/do_edit';
 
 const URL_DASHBOARD_PRODUCT = '/dashboard/product';
-const URL_DASHBOARD_PRODUCT_EDIT = '/dashboard/product/edit';
 const URL_DASHBOARD_PRODUCT_DO_EDIT = '/dashboard/product/do_edit';
 const URL_DASHBOARD_PRODUCT_DO_ADD_MATERIAL = '/dashboard/product/do_add_material';
 
@@ -46,3 +45,4 @@ const API_HOTNEWS_DO_DELETE = '/api/hotnews/do_delete';
 const API_CATEGORY_DO_DELETE = '/api/category/do_delete';
 const API_SERIES_DO_DELETE = '/api/series/do_delete';
 const API_MATERIAL_DO_DELETE = '/api/material/do_delete';
+const API_PRODUCT_DO_DELETE = '/api/product/do_delete';

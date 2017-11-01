@@ -133,6 +133,7 @@
                 $('#category-edit form input[name="category_name"]').attr('value', '');
                 document.querySelector('#category-edit form select[name="category_display"]').value = 'Y';
                 $('#category-edit form textarea[name="category_desc"]').text('');
+                document.querySelector("#category-edit form").reset();
             });
 
             // news del click

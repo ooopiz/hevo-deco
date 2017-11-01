@@ -87,62 +87,32 @@ class ProductController extends Controller
 
     public function index()
     {
-        $condition = array(['id', '>', 0], ['delete', '<>', 'Y']);
+        $condition = array(['id', '>', 0]);
         $products = $this->productsRepository->findAllBy($condition, ['categoryLists', 'seriesLists']);
         $products = $products->sortByDesc('id');
 
-        foreach($products as $key => $product)
-        {
+        foreach($products as $key => $product) {
             foreach($product->categoryLists as $kk => $categoryList){
                 $categoryList->load('category');
-                $categoryList->load('category');
+            }
+            foreach($product->seriesLists as $kk => $seriesList){
+                $seriesList->load('series');
             }
         }
 
+        $categories = $this->categoriesRepository->findAllBy(array(['id', '>', 0]));
+        $series = $this->seriesRepository->findAllBy(array(['id', '>', 0]));
+        $materials = $this->materialRepository->findAllBy(array(['id', '>', 0]));
+
         $siteVar = $this->siteVar;
         $loginUser = $this->loginUser;
-        return view('dashboard.product', compact('siteVar', 'loginUser', 'products'));
-    }
-
-    public function edit($id = null)
-    {
-        $loginUser = $this->loginUser;
-        $siteVar = $this->siteVar;
-
-        $arrCat = array(['id', '>', 0], ['active', '=', 'Y'], ['delete', '<>', 'Y']);
-        $categories = $this->categoriesRepository->findAllBy($arrCat);
-        $arrSer = array(['id', '>', 0], ['active', '=', 'Y'], ['delete', '<>', 'Y']);
-        $series = $this->seriesRepository->findAllBy($arrSer);
-        $arrMat = array(['id', '>', 0], ['delete', '<>', 'Y']);
-        $materials = $this->materialRepository->findAllBy($arrMat);
-        $materialList = $this->materialListsRepository->findAllBy(['product_id' => $id], 'material');
-
-        // 過濾掉已經有的材質
-        $arrFilter = array();
-        foreach($materialList as $key => $val) {
-            array_push($arrFilter, $val->material_id);
-        }
-        $materials = $materials->whereNotIn('id', $arrFilter);
-
-        if (is_null($id)) {
-            $product = $this->productsRepository->getModel();
-            $categoryList = $this->categoryListsRepository->getModel();
-            $seriesList = $this->seriesListsRepository->getModel();
-        } else {
-            $product = $this->productsRepository->findOneById($id);
-            $categoryList = $this->categoryListsRepository->findOneBy(['product_id' => $id]);
-            $seriesList = $this->seriesListsRepository->findOneBy(['product_id' => $id]);
-        }
-        return view('dashboard.product_edit', compact(
+        return view('dashboard.product', compact(
             'siteVar',
             'loginUser',
-            'product',
+            'products',
             'categories',
             'series',
-            'categoryList',
-            'seriesList',
-            'materials',
-            'materialList'
+            'materials'
         ));
     }
 
@@ -187,6 +157,21 @@ class ProductController extends Controller
         return redirect(URL_DASHBOARD_PRODUCT);
     }
 
+    public function doDelete(Request $request)
+    {
+        $productId = $request->get('product_id');
+        $bool = $this->productsRepository->delete(['id' => $productId]);
+
+        if ($bool) {
+            $this->categoryListsRepository->delete(['product_id' => $productId]);
+            $this->seriesListsRepository->delete(['product_id' => $productId]);
+
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
+
     public function addMaterial(Request $request)
     {
         $product_id = $request->get('product_id');
@@ -199,7 +184,7 @@ class ProductController extends Controller
 
         $bool = $this->materialListsRepository->insertOne($arrData);
 
-        return redirect(URL_DASHBOARD_PRODUCT_EDIT . '/' . $product_id);
+        return redirect(URL_DASHBOARD_PRODUCT);
     }
 
     public function uploadImg(Request $request)

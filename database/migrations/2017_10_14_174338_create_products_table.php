@@ -24,7 +24,6 @@ class CreateProductsTable extends Migration
             $table->float('height', 8, 2); // 高
             $table->string('display', 1);
             $table->string('active', 1);
-            $table->string('delete', 1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

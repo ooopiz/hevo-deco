@@ -110,6 +110,7 @@
                 $('#material-edit form input[name="material_sn"]').attr('value', '');
                 $('#material-edit form input[name="material_sn"]').parent().hide();
                 $('#material-edit form input[name="material_name"]').attr('value', '');
+                document.querySelector("#material-edit form").reset();
             });
 
             // news del click

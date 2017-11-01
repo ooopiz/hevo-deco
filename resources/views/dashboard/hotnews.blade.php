@@ -123,6 +123,7 @@
                 $('#news-edit form').show();
                 $('#news-edit form input[name="news_id"]').attr('value', '');
                 $('#news-edit form textarea[name="news_desc"]').text('');
+                document.querySelector("#news-edit form").reset();
             });
 
             // news del click

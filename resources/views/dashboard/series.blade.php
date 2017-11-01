@@ -124,8 +124,8 @@
             });
 
             // news add click
-            var hotNewsAdd = document.querySelector('#series-add');
-            hotNewsAdd.addEventListener('click', function (event) {
+            var seriesAdd = document.querySelector('#series-add');
+            seriesAdd.addEventListener('click', function (event) {
                 $('#series-edit form').show();
                 $('#series-edit form input[name="series_id"]').attr('value', '');
                 $('#series-edit form input[name="series_sn"]').attr('value', '');
@@ -133,6 +133,7 @@
                 $('#series-edit form input[name="series_name"]').attr('value', '');
                 document.querySelector('#series-edit form select[name="series_display"]').value = 'Y';
                 $('#series-edit form textarea[name="series_desc"]').text('');
+                document.querySelector("#series-edit form").reset();
             });
 
             // news del click

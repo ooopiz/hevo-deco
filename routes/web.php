@@ -52,7 +52,6 @@ Route::group([
 
         /* Product */
         Route::get('product', 'ProductController@index');
-        Route::get('product/edit/{id?}', 'ProductController@edit')->where(['id' => '[0-9]+']);
         Route::post('product/do_edit', 'ProductController@doEdit');
         Route::post('product/do_add_material', 'ProductController@addMaterial');
 
