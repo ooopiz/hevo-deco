@@ -148,3 +148,10 @@ Form .form-button button{
     margin: 0 3em 0 3em;
 }
 /*---------------- End Form button --------------------------------------------*/
+
+#material-images img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    cursor: move;
+}

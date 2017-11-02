@@ -263,31 +263,27 @@ class ProductController extends Controller
     }
 
     public function uploadImg(Request $request)
-    {dd($request->all());
-        if (!$request->hasFile('file')) {
-            return response()->json(['status' => false]);
+    {
+        if (!$request->hasFile('material_image')) {
+            return response()->json(['status' => false, 'message' => 'require file']);
         }
 
+        $materialListId = $request->get('material_list_id');
         $productId = $request->get('product_id');
         $materialId = $request->get('material_id');
 
-        if (is_null($productId) || is_null($materialId)) {
+        if (is_null($productId) || is_null($materialId) || is_null($materialListId)) {
             return response()->json(['status' => false, 'message' => 'params fail ...']);
         }
 
-        //判此產品材質是否存在
-        $materialList = $this->materialListsRepository->findOneBy(['product_id' => $productId, 'material_id' => $materialId]);
-        if (is_null($materialList)) {
-            return response()->json(['status' => false, 'message' => 'don\'t have this material ']);
-        }
-
-        $file = $request->file('file');
+        $file = $request->file('material_image');
         $fileOriginalName = $file->getClientOriginalName();
         $fileOriginalExtension = $file->getClientOriginalExtension();
         $fileContents = file_get_contents($file);
         $fileSaveName = uniqid($productId . "_" . $materialId . "_") . '.' .$fileOriginalExtension;
+        $imageUrl = 'material/' . $fileSaveName;
 
-        $uploaded = Storage::disk('public')->put($fileSaveName, $fileContents);
+        $uploaded = Storage::disk('public')->put($imageUrl, $fileContents);
         if ($uploaded) {
             $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
             if (is_null($materialImage)) {
@@ -296,9 +292,8 @@ class ProductController extends Controller
                 $order = $materialImage->max('order') + 1;
             }
 
-            $imageUrl = '/storage/' . $fileSaveName;
             $arrData = array([
-                'material_list_id' => $materialList->id,
+                'material_list_id' => $materialListId,
                 'product_id' => $productId,
                 'material_id' => $materialId,
                 'order' => $order,
@@ -306,6 +301,8 @@ class ProductController extends Controller
             ]);
 
             $this->materialImagesRepository->insertOne($arrData);
+        } else {
+            return response()->json(['status' => false, 'message' => 'upload fail ...']);
         }
 
         return response()->json(['status' => true]);
@@ -320,7 +317,7 @@ class ProductController extends Controller
 
         $response = array(
             'status' => true,
-            'value' => $materialImage
+            'material_images' => $materialImage
         );
         return response()->json($response);
     }

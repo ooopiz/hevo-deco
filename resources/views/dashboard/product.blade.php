@@ -91,8 +91,8 @@
                                 <table id="material-list" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>SN.</th>
+                                    <th style="display: none">ID</th>
+                                    <th>SN</th>
                                     <th>材質</th>
                                     <th></th>
                                 </tr>
@@ -191,6 +191,53 @@
 
             </div>
 
+            <div id="material-image-add" class="row" style="display: none;">
+                <div class="col-xs-6">
+                    <form id="material-edit" role="form">
+                        <div class="form-group" style="display: none;">
+                            <label>material_list_id</label>
+                            <input name="material_list_id" class="form-control">
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>product_id</label>
+                            <input name="product_id" class="form-control">
+                        </div>
+
+                        <div class="form-group" style="display: none;">
+                            <label>material_id</label>
+                            <input name="material_id" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>上傳圖片</label>
+                            <div class="file-upload">
+                                {{--<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>--}}
+
+                                <div class="image-upload-wrap">
+                                    <input name="material_image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpg" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content">
+                                    <img class="file-upload-image" src="#" alt="your image" />
+                                    <div class="image-title-wrap">
+                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center form-button">
+                            <button id="material-image-save" type="button" class="btn btn-primary">UPLOAD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="material-images" class="row" style="display: none;"></div>
+
+
         </div>
         <!-- /.container-fluid -->
 
@@ -199,6 +246,11 @@
 @endsection
 
 @section('inner-js')
+    <script src="{{ asset('/js/fileUploadInput.js') }}"></script>
+
+    <!-- jsDelivr :: Sortable :: Latest (http://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="//cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
     <script>
         var paddingLeft = function(str, lenght) {
             if(str.length >= lenght)
@@ -206,6 +258,7 @@
             else
                 return paddingLeft('0' + str, lenght);
         };
+
         var refreshMaterial = function(materials, material_list) {
             if (materials.length == 0) {
                 $('#material-add-container').hide();
@@ -228,8 +281,10 @@
                 material_list.forEach(function(element) {
                     dom = dom +
                         '<tr>' +
-                        '<td headers="id">' + element.id + '</td>' +
-                        '<td headers="sn">' + 'MAT' + paddingLeft(element.id, 3) + '</td>' +
+                        '<td headers="material_list_id" style="display: none">' + element.id + '</td>' +
+                        '<td headers="product_id" style="display: none">' + element.product_id + '</td>' +
+                        '<td headers="material_id" style="display: none">' + element.material_id + '</td>' +
+                        '<td headers="sn">' + 'MAT' + paddingLeft(element.material_id, 3) + '</td>' +
                         '<td headers="name">' + element.material.name + '</td>' +
                         '<td style="width: 80px; text-align: center">' +
                         '<button material-id="' + element.material_id + '" product-id="' + element.product_id + '" type="button" class="btn btn-xs btn-danger material-delete">刪除</button>' +
@@ -239,6 +294,7 @@
                 $('#material-list tbody').append(dom);
             }
 
+            addMaterialSelectEvent();
             addMaterialDelEvent();
         };
 
@@ -268,8 +324,99 @@
             }
         };
 
+        var addMaterialSelectEvent = function () {
+            // Highlight selected bar
+            $('#material-list tbody tr').click(function() {
+                $(this).addClass('bg-success').siblings().removeClass('bg-success');
+
+                //hind product editor
+                $('#product-edit form').hide();
+
+                //get table data
+                var materialListId = this.querySelector('[headers="material_list_id"]').textContent;
+                var productId = this.querySelector('[headers="product_id"]').textContent;
+                var materialId = this.querySelector('[headers="material_id"]').textContent;
+
+                //set form data
+                $('#material-edit input[name="material_list_id"]').attr('value', materialListId);
+                $('#material-edit input[name="product_id"]').attr('value', productId);
+                $('#material-edit input[name="material_id"]').attr('value', materialId);
+
+                // hide material image add show
+                $('#material-image-add').show();
+
+                refreshMaterialImages(productId, materialId);
+            });
+        };
+
+        var refreshMaterialImages = function(product_id, material_id) {
+            var params = {
+                "product_id" : product_id,
+                "material_id" : material_id
+            };
+            $.ajax({
+                url : '{{ API_PRODUCT_IMAGES_GET }}',
+                data: params,
+                type: 'GET'
+            }).done(function(data) {
+                // 顯示圖片區塊
+                $('#material-images').empty();
+                if (data.status === true) {
+                    var materialImages = '';
+                    data.material_images.forEach(function(element) {
+                        materialImages = materialImages +
+                            '<div class="col-xs-3">' +
+                            '<img src="{{ IMAGE_URL }}'  + element.image_url + '">' +
+                            '</div>';
+                    });
+                    $('#material-images').append(materialImages);
+                }
+                $('#material-images').show();
+            });
+        };
+
         // DOCUMENT READY
         function eventHandler() {
+
+            var foo = document.getElementById("material-images");
+            Sortable.create(foo, { group: "omega" });
+
+            $('#material-image-save').click(function() {
+                var materialListId = document.querySelector('#material-edit input[name="material_list_id"]').value;
+                var productId = document.querySelector('#material-edit input[name="product_id"]').value;
+                var materialId = document.querySelector('#material-edit input[name="material_id"]').value;
+                var fileImage = document.querySelector('#material-edit input[name="material_image"]');
+                var files = fileImage.files;
+                if (files.length != 1) {
+                    alert("尚未選擇上傳圖片");
+                    return;
+                }
+
+                var formData = new FormData();
+                formData.append('material_image', files[0]);
+                formData.append('material_list_id', materialListId);
+                formData.append('product_id', productId);
+                formData.append('material_id', materialId);
+
+                $.ajax({
+                    url : '{{ API_PRODUCT_IMAGES_UPLOAD }}',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST'
+                }).done(function(resJson) {
+                    console.log(resJson);
+                    if (resJson.status === true) {
+                        //TODO delete preview
+
+                        refreshMaterialImages(productId, materialId);
+                    } else {
+                        alert("上傳失敗");
+                        return;
+                    }
+                });
+            });
+
 
             // Highlight selected bar
             $('#product-list table tbody tr').click(function() {
@@ -312,8 +459,17 @@
                 $('#product-edit form input[name="product_width"]').attr('value', productWidth);
                 $('#product-edit form input[name="product_height"]').attr('value', productHeight);
 
+                // product editor show
+                $('#product-edit form').show();
+
+                // hide material image add area
+                $('#material-image-add').hide();
+
                 //material
                 $('#material-container').show();
+
+                //material image
+                $('#material-images').hide();
 
                 var params = {
                     "product_id" : productId,
@@ -400,6 +556,7 @@
                     }
                 });
             });
+
         }
         if (document.readyState === 'complete' || document.readyState !== 'loading') {
             eventHandler();
