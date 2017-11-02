@@ -12,6 +12,7 @@
     <title>@yield('title')</title>
 
     <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.css" />
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
@@ -93,6 +94,7 @@
     {{--<script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 
 @yield('inner-js')
 

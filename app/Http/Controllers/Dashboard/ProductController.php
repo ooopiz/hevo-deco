@@ -172,7 +172,29 @@ class ProductController extends Controller
         }
     }
 
-    public function addMaterial(Request $request)
+    public function getMaterialList(Request $request)
+    {
+        $product_id = $request->get('product_id');
+        $materials = $this->materialRepository->findAllBy(array(['id', '>', 0]));
+        $materialList = $this->materialListsRepository->findAllBy(['product_id' => $product_id], 'material');
+
+        // 過濾掉已經有的材質
+        $arrFilter = array();
+        foreach($materialList as $key => $val) {
+            array_push($arrFilter, $val->material_id);
+        }
+        $materials = $materials->whereNotIn('id', $arrFilter);
+        $materials = $materials->values();
+
+        $result = array(
+            'status' => true,
+            'material_list' => $materialList,
+            'materials' => $materials
+        );
+        return response()->json($result);
+    }
+
+    public function addMaterialList(Request $request)
     {
         $product_id = $request->get('product_id');
         $material_id = $request->get('material_id');
@@ -184,7 +206,28 @@ class ProductController extends Controller
 
         $bool = $this->materialListsRepository->insertOne($arrData);
 
-        return redirect(URL_DASHBOARD_PRODUCT);
+        if ($bool) {
+            $materials = $this->materialRepository->findAllBy(array(['id', '>', 0]));
+            $materialList = $this->materialListsRepository->findAllBy(['product_id' => $product_id], 'material');
+
+            // 過濾掉已經有的材質
+            $arrFilter = array();
+            foreach($materialList as $key => $val) {
+                array_push($arrFilter, $val->material_id);
+            }
+            $materials = $materials->whereNotIn('id', $arrFilter);
+            $materials = $materials->values();
+
+            $result = array(
+                'status' => true,
+                'material_list' => $materialList,
+                'materials' => $materials
+            );
+
+            return response()->json($result);
+        } else {
+            return response()->json(['status' => false]);
+        }
     }
 
     public function uploadImg(Request $request)

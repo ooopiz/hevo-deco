@@ -46,3 +46,6 @@ const API_CATEGORY_DO_DELETE = '/api/category/do_delete';
 const API_SERIES_DO_DELETE = '/api/series/do_delete';
 const API_MATERIAL_DO_DELETE = '/api/material/do_delete';
 const API_PRODUCT_DO_DELETE = '/api/product/do_delete';
+
+const API_GET_MATERIAL_LIST_BY_PRODUCT = '/api/get/material_list';
+const API_ADD_MATERIAL_LIST = '/api/add/material_list';

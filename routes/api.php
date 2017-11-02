@@ -26,3 +26,6 @@ Route::post('category/do_delete', 'DashBoard\CategoryController@doDelete');
 Route::post('series/do_delete', 'DashBoard\SeriesController@doDelete');
 Route::post('material/do_delete', 'DashBoard\MaterialController@doDelete');
 Route::post('product/do_delete', 'DashBoard\ProductController@doDelete');
+
+Route::post('get/material_list', 'DashBoard\ProductController@getMaterialList');
+Route::post('add/material_list', 'DashBoard\ProductController@addMaterialList');

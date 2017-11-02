@@ -67,22 +67,31 @@
                         </table>
                     </div>
                 </div>
+            </div>
 
-                <div style="display: none;">
-                    <div class="form-group col-xs-3">
-                        <select name="material_id" class="form-control">
-                            <option>123</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn btn-primary">新增材質</button>
+            <div class="row">
+                <div id="material-container" class="col-xs-6" style="display: none">
+                    @if(!$materials->isEmpty())
+                        <div id="material-add-container">
+                            <div class="form-group">
+                                <select name="material_id" class="form-control">
+                                    @foreach($materials as $key => $val)
+                                        <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button id="material-add" type="button" class="btn btn-primary">新增材質</button>
+                        </div>
+                    @endif
 
                     <!-- Material -->
-                    <div class="col-lg-12">
-                        <h2></h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                        <div class="col-lg-6">
+                            <h2></h2>
+                            <div class="table-responsive">
+                                <table id="material-list" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>SN.</th>
                                     <th>材質</th>
                                     <th></th>
@@ -90,13 +99,13 @@
                                 </thead>
                                 <tbody>
                                 </tbody>
-                            </table>
+                                </table>
+                            </div>
                         </div>
-                    </div>
                 </div>
+                <!-- end material-container -->
 
-
-                <div id="product-edit" class="col-lg-6" style="display: none;">
+                <div id="product-edit" class="col-xs-6" style="display: none;">
                     <form role="form" method="post" action="{{ URL_DASHBOARD_PRODUCT_DO_EDIT }}">
                         <div class="form-group" style="display: none;">
                             <label>ID</label>
@@ -122,7 +131,7 @@
                             <label>類別</label>
                             <select name="category_ids" class="form-control">
                                 @foreach($categories as $key => $val)
-                                <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                    <option value="{{ $val->id }}">{{ $val->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -131,7 +140,7 @@
                             <label>系列</label>
                             <select name="series_ids" class="form-control">
                                 @foreach($series as $key => $val)
-                                <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                    <option value="{{ $val->id }}">{{ $val->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -181,6 +190,7 @@
                 </div>
 
             </div>
+
         </div>
         <!-- /.container-fluid -->
 
@@ -190,6 +200,46 @@
 
 @section('inner-js')
     <script>
+        var paddingLeft = function(str, lenght) {
+            if(str.length >= lenght)
+                return str;
+            else
+                return paddingLeft('0' + str, lenght);
+        };
+        var refreshMaterial = function(materials, material_list) {
+            if (materials.length == 0) {
+                $('#material-add-container').hide();
+                $('#material-add-container select').empty();
+            } else {
+                $('#material-add-container').show();
+                var options = '';
+                materials.forEach(function(element) {
+                    options = options +
+                        '<option value="' + element.id + '">' + element.name+'</option>';
+                });
+                $('#material-add-container select').empty();
+                $('#material-add-container select').append(options);
+            }
+
+            if (material_list.length == 0) {
+                $('#material-list tbody').empty();
+            } else {
+                var dom = '';
+                material_list.forEach(function(element) {
+                    dom = dom +
+                        '<tr>' +
+                        '<td headers="id">' + element.id + '</td>' +
+                        '<td headers="sn">' + 'MAT' + paddingLeft(element.id, 3) + '</td>' +
+                        '<td headers="name">' + element.material.name + '</td>' +
+                        '<td style="width: 80px; text-align: center">' +
+                        '<button maaterial-id="' + element.id + '" type="button" class="btn btn-xs btn-danger material-delete">刪除</button>' +
+                        '</td>';
+                });
+                $('#material-list tbody').empty();
+                $('#material-list tbody').append(dom);
+            }
+        };
+
         // DOCUMENT READY
         function eventHandler() {
 
@@ -233,6 +283,23 @@
                 $('#product-edit form input[name="product_length"]').attr('value', productLength);
                 $('#product-edit form input[name="product_width"]').attr('value', productWidth);
                 $('#product-edit form input[name="product_height"]').attr('value', productHeight);
+
+                //material
+                $('#material-container').show();
+
+                var params = {
+                    "product_id" : productId,
+                    "_token" : $('meta[name="csrf-token"]').attr('content')
+                };
+                $.ajax({
+                    url : '{{ API_GET_MATERIAL_LIST_BY_PRODUCT }}',
+                    data: params,
+                    type: 'POST'
+                }).done(function(data) {
+                    if (data.status === true) {
+                        refreshMaterial(data.materials, data.material_list);
+                    }
+                });
             });
 
             // news add click
@@ -256,6 +323,9 @@
                 document.querySelector('#product-edit form select[name="product_active"]').value = 'Y';
                 $('#product-edit form textarea[name="product_content"]').text('');
                 document.querySelector("#product-edit form").reset();
+
+                // material
+                $('#material-container').hide();
             });
 
             // del click
@@ -280,6 +350,28 @@
                     }
                 });
             }
+
+            // 新增材質
+            var materialAdd = document.querySelector('#material-add');
+            materialAdd.addEventListener('click', function (event) {
+                var productId = $('#product-edit form input[name="product_id"]').val();
+                var materialId = document.querySelector('#material-add-container select').value;
+                var params = {
+                    "product_id" : productId,
+                    "material_id" : materialId,
+                    "_token" : $('meta[name="csrf-token"]').attr('content')
+                };
+
+                $.ajax({
+                    url : '{{ API_ADD_MATERIAL_LIST }}',
+                    data: params,
+                    type: 'POST'
+                }).done(function(data) {
+                    if (data.status === true) {
+                        refreshMaterial(data.materials, data.material_list);
+                    }
+                });
+            });
         }
         if (document.readyState === 'complete' || document.readyState !== 'loading') {
             eventHandler();

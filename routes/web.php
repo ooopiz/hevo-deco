@@ -53,7 +53,6 @@ Route::group([
         /* Product */
         Route::get('product', 'ProductController@index');
         Route::post('product/do_edit', 'ProductController@doEdit');
-        Route::post('product/do_add_material', 'ProductController@addMaterial');
 
         /* Authority */
         Route::get('authority/user', 'AuthorityController@index');
