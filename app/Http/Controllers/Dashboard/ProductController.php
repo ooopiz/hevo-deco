@@ -230,6 +230,38 @@ class ProductController extends Controller
         }
     }
 
+    public function doDeleteMaterial(Request $request) {
+        $product_id = $request->get('product_id');
+        $material_id = $request->get('material_id');
+        $arr = array(
+            'product_id' => $product_id,
+            'material_id' => $material_id
+        );
+        $bool = $this->materialListsRepository->delete($arr);
+        if ($bool) {
+            $materials = $this->materialRepository->findAllBy(array(['id', '>', 0]));
+            $materialList = $this->materialListsRepository->findAllBy(['product_id' => $product_id], 'material');
+
+            // 過濾掉已經有的材質
+            $arrFilter = array();
+            foreach($materialList as $key => $val) {
+                array_push($arrFilter, $val->material_id);
+            }
+            $materials = $materials->whereNotIn('id', $arrFilter);
+            $materials = $materials->values();
+
+            $result = array(
+                'status' => true,
+                'material_list' => $materialList,
+                'materials' => $materials
+            );
+
+            return response()->json($result);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
+
     public function uploadImg(Request $request)
     {dd($request->all());
         if (!$request->hasFile('file')) {

@@ -29,3 +29,4 @@ Route::post('product/do_delete', 'DashBoard\ProductController@doDelete');
 
 Route::post('get/material_list', 'DashBoard\ProductController@getMaterialList');
 Route::post('add/material_list', 'DashBoard\ProductController@addMaterialList');
+Route::post('material/do_delete_by_product', 'DashBoard\ProductController@doDeleteMaterial');

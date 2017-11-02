@@ -49,3 +49,4 @@ const API_PRODUCT_DO_DELETE = '/api/product/do_delete';
 
 const API_GET_MATERIAL_LIST_BY_PRODUCT = '/api/get/material_list';
 const API_ADD_MATERIAL_LIST = '/api/add/material_list';
+const API_MATERIAL_DO_DELETE_BY_PRODUCT = '/api/material/do_delete_by_product';
