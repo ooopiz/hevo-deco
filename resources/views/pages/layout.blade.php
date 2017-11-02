@@ -11,7 +11,7 @@
     <meta property="og:image" content="">
     <meta property="og:description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.我們選擇賦予熟悉的鐵材嶄新功能,結合多種樣貌.天天能使用且人人可擁有,在日常中發掘鐵之優美.">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
 
     <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
@@ -25,7 +25,7 @@
     <div class="page-wrapper">
         <header class="container">
             <div id="header">
-                <img class="logo" src="/imgs/logo.png">
+                <img class="logo" src="/images/logo.png">
             </div>
         </header>
 
@@ -77,8 +77,8 @@
                         <li>隨時掌握新品訊息</li>
                         <li>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="請輸入你的e-mail">
-                                <input type="submit" value="確認">
+                                {{--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="請輸入你的e-mail">--}}
+                                {{--<input type="submit" value="確認">--}}
                             </div>
                         </li>
                     </ul>

@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', 'Pages\PagesController@index');
-Route::get('product', 'Pages\PagesController@product');
-Route::get('category', 'Pages\PagesController@category');
-Route::get('series', 'Pages\PagesController@series');
+Route::group(['prefix' => '/', 'namespace' => 'Pages'], function() {
+    Route::get('/', 'IndexController@index');
+    Route::get('product', 'PagesController@product');
+    Route::get('category', 'PagesController@category');
+    Route::get('series', 'PagesController@series');
+
+});
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
     Route::get('login', 'LoginController@login');
