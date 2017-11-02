@@ -308,11 +308,39 @@ class ProductController extends Controller
         return response()->json(['status' => true]);
     }
 
+    public function deleteImg(Request $request)
+    {
+        $productId = $request->get('product_id');
+        $materialId = $request->get('material_id');
+        $order = $request->get('order');
+
+        $condition = array(
+            'product_id' => $productId,
+            'material_id' => $materialId
+        );
+        $materialImages = $this->materialImagesRepository->findAllBy($condition);
+        $materialImages = $materialImages->sortBy('order');
+        $i = 1;
+        foreach($materialImages as $key => $val) {
+
+            if ($val->order == $order) {
+                $val->delete();
+                continue;
+            }
+            if ($i != $val->order) {
+                $val->order = $i;
+                $val->save();
+            }
+            $i++;
+        }
+
+        return response()->json(['status' => true]);
+    }
+
     public function getImg(Request $request)
     {
         $productId = $request->get('product_id');
         $materialId = $request->get('material_id');
-
         $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
 
         $response = array(
@@ -320,5 +348,18 @@ class ProductController extends Controller
             'material_images' => $materialImage
         );
         return response()->json($response);
+    }
+
+    public function resort(Request $request)
+    {
+        $arrMaterialImageId = $request->get('material_arr');
+        $i = 1;
+        foreach($arrMaterialImageId as $val) {
+            $materialImage = $this->materialImagesRepository->findOneById($val);
+            $materialImage->order = $i;
+            $materialImage->save();
+            $i++;
+        }
+        return response()->json(['status' => true]);
     }
 }

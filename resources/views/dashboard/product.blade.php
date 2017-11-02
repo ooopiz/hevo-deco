@@ -235,8 +235,19 @@
                 </div>
             </div>
 
-            <div id="material-images" class="row" style="display: none;"></div>
-
+            <div id="material-images-container" class="row" style="display: none;">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">產品圖片</h3>
+                            <button id="resort-image-order" type="button" class="btn btn-xs btn-primary">儲存排序</button>
+                        </div>
+                        <div class="panel-body">
+                            <div id="material-images" class="row"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- /.container-fluid -->
@@ -365,13 +376,38 @@
                     var materialImages = '';
                     data.material_images.forEach(function(element) {
                         materialImages = materialImages +
-                            '<div class="col-xs-3">' +
+                            '<div class="col-xs-3" material_list_id="'+ element.id +'" product_id="' + product_id +'" material_id="' + material_id + '" order="' + element.order + '">' +
                             '<img src="{{ IMAGE_URL }}'  + element.image_url + '">' +
+                            '<button material_image_id="' + element.id + '" type="button" class="btn btn-danger" onClick="materialImageDelete(this);">刪除</button>' +
                             '</div>';
                     });
                     $('#material-images').append(materialImages);
                 }
-                $('#material-images').show();
+                $('#material-images-container').show();
+            });
+        };
+
+        var materialImageDelete = function materialImageDelete(el) {
+            var productId = $(el).parent().attr('product_id');
+            var materialId = $(el).parent().attr('material_id');
+            var order = $(el).parent().attr('order');
+            var params = {
+                "product_id" : productId,
+                "material_id" : materialId,
+                "order"  : order,
+                "_token" : $('meta[name="csrf-token"]').attr('content')
+            };
+            $.ajax({
+                url : '{{ API_PRODUCT_IMAGES_DELETE }}',
+                data: params,
+                type: 'POST'
+            }).done(function(resJson) {
+                if (resJson.status === true) {
+                    $(el).parent().remove();
+                } else {
+                    alert('刪除失敗');
+                    return;
+                }
             });
         };
 
@@ -405,7 +441,6 @@
                     contentType: false,
                     type: 'POST'
                 }).done(function(resJson) {
-                    console.log(resJson);
                     if (resJson.status === true) {
                         //TODO delete preview
 
@@ -416,7 +451,6 @@
                     }
                 });
             });
-
 
             // Highlight selected bar
             $('#product-list table tbody tr').click(function() {
@@ -469,7 +503,7 @@
                 $('#material-container').show();
 
                 //material image
-                $('#material-images').hide();
+                $('#material-images-container').hide();
 
                 var params = {
                     "product_id" : productId,
@@ -553,6 +587,32 @@
                 }).done(function(data) {
                     if (data.status === true) {
                         refreshMaterial(data.materials, data.material_list);
+                    }
+                });
+            });
+
+            var reSortOrder = document.querySelector('#resort-image-order');
+            reSortOrder.addEventListener('click', function(event) {
+                var arrMaterialList = [];
+                $('#material-images div').each(function(index) {
+                    var materialListId = $(this).attr('material_list_id');
+                    arrMaterialList.push(materialListId);
+                });
+                console.log(arrMaterialList);
+
+                var params = {
+                    "material_arr" : arrMaterialList,
+                    "_token" : $('meta[name="csrf-token"]').attr('content')
+                };
+                $.ajax({
+                    url : '{{ API_PRODUCT_IMAGES_RESORT }}',
+                    data: params,
+                    type: 'POST'
+                }).done(function(resJson) {
+                    if (resJson.status === true) {
+                        alert('排序完成');
+                    } else {
+                        alert('Resort 失敗');
                     }
                 });
             });

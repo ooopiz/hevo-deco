@@ -39,6 +39,8 @@ const URL_DASHBOARD_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard/authority/user/do_ed
 
 const API_PRODUCT_IMAGES_GET = '/api/product/images/get';
 const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload';
+const API_PRODUCT_IMAGES_DELETE = '/api/product/images/delete';
+const API_PRODUCT_IMAGES_RESORT = '/api/product/images/resort';
 
 const API_BANNER_DO_DELETE = '/api/banner/do_delete';
 const API_HOTNEWS_DO_DELETE = '/api/hotnews/do_delete';
