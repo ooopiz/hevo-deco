@@ -58,14 +58,20 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="{{ URL_DASHBOARD }}"><i class="fa fa-fw fa-anchor"></i>網站設定</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#system" class="" aria-expanded="true">
+                            <i class="fa fa-fw fa-anchor"></i>
+                            網站設定
+                            <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="system" class="collapse in" aria-expanded="true">
+                            <li>
+                                <a href="{{ URL_DASHBOARD_BANNER }}"><i class="fa fa-fw fa-exchange"></i>Banner</a>
+                            </li>
+                            <li>
+                                <a href="{{ URL_DASHBOARD_HOTNEWS }}"><i class="fa fa-fw fa-newspaper-o"></i>最新消息</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="{{ URL_DASHBOARD_BANNER }}"><i class="fa fa-fw fa-anchor"></i>Banner</a>
-                    </li>
-                    <li>
-                        <a href="{{ URL_DASHBOARD_HOTNEWS }}"><i class="fa fa-fw fa-anchor"></i>最新消息</a>
-                    </li>
+
                     <li>
                         <a href="{{ URL_DASHBOARD_CATEGORY }}"><i class="fa fa-fw fa-bookmark"></i>類別管理</a>
                     </li>
