@@ -39,7 +39,8 @@
                                 @elseif($catList->product->materialImages->count() == 1)
                                     <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}' />
                                 @else
-                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}'
+                                    <img class="img-thumbnail"
+                                         src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}'
                                          onmouseout="this.src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}';"
                                          onmouseover="this.src='{{ IMAGE_URL . $catList->product->materialImages[1]->image_url }}';" />
                                 @endif

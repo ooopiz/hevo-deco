@@ -14,8 +14,8 @@
 Route::group(['prefix' => '/', 'namespace' => 'Pages'], function() {
     Route::get('/', 'IndexController@index');
     Route::get('product', 'PagesController@product');
-    Route::get('category', 'PagesController@category');
-    Route::get('series', 'PagesController@series');
+    Route::get('category/{id?}', 'CategoryController@index')->where(['id' => '[0-9]+']);
+    Route::get('series/{id?}', 'SeriesController@index')->where(['id' => '[0-9]+']);
 
 });
 

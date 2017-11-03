@@ -72,36 +72,6 @@ class PagesController extends Controller
             }
         }
 
-//        foreach($categories as $key => $cat) {
-//            var_dump($cat->categoryList->isEmpty());
-//        }
-//        dd();
-
-//        $categoryLists = $this->categoryListRepository->findAllBy(array(['id', '>', 0]), ['category', 'product']);
-//        $seriesLists = $this->seriesListsRepository->findAllBy(array(['id', '>', 0]), ['series', 'product']);
-//        // load product images
-//        foreach($categoryLists as $key => $catList) {
-//            $catList->product->load(['materialImages' => function ($query) {
-//                $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
-//            }]);
-//        }
-//        foreach($seriesLists as $key => $serList) {
-//            $serList->product->load(['materialImages' => function ($query) {
-//                $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
-//            }]);
-//        }
-
         return view('pages.product', compact('categories', 'series'));
-//        return view('pages.product', compact('categories', 'series', 'categoryLists', 'seriesLists'));
-    }
-
-    public function category()
-    {
-        return view('pages.category');
-    }
-
-    public function series()
-    {
-        return view('pages.series');
     }
 }
