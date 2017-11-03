@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Pages;
 
 use App\Repositories\CategoriesRepository;
 use App\Repositories\CategoryListsRepository;
+use App\Repositories\ProductsRepository;
 use App\Repositories\SeriesListsRepository;
 use App\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PagesController extends Controller
+class ProductController extends Controller
 {
     /** @var CategoriesRepository */
     private $categoriesRepository;
@@ -17,24 +18,14 @@ class PagesController extends Controller
     /** @var SeriesRepository */
     private $seriesRepository;
 
-    /** @var CategoryListsRepository */
-    private $categoryListRepository;
-
-    /** @var SeriesListsRepository */
-    private $seriesListsRepository;
-
     public function __construct(CategoriesRepository $categoriesRepository,
-                                SeriesRepository $seriesRepository,
-                                CategoryListsRepository $categoryListsRepository,
-                                SeriesListsRepository $seriesListsRepository)
+                                SeriesRepository $seriesRepository)
     {
         $this->categoriesRepository = $categoriesRepository;
         $this->seriesRepository = $seriesRepository;
-        $this->categoryListRepository = $categoryListsRepository;
-        $this->seriesListsRepository = $seriesListsRepository;
     }
 
-    public function product()
+    public function index()
     {
         $conditionCategory = array(['id', '>', 0], ['display', '=', 'Y']);
         $categories = $this->categoriesRepository->findAllBy($conditionCategory);
@@ -73,5 +64,20 @@ class PagesController extends Controller
         }
 
         return view('pages.product', compact('categories', 'series'));
+    }
+
+    public function productDetail($id = null, ProductsRepository $productsRepository)
+    {
+        $condition = array(['id', '=', $id], ['active', '=', 'Y']);
+        $product = $productsRepository->findOneBy($condition);
+        if (is_null($product)) {
+            return redirect(URL_PRODUCT);
+        }
+
+        $product->load(['materialImages' => function ($query) {
+            $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
+        }]);
+
+        return view('pages.product_detail', compact('product'));
     }
 }

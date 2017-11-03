@@ -34,6 +34,7 @@
                             <div class="col-sm-4">
                                 {{ $catList->product->name }}
 
+                                <a href="{{ URL_PRODUCT . '/' . $catList->product->id }}">
                                 @if($catList->product->materialImages->count() == 0)
                                     <img class="img-thumbnail" src='http://placehold.it/400x400' />
                                 @elseif($catList->product->materialImages->count() == 1)
@@ -44,6 +45,7 @@
                                          onmouseout="this.src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}';"
                                          onmouseover="this.src='{{ IMAGE_URL . $catList->product->materialImages[1]->image_url }}';" />
                                 @endif
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -60,6 +62,7 @@
                             <div class="col-sm-4">
                                 {{ $serList->product->name }}
 
+                                <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)
                                     <img class="img-thumbnail" src='http://placehold.it/400x400' />
                                 @elseif($serList->product->materialImages->count() == 1)
@@ -69,6 +72,7 @@
                                          onmouseout="this.src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}';"
                                          onmouseover="this.src='{{ IMAGE_URL . $serList->product->materialImages[1]->image_url }}';" />
                                 @endif
+                                </a>
                             </div>
                         @endforeach
                     </div>
