@@ -14,4 +14,9 @@ class Category extends Model
     protected $fillable = [
         'name', 'desc', 'display'
     ];
+
+    public function categoryList()
+    {
+        return $this->hasMany('App\Eloquent\SeriesList', 'series_id', 'id');
+    }
 }

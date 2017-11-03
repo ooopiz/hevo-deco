@@ -21,4 +21,9 @@ class SeriesList extends Model
     {
         return $this->belongsTo('App\Eloquent\Series', 'series_id', 'id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Eloquent\Product', 'product_id', 'id');
+    }
 }

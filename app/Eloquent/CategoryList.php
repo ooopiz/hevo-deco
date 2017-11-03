@@ -21,4 +21,9 @@ class CategoryList extends Model
     {
         return $this->belongsTo('App\Eloquent\Category', 'category_id', 'id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Eloquent\Product', 'product_id', 'id');
+    }
 }

@@ -22,7 +22,7 @@ class CreateMaterialImagesTable extends Migration
             $table->string('image_url', 200);
 
             $table->index('material_list_id');
-            $table->index(['product_id', 'material_id']);
+            $table->index(['product_id']);
         });
     }
 

@@ -24,38 +24,54 @@
         </div>
 
         <div class="col-sm-9">
-            @foreach($categories as $key => $val)
-                <div class="item-header">
-                    <h3>{{ $val->name }}</h3>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
+            @foreach($categories as $key => $cat)
+                @if($cat->categoryList->isNotEmpty())
+                    <div class="item-header">
+                        <h3>{{ $cat->name }}</h3>
                     </div>
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
+                    <div class="row">
+                        @foreach($cat->categoryList as $catList)
+                            <div class="col-sm-4">
+                                {{ $catList->product->name }}
+
+                                @if($catList->product->materialImages->count() == 0)
+                                    <img class="img-thumbnail" src='http://placehold.it/400x400' />
+                                @elseif($catList->product->materialImages->count() == 1)
+                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}' />
+                                @else
+                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}'
+                                         onmouseout="this.src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}';"
+                                         onmouseover="this.src='{{ IMAGE_URL . $catList->product->materialImages[1]->image_url }}';" />
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
-                    </div>
-                </div>
+                @endif
             @endforeach
 
-            @foreach($series as $key => $val)
-                <div class="item-header">
-                    <h3>{{ $val->name }}</h3>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
+            @foreach($series as $key => $ser)
+                @if($ser->seriesList->isNotEmpty())
+                    <div class="item-header">
+                        <h3>{{ $cat->name }}</h3>
                     </div>
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
+                    <div class="row">
+                        @foreach($ser->seriesList as $serList)
+                            <div class="col-sm-4">
+                                {{ $serList->product->name }}
+
+                                @if($serList->product->materialImages->count() == 0)
+                                    <img class="img-thumbnail" src='http://placehold.it/400x400' />
+                                @elseif($serList->product->materialImages->count() == 1)
+                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}' />
+                                @else
+                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}'
+                                         onmouseout="this.src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}';"
+                                         onmouseover="this.src='{{ IMAGE_URL . $serList->product->materialImages[1]->image_url }}';" />
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-sm-4">
-                        <img class="img-thumbnail" src="http://placehold.it/400x400" alt="">
-                    </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </div>
