@@ -70,4 +70,25 @@ class ImageManageService
     {
         return Storage::disk($this->storageDisk)->delete($file);
     }
+
+    public function putProductImage($file, $fileContent)
+    {
+        $fileName = pathinfo($file, PATHINFO_FILENAME);
+        $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        $saveFile = $fileName . '.' . $extension;
+        $savePathFile = 'product/' . $saveFile;
+
+        $bool = Storage::disk($this->storageDisk)->put($savePathFile, $fileContent);
+
+        $result['status'] = $bool;
+        if ($bool) {
+            $result['file'] = $savePathFile;
+        }
+        return $result;
+    }
+
+    public function delProductImage($file)
+    {
+        return Storage::disk($this->storageDisk)->delete($file);
+    }
 }

@@ -10,10 +10,10 @@ use App\Repositories\MaterialRepository;
 use App\Repositories\ProductsRepository;
 use App\Repositories\SeriesListsRepository;
 use App\Repositories\SeriesRepository;
+use App\Services\ImageManageService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -262,9 +262,9 @@ class ProductController extends Controller
         }
     }
 
-    public function uploadImg(Request $request)
+    public function uploadImg(Request $request, ImageManageService $imageManageService)
     {
-        if (!$request->hasFile('material_image')) {
+        if (!$request->hasFile('product_image')) {
             return response()->json(['status' => false, 'message' => 'require file']);
         }
 
@@ -276,39 +276,39 @@ class ProductController extends Controller
             return response()->json(['status' => false, 'message' => 'params fail ...']);
         }
 
-        $file = $request->file('material_image');
-        $fileOriginalName = $file->getClientOriginalName();
-        $fileOriginalExtension = $file->getClientOriginalExtension();
-        $fileContents = file_get_contents($file);
-        $fileSaveName = uniqid($productId . "_" . $materialId . "_") . '.' . strtolower($fileOriginalExtension);
-        $imageUrl = 'material/' . $fileSaveName;
+        if ($request->hasFile('product_image')) {
+            $newsImage = $request->file('product_image');
+            $fileOriginalName = $newsImage->getClientOriginalName();
+            $fileOriginalExtension = $newsImage->getClientOriginalExtension();
+            $fileContents = file_get_contents($newsImage);
+            $fileSaveName = uniqid($productId . "_" . $materialId . "_") . '.' . $fileOriginalExtension;
 
-        $uploaded = Storage::disk('public')->put($imageUrl, $fileContents);
-        if ($uploaded) {
-            $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
-            if (is_null($materialImage)) {
-                $order = 1;
-            } else {
-                $order = $materialImage->max('order') + 1;
+            $res = $imageManageService->putProductImage($fileSaveName, $fileContents);
+            if ($res['status']) {
+                $newImage = $res['file'];
+
+                $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
+                if (is_null($materialImage)) {
+                    $order = 1;
+                } else {
+                    $order = $materialImage->max('order') + 1;
+                }
+                $arrData = array([
+                    'material_list_id' => $materialListId,
+                    'product_id' => $productId,
+                    'material_id' => $materialId,
+                    'order' => $order,
+                    'image_url' => $newImage
+                ]);
+
+                $this->materialImagesRepository->insertOne($arrData);
             }
-
-            $arrData = array([
-                'material_list_id' => $materialListId,
-                'product_id' => $productId,
-                'material_id' => $materialId,
-                'order' => $order,
-                'image_url' => $imageUrl
-            ]);
-
-            $this->materialImagesRepository->insertOne($arrData);
-        } else {
-            return response()->json(['status' => false, 'message' => 'upload fail ...']);
         }
 
         return response()->json(['status' => true]);
     }
 
-    public function deleteImg(Request $request)
+    public function deleteImg(Request $request, ImageManageService $imageManageService)
     {
         $productId = $request->get('product_id');
         $materialId = $request->get('material_id');
@@ -325,6 +325,7 @@ class ProductController extends Controller
 
             if ($val->order == $order) {
                 $val->delete();
+                $imageManageService->delProductImage($val->image_url);
                 continue;
             }
             if ($i != $val->order) {
@@ -341,11 +342,12 @@ class ProductController extends Controller
     {
         $productId = $request->get('product_id');
         $materialId = $request->get('material_id');
-        $materialImage = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
+        $materialImages = $this->materialImagesRepository->findAllBy(['product_id' => $productId, 'material_id' => $materialId]);
+        $materialImages = $materialImages->sortBy('order')->values();
 
         $response = array(
             'status' => true,
-            'material_images' => $materialImage
+            'material_images' => $materialImages
         );
         return response()->json($response);
     }

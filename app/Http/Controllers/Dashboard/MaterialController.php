@@ -61,7 +61,7 @@ class MaterialController extends Controller
             $fileOriginalName = $newsImage->getClientOriginalName();
             $fileOriginalExtension = $newsImage->getClientOriginalExtension();
             $fileContents = file_get_contents($newsImage);
-            $fileSaveName = uniqid("news_") . '.' . strtolower($fileOriginalExtension);
+            $fileSaveName = uniqid("MAT_") . '.' . strtolower($fileOriginalExtension);
 
             $material = $this->materialRepository->findOneById($materialID);
             if (is_null($material)) {

@@ -214,7 +214,7 @@
                                 {{--<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>--}}
 
                                 <div class="image-upload-wrap">
-                                    <input name="material_image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpg" />
+                                    <input name="product_image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpg" />
                                     <div class="drag-text">
                                         <h3>Drag and drop a file or select add Image</h3>
                                     </div>
@@ -418,18 +418,22 @@
             Sortable.create(foo, { group: "omega" });
 
             $('#material-image-save').click(function() {
+
                 var materialListId = document.querySelector('#material-edit input[name="material_list_id"]').value;
                 var productId = document.querySelector('#material-edit input[name="product_id"]').value;
                 var materialId = document.querySelector('#material-edit input[name="material_id"]').value;
-                var fileImage = document.querySelector('#material-edit input[name="material_image"]');
+                var fileImage = document.querySelector('#material-edit input[name="product_image"]');
                 var files = fileImage.files;
+
                 if (files.length != 1) {
                     alert("尚未選擇上傳圖片");
                     return;
                 }
 
+                $('#material-image-save').prop('disabled', true);
+
                 var formData = new FormData();
-                formData.append('material_image', files[0]);
+                formData.append('product_image', files[0]);
                 formData.append('material_list_id', materialListId);
                 formData.append('product_id', productId);
                 formData.append('material_id', materialId);
@@ -443,12 +447,14 @@
                 }).done(function(resJson) {
                     if (resJson.status === true) {
                         //TODO delete preview
-
+                        document.querySelector('#material-edit input[name="product_image"]').value = "";
+                        removeUpload();
                         refreshMaterialImages(productId, materialId);
                     } else {
                         alert("上傳失敗");
                         return;
                     }
+                    $('#material-image-save').prop('disabled', false);
                 });
             });
 
@@ -598,7 +604,8 @@
                     var materialListId = $(this).attr('material_list_id');
                     arrMaterialList.push(materialListId);
                 });
-                console.log(arrMaterialList);
+
+                if (arrMaterialList.length == 0) return;
 
                 var params = {
                     "material_arr" : arrMaterialList,
