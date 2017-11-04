@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label>描述 (250)</label>
-                            <textarea name="news_desc" class="form-control" rows="3"></textarea>
+                            <textarea name="news_desc" class="form-control" rows="3" required></textarea>
                         </div>
 
                         <!-- Picture -->

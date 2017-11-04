@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Repositories\CategoriesRepository;
+use App\Repositories\CategoryListsRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,7 @@ class CategoryController extends Controller
     {
         $condition = array(['id', '>', 0]);
         $categories = $this->categoriesRepository->findAllBy($condition);
-        $categories = $categories->sortByDesc('id');
+//        $categories = $categories->sortByDesc('id');
 
         $siteVar = $this->siteVar;
         $loginUser = $this->loginUser;
@@ -66,11 +67,16 @@ class CategoryController extends Controller
         return redirect(URL_DASHBOARD_CATEGORY);
     }
 
-    public function doDelete(Request $request)
+    public function doDelete(Request $request, CategoryListsRepository $categoryListsRepository)
     {
         $categoryId = $request->get('category_id');
-        $bool = $this->categoriesRepository->delete(['id' => $categoryId]);
 
+        $categoryLists = $categoryListsRepository->findAllBy(['category_id' => $categoryId]);
+        if ($categoryLists->count() > 0) {
+            return response()->json(['status' => false, 'message' => '目前有產品屬於該類別，無法刪除']);
+        }
+
+        $bool = $this->categoriesRepository->delete(['id' => $categoryId]);
         if ($bool) {
             return response()->json(['status' => true]);
         } else {

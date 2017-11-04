@@ -65,7 +65,7 @@
 
                         <div class="form-group">
                             <label>材質名稱 (100)</label>
-                            <input name="material_name" class="form-control">
+                            <input name="material_name" class="form-control" required="required">
                         </div>
 
                         <!-- Picture -->
@@ -156,6 +156,8 @@
                         }).done(function(data) {
                             if (data.status === true) {
                                 window.location.replace('{{ URL_DASHBOARD_MATERIAL }}');
+                            } else {
+                                alert(data.message);
                             }
                         });
                     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Repositories\MaterialListsRepository;
 use App\Repositories\MaterialRepository;
 use App\Services\ImageManageService;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class MaterialController extends Controller
     {
         $condition = array(['id', '>', 0]);
         $materials = $this->materialRepository->findAllBy($condition);
-        $materials = $materials->sortByDesc('id');
+//        $materials = $materials->sortByDesc('id');
 
         $siteVar = $this->siteVar;
         $loginUser = $this->loginUser;
@@ -95,9 +96,15 @@ class MaterialController extends Controller
         return redirect(URL_DASHBOARD_MATERIAL);
     }
 
-    public function doDelete(Request $request, ImageManageService $imageManageService)
+    public function doDelete(Request $request, ImageManageService $imageManageService, MaterialListsRepository $materialListsRepository)
     {
         $materialId = $request->get('material_id');
+
+        $materialLists = $materialListsRepository->findAllBy(['material_id' => $materialId]);
+        if ($materialLists->count() > 0) {
+            return response()->json(['status' => false, 'message' => '目前有產品屬於該材質，無法刪除']);
+        }
+
         $material = $this->materialRepository->findOneById($materialId);
         $imageUrl = $material->image_url;
         if ($material->delete()) {

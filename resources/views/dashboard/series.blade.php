@@ -65,7 +65,7 @@
 
                         <div class="form-group">
                             <label>系列名稱 (100)</label>
-                            <input name="series_name" class="form-control">
+                            <input name="series_name" class="form-control" required="required">
                         </div>
 
                         <div class="form-group">
@@ -153,6 +153,8 @@
                         }).done(function(data) {
                             if (data.status === true) {
                                 window.location.replace('{{ URL_DASHBOARD_SERIES }}');
+                            } else {
+                                alert(data.message);
                             }
                         });
                     }

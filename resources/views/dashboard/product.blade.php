@@ -20,10 +20,10 @@
             <button id="product-add" type="button" class="btn btn-primary">新增</button>
 
             <div class="row">
-                <div id="product-list" class="col-lg-12">
+                <div class="col-lg-12">
                     <h2></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="product-table" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>SN.</th>
@@ -119,12 +119,12 @@
 
                         <div class="form-group">
                             <label>標題 / 產品名稱 (100)</label>
-                            <input name="product_name" class="form-control">
+                            <input name="product_name" class="form-control" required="required">
                         </div>
 
                         <div class="form-group">
                             <label>副標題 (100)</label>
-                            <input name="product_subtitle" class="form-control">
+                            <input name="product_subtitle" class="form-control" required="required">
                         </div>
 
                         <div class="form-group">
@@ -146,18 +146,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label>長 / length</label>
-                            <input name="product_length" class="form-control">
+                            <label>長 / length (cm)</label>
+                            <input name="product_length" class="form-control" type="text" required="required" pattern="^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$" title="請輸入數字">
                         </div>
 
                         <div class="form-group">
-                            <label>寬 / width</label>
-                            <input name="product_width" class="form-control">
+                            <label>寬 / width (cm)</label>
+                            <input name="product_width" class="form-control" type="text" required="required" pattern="^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$" title="請輸入數字">
                         </div>
 
                         <div class="form-group">
-                            <label>高 / height</label>
-                            <input name="product_height" class="form-control">
+                            <label>高 / height (cm)</label>
+                            <input name="product_height" class="form-control" type="text" required="required" pattern="^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$" title="請輸入數字">
                         </div>
 
                         <div class="form-group">
@@ -453,7 +453,7 @@
             });
 
             // Highlight selected bar
-            $('#product-list table tbody tr').click(function() {
+            $('#product-table tbody tr').click(function() {
                 $(this).addClass('bg-success').siblings().removeClass('bg-success');
 
                 // edit
