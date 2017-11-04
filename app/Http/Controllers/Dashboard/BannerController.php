@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Repositories\OptionsRepository;
+use App\Services\ImageManageService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -43,7 +42,7 @@ class BannerController extends Controller
         return view('dashboard.banner', compact('loginUser', 'banner'));
     }
 
-    public function doEdit(Request $request)
+    public function doEdit(Request $request, ImageManageService $imageManageService)
     {
         if (!$request->hasFile('banner_image')) {
             return 'Image require';
@@ -58,32 +57,40 @@ class BannerController extends Controller
         $fileOriginalName = $newsImage->getClientOriginalName();
         $fileOriginalExtension = $newsImage->getClientOriginalExtension();
         $fileContents = file_get_contents($newsImage);
-        $fileSaveName = uniqid("banner_") . '.' .$fileOriginalExtension;
+        $fileSaveName = uniqid("banner_") . '.' . $fileOriginalExtension;
 
-        $uploaded = Storage::disk('public')->put('banner/' .$fileSaveName, $fileContents);
-        if ($uploaded) {
-            $imageUrl = 'banner/' . $fileSaveName;
-            $arrSel = array(
-                'key' => 'banner',
-                'sub_key' => $bannerId,
-            );
-            $arrVal = array(
-                'value' => $imageUrl
-            );
-            $this->optionsRepository->updateOrCreate($arrSel, $arrVal);
+        $banner = $this->optionsRepository->findOneBy(['key' => 'banner', 'sub_key' => $bannerId]);
+        if (is_null($banner)) {
+            $res = $imageManageService->putBannerImage($fileSaveName, $fileContents);
+            if ($res['status']) {
+                $newImage = $res['file'];
+                $insertData = array(
+                    'key' => 'banner',
+                    'sub_key' => $bannerId,
+                    'value' => $newImage
+                );
+                $this->optionsRepository->createOne($insertData);
+            }
+        } else {
+            $oldImage = $banner->value;
+            $res = $imageManageService->putBannerImage($fileSaveName, $fileContents);
+            if ($res['status']) {
+                $newImage = $res['file'];
+                $banner->value = $newImage;
+                $banner->save();
+                $imageManageService->delBannerImage($oldImage);
+            }
         }
-        //TODO - delete original image
-
         return redirect(URL_DASHBOARD_BANNER);
     }
 
-    public function doDelete(Request $request)
+    public function doDelete(Request $request, ImageManageService $imageManageService)
     {
         $bannerId = $request->get('banner_id');
         $banner = $this->optionsRepository->findOneBy(['key' => 'banner', 'sub_key' => $bannerId]);
         $imageUrl = $banner->value;
         if ($banner->delete()) {
-            Storage::disk('public')->delete($imageUrl);
+            $imageManageService->delBannerImage($imageUrl);
             return response()->json(['status' => true]);
         } else {
             return response()->json(['status' => false]);

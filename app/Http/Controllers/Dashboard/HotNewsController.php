@@ -58,7 +58,7 @@ class HotNewsController extends Controller
         $fileOriginalName = $newsImage->getClientOriginalName();
         $fileOriginalExtension = $newsImage->getClientOriginalExtension();
         $fileContents = file_get_contents($newsImage);
-        $fileSaveName = uniqid("news_") . '.' .$fileOriginalExtension;
+        $fileSaveName = uniqid("news_") . '.' . strtolower($fileOriginalExtension);
 
         $uploaded = Storage::disk('public')->put('news/' .$fileSaveName, $fileContents);
         if ($uploaded) {

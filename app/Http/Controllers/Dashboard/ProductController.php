@@ -280,7 +280,7 @@ class ProductController extends Controller
         $fileOriginalName = $file->getClientOriginalName();
         $fileOriginalExtension = $file->getClientOriginalExtension();
         $fileContents = file_get_contents($file);
-        $fileSaveName = uniqid($productId . "_" . $materialId . "_") . '.' .$fileOriginalExtension;
+        $fileSaveName = uniqid($productId . "_" . $materialId . "_") . '.' . strtolower($fileOriginalExtension);
         $imageUrl = 'material/' . $fileSaveName;
 
         $uploaded = Storage::disk('public')->put($imageUrl, $fileContents);

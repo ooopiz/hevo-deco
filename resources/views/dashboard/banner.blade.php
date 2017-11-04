@@ -17,10 +17,10 @@
             </div>
 
             <div class="row">
-                <div id="banner-list" class="col-lg-12">
+                <div class="col-lg-12">
                     <h2></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="banner-table" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>No</th>
@@ -33,9 +33,11 @@
                                 <tr>
                                     <td headers="id">{{ $i }}</td>
                                     @if(isset($banner[$i]))
-                                        <td headers="value">{{ $banner[$i]->value }}</td>
+                                        <td headers="value" style="display: none">{{ $banner[$i]->value }}</td>
+                                        <td><img src="{{ IMAGE_URL . $banner[$i]->value }}" /></td>
                                     @else
-                                        <td headers="value"></td>
+                                        <td headers="value"style="display: none"></td>
+                                        <td></td>
                                     @endif
                                     <td style="width: 80px; text-align: center">
                                         <button banner-id="{{ $i }}" type="button" class="btn btn-xs btn-danger banner-delete">刪除</button>
@@ -101,7 +103,7 @@
         function eventHandler() {
 
             // Highlight selected bar
-            $('#banner-list table tbody tr').click(function() {
+            $('#banner-table tbody tr').click(function() {
                 $(this).addClass('bg-success').siblings().removeClass('bg-success');
 
                 // edit
@@ -115,6 +117,12 @@
             var bannerDel = document.querySelectorAll('.banner-delete');
             for (var i = 0; i < bannerDel.length; i++) {
                 bannerDel[i].addEventListener('click', function(event) {
+                    var delTr = $(this).closest('tr').find('[headers="value"]').text();
+                    if (delTr.trim() == '') {
+                        alert('沒有資料可以刪除');
+                        return;
+                    }
+
                     if (confirm('確認刪除?')) {
                         var bannerId = this.getAttribute("banner-id");
                         var params = {
