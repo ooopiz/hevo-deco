@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Repositories\HotNewsRepository;
+use App\Services\ImageManageService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class HotNewsController extends Controller
 {
@@ -42,11 +42,9 @@ class HotNewsController extends Controller
         return view('dashboard.hotnews', compact('loginUser', 'hotNews'));
     }
 
-    public function doEdit(Request $request)
+    public function doEdit(Request $request, ImageManageService $imageManageService)
     {
-        if (!$request->hasFile('news_image')) {
-            return 'Image require';
-        }
+
         if (!$request->has('news_desc')) {
             return 'Description require';
         }
@@ -54,34 +52,57 @@ class HotNewsController extends Controller
         $newsId = is_null($request->get('news_id')) ? 0 : $request->get('news_id');
         $newsDesc = $request->get('news_desc');
 
-        $newsImage = $request->file('news_image');
-        $fileOriginalName = $newsImage->getClientOriginalName();
-        $fileOriginalExtension = $newsImage->getClientOriginalExtension();
-        $fileContents = file_get_contents($newsImage);
-        $fileSaveName = uniqid("news_") . '.' . strtolower($fileOriginalExtension);
-
-        $uploaded = Storage::disk('public')->put('news/' .$fileSaveName, $fileContents);
-        if ($uploaded) {
-            $imageUrl = 'news/' . $fileSaveName;
-            $arrId = array('id' => $newsId);
-            $arrData = array(
-                'desc' => $newsDesc,
-                'image_url' => $imageUrl
-            );
-            $this->hotNewsRepsoitory->updateOrCreate($arrId, $arrData);
+        if ((!$request->hasFile('news_image')) && $newsId == 0) {
+            return 'Image require';
         }
-        //TODO - delete original image
+
+        if ($request->hasFile('news_image')) {
+            $newsImage = $request->file('news_image');
+            $fileOriginalName = $newsImage->getClientOriginalName();
+            $fileOriginalExtension = $newsImage->getClientOriginalExtension();
+            $fileContents = file_get_contents($newsImage);
+            $fileSaveName = uniqid("news_") . '.' . strtolower($fileOriginalExtension);
+
+            $hotNews = $this->hotNewsRepsoitory->findOneById($newsId);
+            if (is_null($hotNews)) {
+                $res = $imageManageService->putNewsImage($fileSaveName, $fileContents);
+                if ($res['status']) {
+                    $newImage = $res['file'];
+                    $insertData = array(
+                        'desc' => $newsDesc,
+                        'image_url' => $newImage
+                    );
+                    $this->hotNewsRepsoitory->createOne($insertData);
+                }
+            } else {
+                $oldImage = $hotNews->image_url;
+                $res = $imageManageService->putNewsImage($fileSaveName, $fileContents);
+                if ($res['status']) {
+                    $newImage = $res['file'];
+                    $hotNews->desc = $newsDesc;
+                    $hotNews->image_url = $newImage;
+                    $hotNews->save();
+                    $imageManageService->delNewImage($oldImage);
+                }
+            }
+        } else {
+            $hotNews = $this->hotNewsRepsoitory->findOneById($newsId);
+            if (!is_null($hotNews)) {
+                $hotNews->desc = $newsDesc;
+                $hotNews->save();
+            }
+        }
 
         return redirect(URL_DASHBOARD_HOTNEWS);
     }
 
-    public function doDelete(Request $request)
+    public function doDelete(Request $request, ImageManageService $imageManageService)
     {
         $newsId = $request->get('news_id');
         $hotNews = $this->hotNewsRepsoitory->findOneById($newsId);
         $imageUrl = $hotNews->image_url;
         if ($hotNews->delete()) {
-            Storage::disk('public')->delete($imageUrl);
+            $imageManageService->delNewImage($imageUrl);
             return response()->json(['status' => true]);
         } else {
             return response()->json(['status' => false]);

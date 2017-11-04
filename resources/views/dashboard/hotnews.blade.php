@@ -19,13 +19,14 @@
             <button id="news-add" type="button" class="btn btn-primary">新增</button>
 
             <div class="row">
-                <div id="news-list" class="col-lg-6">
+                <div class="col-lg-6">
                     <h2></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="news-table" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>No</th>
+                                <th>圖片</th>
                                 <th>描述</th>
                                 <th></th>
                             </tr>
@@ -36,6 +37,9 @@
                                 <tr>
                                     <td headers="id" style="display: none;">{{ $val->id }}</td>
                                     <td style="width: 50px">{{ $i++ }}</td>
+                                    <td>
+                                        <img src="{{ IMAGE_URL . $val->image_url }}" />
+                                    </td>
                                     <td headers="desc">{{ $val->desc }}</td>
                                     <td style="width: 80px; text-align: center">
                                         <button news-id="{{ $val->id }}" type="button" class="btn btn-xs btn-danger news-delete">刪除</button>
@@ -105,7 +109,7 @@
         function eventHandler() {
 
             // Highlight selected bar
-            $('#news-list table tbody tr').click(function() {
+            $('#news-table tbody tr').click(function() {
                 $(this).addClass('bg-success').siblings().removeClass('bg-success');
 
                 // edit
