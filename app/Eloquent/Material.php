@@ -12,6 +12,6 @@ class Material extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'image_url'
     ];
 }

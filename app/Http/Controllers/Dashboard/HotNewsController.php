@@ -44,7 +44,6 @@ class HotNewsController extends Controller
 
     public function doEdit(Request $request, ImageManageService $imageManageService)
     {
-
         if (!$request->has('news_desc')) {
             return 'Description require';
         }

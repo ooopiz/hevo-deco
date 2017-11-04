@@ -20,14 +20,15 @@
             <button id="material-add" type="button" class="btn btn-primary">新增</button>
 
             <div class="row">
-                <div id="material-list" class="col-lg-6">
+                <div class="col-lg-6">
                     <h2></h2>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped">
+                        <table id="material-table" class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
                                 <th>SN.</th>
                                 <th>材質名稱</th>
+                                <th>材質圖片</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -37,6 +38,9 @@
                                     <td headers="material_id" style="display: none;">{{ $val->id }}</td>
                                     <td headers="material_sn">{{ $siteVar['sn_prefix'] . str_pad($val->id, 3, '0', STR_PAD_LEFT) }}</td>
                                     <td headers="material_name">{{ $val->name }}</td>
+                                    <td>
+                                        <img src="{{ IMAGE_URL . $val->image_url }}" />
+                                    </td>
                                     <td style="width: 80px; text-align: center">
                                         <button material-id="{{ $val->id }}" type="button" class="btn btn-xs btn-danger material-delete">刪除</button>
                                     </td>
@@ -48,7 +52,7 @@
                 </div>
 
                 <div id="material-edit" class="col-lg-6">
-                    <form role="form" method="post" action="{{ URL_DASHBOARD_MATERIAL_DO_EDIT }}" style="display: none;">
+                    <form role="form" method="post" action="{{ URL_DASHBOARD_MATERIAL_DO_EDIT }}" enctype="multipart/form-data" style="display: none;">
                         <div class="form-group" style="display: none">
                             <label>ID</label>
                             <input name="material_id" class="form-control">
@@ -62,6 +66,27 @@
                         <div class="form-group">
                             <label>材質名稱 (100)</label>
                             <input name="material_name" class="form-control">
+                        </div>
+
+                        <!-- Picture -->
+                        <div class="form-group">
+                            <label>上傳圖片</label>
+                            <div class="file-upload">
+                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                                <div class="image-upload-wrap">
+                                    <input name="material_image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpg" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content">
+                                    <img class="file-upload-image" src="#" alt="your image" />
+                                    <div class="image-title-wrap">
+                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -81,12 +106,13 @@
 @endsection
 
 @section('inner-js')
+    <script src="{{ asset('/js/fileUploadInput.js') }}"></script>
     <script>
         // DOCUMENT READY
         function eventHandler() {
 
             // Highlight selected bar
-            $('#material-list table tbody tr').click(function() {
+            $('#material-table tbody tr').click(function() {
                 $(this).addClass('bg-success').siblings().removeClass('bg-success');
 
                 // edit
