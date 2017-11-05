@@ -34,7 +34,7 @@
                 <ul>
                     <li><a href="{{ URL_HOME }}">Home | 最新消息</a></li>
                     <li><a href="{{ URL_PRODUCT }}">Product | 產品</a></li>
-                    <li><a href="{{ URL_SHOP }}">Shop | 商店</a></li>
+                    <li><a href="{{ URL_SHOP }}">Shop | 銷售通路</a></li>
                     <li><a href="{{ URL_ABOUT }}">About | 關於百鐵</a></li>
                 </ul>
             </div>

@@ -1,6 +1,6 @@
 @extends('pages.layout')
 
-@section('title', '關於百鐵 ｜日何百鐵')
+@section('title', '銷售通路 ｜日何百鐵')
 
 @section('inner-css')
 @endsection
