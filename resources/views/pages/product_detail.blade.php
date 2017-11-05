@@ -23,12 +23,38 @@
             </div>
             <div class="col-xs-6">
                 <h1>{{ $product->name }}</h1>
-                <h3>{{ $product->subtitle }}</h3>
+                <h2>{{ $product->subtitle }}</h2>
                 <p>{{ $product->content }}</p>
                 <p>長 : {{ $product->length }}</p>
                 <p>寬 : {{ $product->width }}</p>
                 <p>高 : {{ $product->height }}</p>
+
+                <ul id="product-material-list">
+                    @foreach($product->materialLists as $matList)
+                        <li>
+                            {{ $matList->material->name }}
+                            <img src="{{ IMAGE_URL . $matList->material->image_url }}">
+                        </li>
+                    @endforeach
+                </ul>
             </div>
+        </div>
+
+        <div id="product-else" class="row">
+            <h3>其他產品</h3>
+            @foreach($similarProduct as $catList)
+                <div class="col-xs-4">
+                    <h5>{{ $catList->product->name }}</h5>
+
+                    <a href="{{ URL_PRODUCT . '/' . $catList->product->id }}">
+                        @if($catList->product->materialImages->count() == 0)
+                            <img class="img-thumbnail" src='http://placehold.it/400x400' />
+                        @elseif($catList->product->materialImages->count() >= 1)
+                            <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}' />
+                        @endif
+                    </a>
+                </div>
+            @endforeach
         </div>
 
     </div>

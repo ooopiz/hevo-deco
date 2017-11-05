@@ -25,6 +25,11 @@ class Product extends Model
         return $this->hasMany('App\Eloquent\SeriesList', 'product_id', 'id');
     }
 
+    public function materialLists()
+    {
+        return $this->hasMany('App\Eloquent\MaterialList', 'product_id', 'id');
+    }
+
     public function materialImages()
     {
         return $this->hasMany('App\Eloquent\MaterialImage', 'product_id', 'id');

@@ -38,7 +38,7 @@
                 @foreach($news as $key => $val)
                     <div class="col-md-4 product-item">
                         <img src="{{ IMAGE_URL . $val->image_url }}">
-                        <h4>{{ $val->created_at }}</h4>
+                        <h4>{{ substr($val->created_at , 0 , 10) }}</h4>
                         <p>{{ $val->desc }}</p>
                     </div>
                 @endforeach

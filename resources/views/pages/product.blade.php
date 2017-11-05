@@ -32,7 +32,7 @@
                     <div class="row">
                         @foreach($cat->categoryList as $catList)
                             <div class="col-sm-4">
-                                {{ $catList->product->name }}
+                                <h4>{{ $catList->product->name }}</h4>
 
                                 <a href="{{ URL_PRODUCT . '/' . $catList->product->id }}">
                                 @if($catList->product->materialImages->count() == 0)
@@ -60,7 +60,7 @@
                     <div class="row">
                         @foreach($ser->seriesList as $serList)
                             <div class="col-sm-4">
-                                {{ $serList->product->name }}
+                                <h4>{{ $serList->product->name }}</h4>
 
                                 <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)

@@ -102,3 +102,25 @@ ul, li, p, a {
     border-bottom: 1px solid #ddd;
     margin: 0 0 15px 0;
 }
+
+/*******************************************************************************
+ * Product detail
+ *******************************************************************************/
+#product-material-list li{
+    margin: 5px;
+}
+
+#product-material-list img{
+    width: 35px;
+    height: 35px;
+    border-radius:100px;
+}
+
+#product-else {
+    border-top: 1px solid #ddd;
+    margin-top: 80px;
+}
+
+#product-else h3 {
+    text-align: center;
+}
