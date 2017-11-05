@@ -2,6 +2,9 @@
 
 const IMAGE_URL = '/storage/';
 
+/*
+ * Pages
+ */
 const URL_HOME = '/';
 const URL_PRODUCT = '/product';
 const URL_CATEGORY = '/category';
@@ -9,10 +12,16 @@ const URL_SERIES = '/series';
 const URL_SHOP = '/shop';
 const URL_ABOUT = '/about';
 
+/*
+ *
+ */
 const URL_USER_LOGIN = '/user/login';
 const URL_USER_DO_LOGIN = '/user/do_login';
 const URL_USER_LOGOUT = '/user/logout';
 
+/*
+ *   dashboard
+ */
 const URL_DASHBOARD = '/dashboard';
 
 const URL_DASHBOARD_BANNER = '/dashboard/banner';
@@ -39,6 +48,11 @@ const URL_DASHBOARD_AUTHORITY_PRODUCT = '/dashboard/authority/user';
 const URL_DASHBOARD_AUTHORITY_PRODUCT_EDIT = '/dashboard/authority/user/edit';
 const URL_DASHBOARD_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard/authority/user/do_edit';
 
+const URL_DASHBOARD_PROFILE = '/dashboard/profile';
+
+/*
+ *   API
+ */
 const API_PRODUCT_IMAGES_GET = '/api/product/images/get';
 const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload';
 const API_PRODUCT_IMAGES_DELETE = '/api/product/images/delete';

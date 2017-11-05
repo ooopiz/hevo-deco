@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 abstract class AbstractRepository
 {
     /**
@@ -121,6 +123,16 @@ abstract class AbstractRepository
         } else {
             return $this->model->firstOrCreate($data, $data2);
         }
+    }
+
+    /**
+     * @param $where
+     * @param $set
+     * @return Boolean
+     */
+    public function update($where, $set)
+    {
+        return $this->model->where($where)->update($set);
     }
 
     /**

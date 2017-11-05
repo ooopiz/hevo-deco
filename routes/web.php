@@ -11,6 +11,9 @@
 |
 */
 
+/*
+ * Pages
+ */
 Route::group(['prefix' => '/', 'namespace' => 'Pages'], function() {
     Route::get('/', 'IndexController@index');
     Route::get('product', 'ProductController@index');
@@ -21,12 +24,18 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function() {
     Route::get('about', function() { return view('pages.about'); });
 });
 
+/*
+ *
+ */
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
     Route::get('login', 'LoginController@login');
     Route::post('do_login', 'LoginController@doLogin');
     Route::get('logout', 'LoginController@logout');
 });
 
+/*
+ * Dashboard
+ */
 Route::group([
         'prefix' => 'dashboard',
         'namespace' => 'Dashboard',
@@ -63,4 +72,7 @@ Route::group([
         Route::get('authority/user', 'AuthorityController@index');
         Route::get('authority/user/edit/{id?}', 'AuthorityController@edit')->where(['id' => '[0-9]+']);
         Route::post('authority/user/do_edit', 'AuthorityController@doEdit');
+
+        /* Profile */
+        Route::match(['get', 'post'], 'profile', 'ProfileController@index');
 });

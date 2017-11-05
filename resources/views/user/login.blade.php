@@ -69,15 +69,15 @@
                         <form role="form" method="post" action="{{ URL_USER_DO_LOGIN }}" class="form-horizontal">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label">Account</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus value="admin@xxx.com">
+                                    <input class="form-control" placeholder="Account" name="email" type="text" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Password</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="admin">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" required>
                                 </div>
                             </div>
                             <div class="form-group">
