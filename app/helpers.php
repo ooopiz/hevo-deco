@@ -6,6 +6,7 @@ const URL_HOME = '/';
 const URL_PRODUCT = '/product';
 const URL_CATEGORY = '/category';
 const URL_SERIES = '/series';
+const URL_ABOUT = '/about';
 
 const URL_USER_LOGIN = '/user/login';
 const URL_USER_DO_LOGIN = '/user/do_login';

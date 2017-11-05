@@ -137,3 +137,77 @@ ul, li, p, a {
 #product-else h3 {
     text-align: center;
 }
+
+
+/*******************************************************************************
+ * About
+ *******************************************************************************/
+.intro {
+    display: flex;
+    text-align: center;
+    margin: 2rem 0 5rem 0;
+}
+
+.intro > p {
+    font-size: 2.5rem;
+    padding: 0;
+    line-height: 4.2rem;
+    letter-spacing: 0.1rem;
+}
+
+.intro > span {
+    font-size: 7rem;
+    padding: 0;
+    text-align: left;
+}
+
+.intro > span:first-child {
+    text-align: right;
+}
+
+.brand-banner {
+    margin-bottom: 5rem;
+}
+
+.brand-banner img {
+    width: 100%;
+}
+
+.brand-story img {
+    width: 100%;
+}
+
+.brand-story > .row {
+    margin-bottom: 12rem;
+}
+
+.brand-story > .row:nth-child(2){
+    text-align: right;
+}
+
+.brand-story h2 {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    line-height: 6rem;
+}
+
+.brand-story h4 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.odd-svg {
+    margin-left: 1rem;
+}
+
+.even-svg {
+    margin-right: 1rem;
+}
+
+.brand-story p {
+    font-size: 1.6rem;
+    letter-spacing: 0.3rem;
+    line-height: 2.4rem;
+}
