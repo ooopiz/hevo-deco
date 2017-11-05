@@ -108,7 +108,10 @@ class ProductController extends Controller
                 $similarProduct->push($val);
             }
         } else {
-//            $a = $this->unique_rand(0, $categoryCount-1, 3);
+            $arr = $this->unique_rand(0, $categoryCount-1, 3);
+            foreach($arr as $val) {
+                $similarProduct->push($categoryLists[$val]);
+            }
         }
 
         return view('pages.product_detail', compact('product', 'similarProduct'));

@@ -89,7 +89,7 @@ class ProductController extends Controller
     {
         $condition = array(['id', '>', 0]);
         $products = $this->productsRepository->findAllBy($condition, ['categoryLists', 'seriesLists']);
-        $products = $products->sortByDesc('id');
+//        $products = $products->sortByDesc('id');
 
         foreach($products as $key => $product) {
             foreach($product->categoryLists as $kk => $categoryList){

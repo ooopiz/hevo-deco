@@ -86,16 +86,19 @@ ul, li, p, a {
 }
 
 /*******************************************************************************
- * Global
+ * Home
  *******************************************************************************/
 #home-product-list {
     margin: 30px;
 }
 #home-product-list .product-item {
     padding: 18px;
+    height: 600px;
 }
 #home-product-list .product-item img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .item-header {
