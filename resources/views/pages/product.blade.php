@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="col-sm-9">
+        <div id="product-item-container" class="col-sm-9">
             @foreach($categories as $key => $cat)
                 @if($cat->categoryList->isNotEmpty())
                     <div class="item-header">
@@ -55,7 +55,7 @@
             @foreach($series as $key => $ser)
                 @if($ser->seriesList->isNotEmpty())
                     <div class="item-header">
-                        <h3>{{ $cat->name }}</h3>
+                        <h3>{{ $ser->name }}</h3>
                     </div>
                     <div class="row">
                         @foreach($ser->seriesList as $serList)
