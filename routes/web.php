@@ -17,10 +17,8 @@ Route::group(['prefix' => '/', 'namespace' => 'Pages'], function() {
     Route::get('product/{id?}', 'ProductController@productDetail')->where(['id' => '[0-9]+']);
     Route::get('category/{id?}', 'CategoryController@index')->where(['id' => '[0-9]+']);
     Route::get('series/{id?}', 'SeriesController@index')->where(['id' => '[0-9]+']);
-    Route::get('about', function() {
-        return view('pages.about');
-    });
-
+    Route::get('shop', function() { return view('pages.shop'); });
+    Route::get('about', function() { return view('pages.about'); });
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {

@@ -140,6 +140,44 @@ ul, li, p, a {
 
 
 /*******************************************************************************
+ * Shop
+ *******************************************************************************/
+.shop-info {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+}
+
+.shop-info ul {
+    list-style-type: none;
+    letter-spacing: 0.1rem;
+}
+
+.shop-info h3 {
+    font-size: 5rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+}
+
+.shop-info h6 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.shop-info a {
+    font-size: 3rem;
+    border-bottom: 0.5rem solid #fff;
+}
+
+.shop-info a:hover {
+    color: black;
+    border-bottom: 0.5rem solid #cfd8dc;
+    text-decoration: none;
+}
+
+
+/*******************************************************************************
  * About
  *******************************************************************************/
 .intro {
