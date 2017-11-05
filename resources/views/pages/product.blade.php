@@ -26,9 +26,6 @@
         <div id="product-item-container" class="col-sm-9">
             @foreach($categories as $key => $cat)
                 @if($cat->categoryList->isNotEmpty())
-                    <div class="item-header">
-                        <h3>{{ $cat->name }}</h3>
-                    </div>
                     <div class="row">
                         @foreach($cat->categoryList as $catList)
                             <div class="col-sm-4">
@@ -52,32 +49,6 @@
                 @endif
             @endforeach
 
-            @foreach($series as $key => $ser)
-                @if($ser->seriesList->isNotEmpty())
-                    <div class="item-header">
-                        <h3>{{ $ser->name }}</h3>
-                    </div>
-                    <div class="row">
-                        @foreach($ser->seriesList as $serList)
-                            <div class="col-sm-4">
-                                <h4>{{ $serList->product->name }}</h4>
-
-                                <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
-                                @if($serList->product->materialImages->count() == 0)
-                                    <img class="img-thumbnail" src='http://placehold.it/400x400' />
-                                @elseif($serList->product->materialImages->count() == 1)
-                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}' />
-                                @else
-                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}'
-                                         onmouseout="this.src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}';"
-                                         onmouseover="this.src='{{ IMAGE_URL . $serList->product->materialImages[1]->image_url }}';" />
-                                @endif
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
         </div>
     </div>
 

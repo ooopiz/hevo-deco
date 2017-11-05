@@ -50,19 +50,19 @@ class ProductController extends Controller
         }
 
         // 載入關聯
-        foreach($series as $key => $ser) {
-            $ser->load(['seriesList' => function ($query) {
-                $query->orderBy('product_id', 'asc');
-            }]);
-
-            foreach($ser->seriesList as $k1 => $serList) {
-                $serList->load('product');
-
-                $serList->product->load(['materialImages' => function ($query) {
-                    $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
-                }]);
-            }
-        }
+//        foreach($series as $key => $ser) {
+//            $ser->load(['seriesList' => function ($query) {
+//                $query->orderBy('product_id', 'asc');
+//            }]);
+//
+//            foreach($ser->seriesList as $k1 => $serList) {
+//                $serList->load('product');
+//
+//                $serList->product->load(['materialImages' => function ($query) {
+//                    $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
+//                }]);
+//            }
+//        }
 
         return view('pages.product', compact('categories', 'series'));
     }

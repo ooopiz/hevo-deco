@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Repositories\CategoriesRepository;
+use App\Repositories\SeriesRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,13 +12,18 @@ class CategoryController extends Controller
     /** @var CategoriesRepository */
     private $categoriesRepository;
 
+    /** @var SeriesRepository */
+    private $seriesRepository;
+
     /**
      * CategoryController constructor.
      * @param CategoriesRepository $categoriesRepository
+     * @param SeriesRepository $seriesRepository
      */
-    public function __construct(CategoriesRepository $categoriesRepository)
+    public function __construct(CategoriesRepository $categoriesRepository, SeriesRepository $seriesRepository)
     {
         $this->categoriesRepository = $categoriesRepository;
+        $this->seriesRepository = $seriesRepository;
     }
 
     public function index($id = null)
@@ -26,7 +32,6 @@ class CategoryController extends Controller
         if (is_null($category)) {
             return redirect(URL_PRODUCT);
         }
-
         // load relationship
         $category->load(['categoryList' => function ($query) {
             $query->orderBy('product_id', 'asc');
@@ -39,6 +44,12 @@ class CategoryController extends Controller
             }]);
         }
 
-        return view('pages.category', compact('category'));
+        // left Nav
+        $conditionCategory = array(['id', '>', 0], ['display', '=', 'Y']);
+        $categoryNav = $this->categoriesRepository->findAllBy($conditionCategory);
+        $conditionSeries = array(['id', '>', 0], ['display', '=', 'Y']);
+        $seriesNav = $this->seriesRepository->findAllBy($conditionSeries);
+
+        return view('pages.category', compact('categoryNav', 'seriesNav', 'category'));
     }
 }
