@@ -17,18 +17,18 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('product/images/get', 'DashBoard\ProductController@getImg');
-Route::post('product/images/upload', 'DashBoard\ProductController@uploadImg');
-Route::post('product/images/delete', 'DashBoard\ProductController@deleteImg');
-Route::post('product/images/resort', 'DashBoard\ProductController@resort');
+Route::get('product/images/get', 'Dashboard\ProductController@getImg');
+Route::post('product/images/upload', 'Dashboard\ProductController@uploadImg');
+Route::post('product/images/delete', 'Dashboard\ProductController@deleteImg');
+Route::post('product/images/resort', 'Dashboard\ProductController@resort');
 
-Route::post('banner/do_delete', 'DashBoard\BannerController@doDelete');
-Route::post('hotnews/do_delete', 'DashBoard\HotNewsController@doDelete');
-Route::post('category/do_delete', 'DashBoard\CategoryController@doDelete');
-Route::post('series/do_delete', 'DashBoard\SeriesController@doDelete');
-Route::post('material/do_delete', 'DashBoard\MaterialController@doDelete');
-Route::post('product/do_delete', 'DashBoard\ProductController@doDelete');
+Route::post('banner/do_delete', 'Dashboard\BannerController@doDelete');
+Route::post('hotnews/do_delete', 'Dashboard\HotNewsController@doDelete');
+Route::post('category/do_delete', 'Dashboard\CategoryController@doDelete');
+Route::post('series/do_delete', 'Dashboard\SeriesController@doDelete');
+Route::post('material/do_delete', 'Dashboard\MaterialController@doDelete');
+Route::post('product/do_delete', 'Dashboard\ProductController@doDelete');
 
-Route::post('get/material_list', 'DashBoard\ProductController@getMaterialList');
-Route::post('add/material_list', 'DashBoard\ProductController@addMaterialList');
-Route::post('material/do_delete_by_product', 'DashBoard\ProductController@doDeleteMaterial');
+Route::post('get/material_list', 'Dashboard\ProductController@getMaterialList');
+Route::post('add/material_list', 'Dashboard\ProductController@addMaterialList');
+Route::post('material/do_delete_by_product', 'Dashboard\ProductController@doDeleteMaterial');

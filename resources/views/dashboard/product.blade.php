@@ -446,7 +446,6 @@
                     type: 'POST'
                 }).done(function(resJson) {
                     if (resJson.status === true) {
-                        //TODO delete preview
                         document.querySelector('#material-edit input[name="product_image"]').value = "";
                         removeUpload();
                         refreshMaterialImages(productId, materialId);
