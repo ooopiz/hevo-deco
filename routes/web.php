@@ -74,5 +74,6 @@ Route::group([
         Route::post('authority/user/do_edit', 'AuthorityController@doEdit');
 
         /* Profile */
-        Route::match(['get', 'post'], 'profile', 'ProfileController@index');
+        Route::get('profile', 'ProfileController@index');
+        Route::post('profile/do_password_reset', 'ProfileController@doPasswordReset');
 });

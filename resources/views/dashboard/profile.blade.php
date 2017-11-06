@@ -19,19 +19,27 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
 
-                    @if(isset($result))
-                        <div class="alert {{ $result['css'] }}">
-                            <strong>{{ $result['message'] }}</strong>
+                    @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
                         </div>
                     @endif
-
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">修改密碼</h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form" method="post" action="{{ URL_DASHBOARD_PROFILE }}" class="form-horizontal">
+                            <form role="form" method="post" action="{{ URL_DASHBOARD_PROFILE_DO_PASSWORD_RESET }}" class="form-horizontal">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">Password</label>
@@ -42,7 +50,7 @@
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">Confirm Password</label>
                                     <div class="col-md-6">
-                                        <input class="form-control" placeholder="RePassword" name="repassword" type="password" required>
+                                        <input class="form-control" placeholder="Confirm Password" name="password_confirmation" type="password" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

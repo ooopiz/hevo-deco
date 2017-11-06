@@ -19,30 +19,26 @@ class ProfileController extends Controller
         });
     }
 
-    public function index(Request $request, UsersRepository $usersRepository)
+    public function index()
     {
         $loginUser = $this->loginUser;
-        if ($request->method() == 'GET') {
-            return view('dashboard.profile', compact('loginUser'));
-        }
+        return view('dashboard.profile', compact('loginUser'));
+    }
 
-        $pass = $request->get('password');
-        $repass = $request->get('repassword');
+    public function doPasswordReset(Request $request, UsersRepository $usersRepository)
+    {
+        $validateMessages = array('password.confirmed' => '確認密碼不相符合');
+        $validateRules = array(
+            'password'=>'required|confirmed',
+            'password_confirmation' => 'required'
+        );
+        $request->validate($validateRules, $validateMessages);
 
-        if ($pass == $repass) {
-            $bool =$usersRepository->update([['id', '=', $this->loginUser->id]], ['password' => bcrypt($pass)]);
-            $result['css'] = 'alert-success';
-            $result['message'] = '更改成功';
-            if (!$bool) {
-                $result['css'] = 'alert-danger';
-                $result['message'] = '更新失敗';
-            }
-        } else {
-            $result['css'] = 'alert-danger';
-            $result['message'] = '兩次密碼不符合';
-        }
+        $password = $request->get('password');
+        $bool =$usersRepository->update([['id', '=', $this->loginUser->id]], ['password' => bcrypt($password)]);
 
-        $loginUser = $this->loginUser;
-        return view('dashboard.profile', compact('loginUser', 'result'));
+        $message = $bool ? '修改成功' : '修改失敗';
+
+        return redirect()->back()->with('message', $message);
     }
 }

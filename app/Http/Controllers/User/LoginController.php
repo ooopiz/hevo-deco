@@ -18,6 +18,17 @@ class LoginController extends Controller
 
     public function doLogin(Request $request)
     {
+        $messages = [
+            'email.required' => ':attribute 為必填欄位',
+            'email.email' => ':attribute 格式錯誤',
+            'password.required' => ':attribute 為必填欄位'
+        ];
+        $rules = array(
+            'email'=>'required|email',
+            'password'=>'required',
+        );
+        $request->validate($rules, $messages);
+
         $email = $request->get('email');
         $password = $request->get('password');
         $remember_me = true;
