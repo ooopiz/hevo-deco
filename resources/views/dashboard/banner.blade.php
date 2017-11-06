@@ -60,7 +60,7 @@
 
                         <!-- Picture -->
                         <div class="form-group">
-                            <label>上傳圖片</label>
+                            {{--<label>上傳圖片</label>--}}
                             <div class="file-upload">
                                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
