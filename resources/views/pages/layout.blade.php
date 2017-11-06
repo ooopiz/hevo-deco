@@ -32,10 +32,10 @@
         <nav class="container m-shift">
             <div id="nav-main">
                 <ul>
-                    <li><a href="{{ URL_HOME }}">Home | 最新消息</a></li>
-                    <li><a href="{{ URL_PRODUCT }}">Product | 產品</a></li>
-                    <li><a href="{{ URL_SHOP }}">Shop | 銷售通路</a></li>
-                    <li><a href="{{ URL_ABOUT }}">About | 關於百鐵</a></li>
+                    <li><a id="nav-1" href="{{ URL_HOME }}">Home | 最新消息</a></li>
+                    <li><a id="nav-2" href="{{ URL_PRODUCT }}">Product | 產品</a></li>
+                    <li><a id="nav-3" href="{{ URL_SHOP }}">Shop | 銷售通路</a></li>
+                    <li><a id="nav-4" href="{{ URL_ABOUT }}">About | 關於百鐵</a></li>
                 </ul>
             </div>
         </nav>
@@ -76,9 +76,8 @@
                     <ul>
                         <li>隨時掌握新品訊息</li>
                         <li>
-                            <div class="form-group">
-                                {{--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="請輸入你的e-mail">--}}
-                                {{--<input type="submit" value="確認">--}}
+                            <div class="subscribe">
+                                <button href="#">前往</button>
                             </div>
                         </li>
                     </ul>

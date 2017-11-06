@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div id="home-slide" class="owl-carousel owl-theme">
             @if($banner->isEmpty())
                 <div class="item">
@@ -22,7 +22,9 @@
                 </div>
             @endforeach
         </div>
+</div>
 
+<div class="container">
         <div id="home-product-list">
             <div class="row">
                 @if($news->isEmpty())
@@ -55,6 +57,34 @@
             loop:true,
             margin:10,
             responsive:{ 0:{ items:1 } }
-        })
+        });
+     
+        //顯示當前頁 ok
+        document.getElementById('nav-1').style.borderBottom = "0.5rem solid #b0bec5";
+
+           
+        //固定頂層導覽列 失效待修
+        $(function() {　
+            $(window).load(function() {　　
+                $(window).bind('scroll resize', function() {　　
+                    var $this = $(this);　　
+                    var $this_Top = $this.scrollTop();
+
+                    if ($this_Top > 150) {
+                        $('#nav-main').addClass('top-bar');
+                        $('#nav-main').stop().animate({
+                            top: "20px"
+                        });　　　
+                    }　　　　
+                    if ($this_Top < 150) {
+                        $('#nav-main').removeClass('top-bar');
+                        $('#nav-main').stop().animate({
+                            top: "0px"
+                        });　　　
+                    }　　
+                }).scroll();　
+            });
+        });
+        
     </script>
 @endsection
