@@ -87,6 +87,9 @@
                     {{--<li>--}}
                         {{--<a href="{{ URL_DASHBOARD_AUTHORITY_PRODUCT }}"><i class="fa fa-fw fa-dashboard"></i>權限管理</a>--}}
                     {{--</li>--}}
+                    <li>
+                        <a href="{{ URL_DASHBOARD_ELSE }}"><i class="fa fa-fw fa-cogs"></i>其它</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
