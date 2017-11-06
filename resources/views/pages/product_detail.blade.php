@@ -11,7 +11,21 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-sm-2">
+                <div class="list-group">
+                    @foreach($categoryNav as $key => $val)
+                        <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
+                    @endforeach
+                </div>
+
+                <div class="list-group">
+                    @foreach($seriesNav as $key => $val)
+                        <a href="{{ URL_SERIES . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="col-sm-7">
                 <div class="owl-carousel owl-theme">
                     @if($product->materialImages->count() == 0)
                         <img class="img-thumbnail" src="http://placehold.it/500x500">
@@ -21,22 +35,27 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-xs-6">
-                <h1>{{ $product->name }}</h1>
-                <h2>{{ $product->subtitle }}</h2>
+            <div class="col-sm-3 product-intro">
+                <h1><b>{{ $product->name }}</b></h1>
+                <h3>{{ $product->subtitle }}</h3>
                 <p>{{ $product->content }}</p>
-                <p>長 : {{ $product->length }}</p>
-                <p>寬 : {{ $product->width }}</p>
-                <p>高 : {{ $product->height }}</p>
 
-                <ul id="product-material-list">
+                <div class="textures fade-in">
                     @foreach($product->materialLists as $matList)
-                        <li>
-                            {{ $matList->material->name }}
-                            <img src="{{ IMAGE_URL . $matList->material->image_url }}">
-                        </li>
+                        <a><img src="{{ IMAGE_URL . $matList->material->image_url }}"></a>
                     @endforeach
-                </ul>
+                </div>
+                <div class="dimensions">
+                    <p>長：<span>{{ $product->length }}cm</span></p>
+                    <p>寬：<span>{{ $product->width }}cm</span></p>
+                    <P>高：<span>{{ $product->height }}cm</span></P>
+                    <span>&#9998;</span>
+                </div>
+                <div class="info-customize fade-in">
+                    <p>可接受訂製, 請直接聯繫我們告知需求</p>
+                </div>
+
+                <button>前往購買 / 訂購</button>
             </div>
         </div>
 

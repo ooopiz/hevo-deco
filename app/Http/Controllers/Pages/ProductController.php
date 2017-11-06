@@ -114,7 +114,13 @@ class ProductController extends Controller
             }
         }
 
-        return view('pages.product_detail', compact('product', 'similarProduct'));
+        // left Nav
+        $conditionCategory = array(['id', '>', 0], ['display', '=', 'Y']);
+        $categoryNav = $this->categoriesRepository->findAllBy($conditionCategory);
+        $conditionSeries = array(['id', '>', 0], ['display', '=', 'Y']);
+        $seriesNav = $this->seriesRepository->findAllBy($conditionSeries);
+
+        return view('pages.product_detail', compact('product', 'similarProduct', 'categoryNav', 'seriesNav'));
     }
 
     private function unique_rand($min, $max, $num) {

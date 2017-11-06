@@ -26,12 +26,10 @@
             <div id="series-item-container" class="col-sm-9">
                 <div class="row">
                     @foreach($series->seriesList as $serList)
-                        <div class="col-sm-4">
-                            {{ $serList->product->name }}
-
+                        <div class="col-sm-6 item">
                             <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)
-                                    <img class="img-thumbnail" src='http://placehold.it/400x400' />
+                                    <img class="img-thumbnail" src='http://placehold.it/410x350' />
                                 @elseif($serList->product->materialImages->count() == 1)
                                     <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}' />
                                 @else
@@ -40,7 +38,9 @@
                                          onmouseout="this.src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}';"
                                          onmouseover="this.src='{{ IMAGE_URL . $serList->product->materialImages[1]->image_url }}';" />
                                 @endif
+                                <h4>{{ $serList->product->name }}</h4>
                             </a>
+                            <p>{{ $serList->product->subtitle }}</p>
                         </div>
                     @endforeach
                 </div>
