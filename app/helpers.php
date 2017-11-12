@@ -49,6 +49,10 @@ const URL_DASHBOARD_AUTHORITY_PRODUCT_EDIT = '/dashboard/authority/user/edit';
 const URL_DASHBOARD_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard/authority/user/do_edit';
 
 const URL_DASHBOARD_PROFILE = '/dashboard/profile';
+const URL_DASHBOARD_PROFILE_DO_PASSWORD_RESET = '/dashboard/profile/do_password_reset';
+
+const URL_DASHBOARD_ELSE = '/dashboard/else';
+const URL_DASHBOARD_ELSE_DO_UPDATE = '/dashboard/else/do_update';
 
 /*
  *   API

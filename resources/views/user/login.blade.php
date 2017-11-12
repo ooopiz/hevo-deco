@@ -61,6 +61,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Login</h3>
@@ -71,7 +81,7 @@
                             <div class="form-group">
                                 <label for="email" class="col-md-4 control-label">Account</label>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="Account" name="email" type="text" autofocus required>
+                                    <input class="form-control" placeholder="E-Mail" name="email" type="email" autofocus required>
                                 </div>
                             </div>
                             <div class="form-group">
