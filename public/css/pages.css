@@ -184,7 +184,7 @@ a:hover {
 #product-item-container .item {
     height: 500px;
 }
-
+/* 不確定的
 .item a {
     border-bottom: 0.3rem solid transparent;
 }
@@ -192,7 +192,7 @@ a:hover {
 .item a:hover {
     text-decoration: none;
     border-bottom: 0.3rem solid #b0bec5;
-}
+}*/
 
 #category-item-container .img-thumbnail {
     height: 350px;
@@ -221,11 +221,11 @@ a:hover {
     height: 500px;
 }
 
-.img-thumbnail h4{
+.item h4{
     margin-top: 1.7rem;
 }
 
-.img-thumbnail h4:hover{
+.item h4:hover{
     text-decoration: none;
 }
 

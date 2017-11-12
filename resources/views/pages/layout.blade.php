@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +13,28 @@
     <meta property="og:description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.我們選擇賦予熟悉的鐵材嶄新功能,結合多種樣貌.天天能使用且人人可擁有,在日常中發掘鐵之優美.">
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-
     <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
     <link href="{{ asset('/css/pages.css') }}" rel="stylesheet">
-@yield('inner-css')
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109562241-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109562241-1');
+    </script>
+
+    @yield('inner-css')
 
 </head>
+
 <body>
     <div class="page-wrapper">
         <header class="container">
@@ -41,7 +55,7 @@
         </nav>
 
         <div class="main-body">
-@yield('content')
+            @yield('content')
         </div>
 
         <footer class="container">
@@ -86,11 +100,13 @@
         </footer>
     </div>
 
-    {{--<script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
+    {{--
+    <script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
 
-@yield('inner-js')
+    @yield('inner-js')
 
 </body>
+
 </html>
