@@ -1,18 +1,31 @@
 /*******************************************************************************
  * Global
  *******************************************************************************/
-header, footer {
+
+header,
+footer {
     margin: 5em;
 }
+
 nav {
     margin: 2em;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Din, Noto Sans TC, sans-serif;
     font-weight: bold;
     letter-spacing: 0.1rem;
 }
-ul, li, p, a {
+
+ul,
+li,
+p,
+a {
     font-family: Din, Noto Sans TC, sans-serif;
     letter-spacing: 0.1rem;
     font-weight: lighter;
@@ -31,42 +44,46 @@ a:hover {
 /*******************************************************************************
  * header
  *******************************************************************************/
+
 #nav-main {
     border-bottom: 1px solid #ddd;
     padding: 24px;
 }
+
 #nav-main ul {
     display: flex;
     justify-content: space-around;
     font-weight: lighter;
 }
+
 #nav-main ul li {
     padding: 0 50px 0 0;
     display: block;
 }
 
-#nav-main a{
+#nav-main a {
     letter-spacing: 0.3rem;
     margin-right: 2rem;
-    border-bottom: 0.5rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
     padding-bottom: 0.5rem;
 }
 
 #nav-main a:hover {
     background-color: transparent !important;
-    border-bottom: 0.5rem dotted #b0bec5;
+    border-bottom: 0.3rem dashed #b0bec5;
     text-decoration: none;
 }
- 
+
 
 #header {
     text-align: center;
 }
+
 #header .logo {
-    width : 150px;
+    width: 150px;
 }
 
-.top-bar{
+.top-bar {
     width: 90%;
     left: 5%;
     position: fixed;
@@ -81,21 +98,24 @@ a:hover {
     border-top: 1px solid #ddd;
     padding: 0 36px 0 36px;
 }
+
 #footer .footer-item {
     text-align: center;
     margin-top: 1.2rem;
-    
+
 }
-#footer .footer-item ul{
+
+#footer .footer-item ul {
     padding: 0;
 }
+
 #footer .footer-item ul li {
     display: block;
     margin-bottom: 0.5rem;
     letter-spacing: 0.2rem;
 }
 
-#footer h4{
+#footer h4 {
     margin-bottom: 1.2rem;
 }
 
@@ -109,7 +129,7 @@ a:hover {
 
 }
 
-.subscribe button{
+.subscribe button {
     margin-top: 0.5rem;
     padding: 0.5rem 2rem;
     background-color: #ced7db;
@@ -126,17 +146,20 @@ a:hover {
 /*******************************************************************************
  * Home
  *******************************************************************************/
-#home-slide{
-   padding: 0 5%;
+
+#home-slide {
+    padding: 0 5%;
 }
 
 #home-product-list {
     margin: 30px;
 }
+
 #home-product-list .product-item {
     padding: 18px;
     height: 600px;
 }
+
 #home-product-list .product-item img {
     width: 100%;
     height: 300px;
@@ -152,6 +175,7 @@ a:hover {
 /*******************************************************************************
  * Product
  *******************************************************************************/
+
 #product-item-container .img-thumbnail {
     height: 350px;
     object-fit: cover;
@@ -161,13 +185,20 @@ a:hover {
     height: 500px;
 }
 
+.item a {
+    border-bottom: 0.3rem solid transparent;
+}
 
-/*******************************************************************************
- * Category
- *******************************************************************************/
+.item a:hover {
+    text-decoration: none;
+    border-bottom: 0.3rem solid #b0bec5;
+}
+
 #category-item-container .img-thumbnail {
     height: 350px;
     object-fit: cover;
+    padding: 0;
+    border-radius: 0;
 }
 
 #category-item-container .item {
@@ -179,30 +210,73 @@ a:hover {
     color: black;
 }
 
-/*******************************************************************************
- * Series
- *******************************************************************************/
 #series-item-container .img-thumbnail {
     height: 350px;
     object-fit: cover;
+    padding: 0;
+    border-radius: 0;
 }
 
 #series-item-container .item {
     height: 500px;
 }
 
+.img-thumbnail h4{
+    margin-top: 1.7rem;
+}
+
+.img-thumbnail h4:hover{
+    text-decoration: none;
+}
+
+.item p{
+    margin-top: -0.6rem;
+}
+
+.product-types {
+    margin-left: -2rem;
+    padding: 0;
+    width: 20rem;
+    font-size: 1.3rem;
+}
+
+.product-types > a {
+    padding: 1rem 0.5rem;
+    transition: 0.6s;
+
+}
+
+.product-types > a:hover {
+    background-color: #eceff1;
+    border-radius: 0;
+}
+
+.divide-line {
+    width: 90%;
+    border-top: 1px dashed #ced7db;
+    margin-left: -1.2rem;
+}
+
+
 
 /*******************************************************************************
  * Product detail
  *******************************************************************************/
+
 /*#product-material-list li{*/
-    /*margin: 5px;*/
+
+/*margin: 5px;*/
+
 /*}*/
 
 /*#product-material-list img{*/
-    /*width: 35px;*/
-    /*height: 35px;*/
-    /*border-radius:100px;*/
+
+/*width: 35px;*/
+
+/*height: 35px;*/
+
+/*border-radius:100px;*/
+
 /*}*/
 
 #product-else {
@@ -215,20 +289,27 @@ a:hover {
 }
 
 /*---右半介紹文字區---*/
+
 /*.product-intro {*/
-    /*margin-left: 1rem;*/
-    /*letter-spacing: 0.1rem;*/
+
+/*margin-left: 1rem;*/
+
+/*letter-spacing: 0.1rem;*/
+
 /*}*/
 
 .product-intro > h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-top: 1.2rem;
     margin-bottom: -1rem;
+    width: 30rem;
 }
 
 .product-intro > h3 {
     margin-bottom: 2rem;
     letter-spacing: 0.3rem;
+    font-size: 2rem;
+    width: 30rem;
 }
 
 .product-intro > p {
@@ -256,7 +337,7 @@ a:hover {
 .textures > a > img {
     width: 50px;
     height: 50px;
-    border-radius:100px;
+    border-radius: 100px;
     margin-right: 20px;
 }
 
@@ -306,6 +387,7 @@ a:hover {
 /*******************************************************************************
  * Shop
  *******************************************************************************/
+
 .shop-info {
     margin-top: 5rem;
     margin-bottom: 5rem;
@@ -344,6 +426,7 @@ a:hover {
 /*******************************************************************************
  * About
  *******************************************************************************/
+
 .intro {
     display: flex;
     text-align: center;
@@ -383,7 +466,7 @@ a:hover {
     margin-bottom: 12rem;
 }
 
-.brand-story > .row:nth-child(2){
+.brand-story > .row:nth-child(2) {
     text-align: right;
 }
 
@@ -417,14 +500,15 @@ a:hover {
 /*--------RWD--------*/
 
 @media (max-width: 768px) {
-    #header{
+    #header {
         /*margin-top: 30px;*/
     }
     #nav-main {
         border-bottom: 1px solid #ddd;
-        padding: 12px 0 12px 0;;
+        padding: 12px 0 12px 0;
+        ;
     }
-    .m-shift{
+    .m-shift {
         position: fixed;
         top: 0;
         left: 0;
@@ -435,7 +519,7 @@ a:hover {
         background-color: #fff;
         z-index: 999;
     }
-    .m-shift div{
+    .m-shift div {
         width: 100%;
         padding: 12px;
     }

@@ -31,8 +31,8 @@
                     @for($i=1; $i<=6; $i++)
                         <div class="col-md-4 product-item">
                             <img src="http://placehold.it/340x340">
-                            <h4>2017-10-31</h4>
-                            <p>Description...................</p>
+                            <h4>0000-00-00</h4>
+                            <p>Description............</p>
                         </div>
                     @endfor
                 @endif
@@ -60,7 +60,7 @@
         });
      
         //顯示當前頁 ok
-        document.getElementById('nav-1').style.borderBottom = "0.5rem solid #b0bec5";
+        document.getElementById('nav-1').style.borderBottom = "0.4rem solid #b0bec5";
 
            
         //固定頂層導覽列 失效待修
