@@ -54,6 +54,43 @@ const URL_DASHBOARD_PROFILE_DO_PASSWORD_RESET = '/dashboard/profile/do_password_
 const URL_DASHBOARD_ELSE = '/dashboard/else';
 const URL_DASHBOARD_ELSE_DO_UPDATE = '/dashboard/else/do_update';
 
+
+/*
+ *   dashboard2
+ */
+//const URL_DASHBOARD2 = '/dashboard2';
+
+const URL_DASHBOARD2_BANNER = '/dashboard2/banner';
+//const URL_DASHBOARD2_BANNER_DO_EDIT = '/dashboard2/banner/do_edit';
+
+const URL_DASHBOARD2_HOTNEWS = '/dashboard2/hotnews';
+//const URL_DASHBOARD2_HOTNEWS_DO_EDIT = '/dashboard2/hotnews/do_edit';
+
+const URL_DASHBOARD2_CATEGORY = '/dashboard2/category';
+//const URL_DASHBOARD2_CATEGORY_DO_EDIT = '/dashboard2/category/do_edit';
+
+const URL_DASHBOARD2_SERIES = '/dashboard2/series';
+//const URL_DASHBOARD2_SERIES_DO_EDIT = '/dashboard2/series/do_edit';
+
+const URL_DASHBOARD2_MATERIAL = '/dashboard2/material';
+//const URL_DASHBOARD2_MATERIAL_EDIT = '/dashboard2/material/edit';
+//const URL_DASHBOARD2_MATERIAL_DO_EDIT = '/dashboard2/material/do_edit';
+
+const URL_DASHBOARD2_PRODUCT = '/dashboard2/product';
+//const URL_DASHBOARD2_PRODUCT_DO_EDIT = '/dashboard2/product/do_edit';
+//const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
+
+//const URL_DASHBOARD2_AUTHORITY_PRODUCT = '/dashboard2/authority/user';
+//const URL_DASHBOARD2_AUTHORITY_PRODUCT_EDIT = '/dashboard2/authority/user/edit';
+//const URL_DASHBOARD2_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard2/authority/user/do_edit';
+
+//const URL_DASHBOARD2_PROFILE = '/dashboard2/profile';
+//const URL_DASHBOARD2_PROFILE_DO_PASSWORD_RESET = '/dashboard2/profile/do_password_reset';
+
+//const URL_DASHBOARD2_ELSE = '/dashboard2/else';
+//const URL_DASHBOARD2_ELSE_DO_UPDATE = '/dashboard2/else/do_update';
+
+
 /*
  *   API
  */
