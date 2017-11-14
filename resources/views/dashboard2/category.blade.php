@@ -36,8 +36,10 @@
                                 <td>{{ $commonPresenter->yesNo($val->display) }}</td>
                                 <td>{{ $val->desc }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
-                                    <button type="button" class="btn btn-sm btn-default"><i class="fa fa-remove"></i></button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-remove"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

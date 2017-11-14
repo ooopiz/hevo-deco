@@ -68,8 +68,10 @@
                                 <td>{{ $commonPresenter->yesNo($val->active) }}</td>
                                 <td>{{ $val->content }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-default" onclick="javascript:location.href='{{ URL_DASHBOARD2_PRODUCT . '/' . $val->id }}';"><i class="fa fa-edit"></i></button>
-                                    <button type="button" class="btn btn-sm btn-default" onclick="productDel(this);"><i class="fa fa-remove"></i></button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default" onclick="javascript:location.href='{{ URL_DASHBOARD2_PRODUCT . '/' . $val->id }}';"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default" onclick="productDel(this);"><i class="fa fa-remove"></i></button>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

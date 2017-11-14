@@ -42,8 +42,8 @@
                                 @endif
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
-                                        <button type="button" class="btn btn-sm btn-default"><i class="fa fa-remove"></i></button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-remove"></i></button>
                                     </div>
                                 </td>
                             </tr>
