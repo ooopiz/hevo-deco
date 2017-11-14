@@ -4,7 +4,7 @@ namespace App\Presenter;
 
 class CommonPresenter
 {
-    public function YesNo($option = '')
+    public function yesNo($option = '')
     {
         switch ($option){
             case 'Y' :
@@ -16,5 +16,13 @@ class CommonPresenter
             default :
                 return 'unDefine';
         }
+    }
+
+    public function yesNoOptions()
+    {
+        return array(
+            'Y' => '是',
+            'N' => '否'
+        );
     }
 }

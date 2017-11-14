@@ -24,7 +24,7 @@
                             <th>系列名稱</th>
                             <th>顯示</th>
                             <th>描述</th>
-                            <th width="100px">option</th>
+                            <th>option</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -33,11 +33,11 @@
                                 <td>{{ $val->id }}</td>
                                 <td>{{ 'SER' . str_pad($val->id, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $val->name }}</td>
-                                <td>{{ $commonPresenter->YesNo($val->display) }}</td>
+                                <td>{{ $commonPresenter->yesNo($val->display) }}</td>
                                 <td>{{ $val->desc }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-edit"></i></button>
-                                    <button type="button" class="btn btn-default"><i class="fa fa-remove"></i></button>
+                                    <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                                    <button type="button" class="btn btn-sm btn-default"><i class="fa fa-remove"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -55,4 +55,16 @@
 @endsection
 
 @section('inner-js')
+    <script>
+        $(function () {
+            $('#series-table').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            });
+        })
+    </script>
 @endsection

@@ -29,6 +29,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+    <link rel="stylesheet" href="/dist/datatables.net/dataTables.bootstrap.min.css">
     @yield('inner-css')
 </head>
 <!--
@@ -257,24 +258,24 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
+                <li class="treeview active">
+                    <a href="#"><i class="fa fa-link"></i> <span>網站設定</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ URL_DASHBOARD2_BANNER }}"><i class="fa fa-link"></i> <span>Banner</span></a></li>
+                        <li><a href="{{ URL_DASHBOARD2_HOTNEWS }}"><i class="fa fa-link"></i> <span>最新消息</span></a></li>
+                    </ul>
+                </li>
                 {{--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Index</span></a></li>--}}
-                <li><a href="{{ URL_DASHBOARD2_BANNER }}"><i class="fa fa-link"></i> <span>Banner</span></a></li>
-                <li><a href="{{ URL_DASHBOARD2_HOTNEWS }}"><i class="fa fa-link"></i> <span>最新消息</span></a></li>
+
                 <li><a href="{{ URL_DASHBOARD2_CATEGORY }}"><i class="fa fa-link"></i> <span>類別管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_SERIES }}"><i class="fa fa-link"></i> <span>系列管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_MATERIAL }}"><i class="fa fa-link"></i> <span>材質管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_PRODUCT }}"><i class="fa fa-link"></i> <span>產品管理</span></a></li>
-                {{--<li class="treeview">--}}
-                {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
-                {{--<span class="pull-right-container">--}}
-                {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                {{--</span>--}}
-                {{--</a>--}}
-                {{--<ul class="treeview-menu">--}}
-                {{--<li><a href="#">Link in level 2</a></li>--}}
-                {{--<li><a href="#">Link in level 2</a></li>--}}
-                {{--</ul>--}}
-                {{--</li>--}}
+
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -405,6 +406,9 @@ desired effect
 <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/adminlte/js/adminlte.min.js"></script>
+
+<script src="/dist/datatables.net/jquery.dataTables.min.js"></script>
+<script src="/dist/datatables.net/dataTables.bootstrap.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

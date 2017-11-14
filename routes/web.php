@@ -116,6 +116,10 @@ Route::group([
 
         /* Product */
         Route::get('product', 'ProductController@index');
+        Route::get('product/new', 'ProductController@newProduct');
+        Route::get('product/{id?}', 'ProductController@product')->where(['id' => '[0-9]+']);
+        Route::post('product/do_save', 'ProductController@doSaveProduct');
+        Route::post('product/do_del', 'ProductController@doDelProduct');
 //        Route::post('product/do_edit', 'ProductController@doEdit');
 
         /* Authority */

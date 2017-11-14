@@ -77,7 +77,9 @@ const URL_DASHBOARD2_MATERIAL = '/dashboard2/material';
 //const URL_DASHBOARD2_MATERIAL_DO_EDIT = '/dashboard2/material/do_edit';
 
 const URL_DASHBOARD2_PRODUCT = '/dashboard2/product';
-//const URL_DASHBOARD2_PRODUCT_DO_EDIT = '/dashboard2/product/do_edit';
+const URL_DASHBOARD2_PRODUCT_NEW = '/dashboard2/product/new';
+const URL_DASHBOARD2_PRODUCT_DO_SAVE = '/dashboard2/product/do_save';
+const URL_DASHBOARD2_PRODUCT_DO_DEL = '/dashboard2/product/do_del';
 //const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
 
 //const URL_DASHBOARD2_AUTHORITY_PRODUCT = '/dashboard2/authority/user';

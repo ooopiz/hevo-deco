@@ -26,7 +26,7 @@
                             <th>No</th>
                             <th>Banner Url</th>
                             <th>Banner Image</th>
-                            <th width="100px">option</th>
+                            <th>option</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,8 +42,8 @@
                                 @endif
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default"><i class="fa fa-edit"></i></button>
-                                        <button type="button" class="btn btn-default"><i class="fa fa-remove"></i></button>
+                                        <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-sm btn-default"><i class="fa fa-remove"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -62,4 +62,17 @@
 @endsection
 
 @section('inner-js')
+    <script>
+        $(function () {
+            $('#banner-table').DataTable({
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : false,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            });
+
+        })
+    </script>
 @endsection
