@@ -114,14 +114,16 @@
                 'paging'      : true,
                 'lengthChange': false,
                 'searching'   : false,
-                'ordering'    : true,
+                'ordering'    : false,
                 'info'        : false,
                 'autoWidth'   : false,
+                //"scrollX"     : true,
                 'columnDefs': [
                     {targets: [0], className: 'hide_column'},
-                    {targets: [1], width: '50px'},
+                    {targets: [1], width: '60px'},
+                    {targets: [4, 5, 6, 11, 12], width: '30'},
                     {targets: [7,9], className: 'hide_column'},
-                    {targets: [13], width: '100px'}
+                    {targets: [14], width: '100px'}
                 ]
             });
         })
