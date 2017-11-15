@@ -97,7 +97,7 @@ Route::group([
         /* Bannner */
         Route::get('banner', 'BannerController@index');
         Route::post('banner/do_del', 'BannerController@doDelBanner');
-//        Route::post('banner/do_edit', 'BannerController@doEdit');
+        Route::post('banner/do_save', 'BannerController@doSaveBanner');
 
         /* HotNews */
         Route::get('hotnews', 'HotNewsController@index');

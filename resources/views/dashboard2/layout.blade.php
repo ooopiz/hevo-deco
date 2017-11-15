@@ -417,6 +417,7 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
+<script src="{{ asset('/js/fileUploadInput.js') }}"></script>
 @yield('inner-js')
 </body>
 </html>

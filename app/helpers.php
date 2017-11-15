@@ -62,7 +62,7 @@ const URL_DASHBOARD_ELSE_DO_UPDATE = '/dashboard/else/do_update';
 
 const URL_DASHBOARD2_BANNER = '/dashboard2/banner';
 const URL_DASHBOARD2_BANNER_DO_DEL = '/dashboard2/banner/do_del';
-//const URL_DASHBOARD2_BANNER_DO_EDIT = '/dashboard2/banner/do_edit';
+const URL_DASHBOARD2_BANNER_DO_SAVE = '/dashboard2/banner/do_save';
 
 const URL_DASHBOARD2_HOTNEWS = '/dashboard2/hotnews';
 //const URL_DASHBOARD2_HOTNEWS_DO_EDIT = '/dashboard2/hotnews/do_edit';

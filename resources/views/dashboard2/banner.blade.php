@@ -39,7 +39,7 @@
                                 @endif
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default" onclick="bannerUpload(this);"><i class="fa fa-edit"></i></button>
                                         <button type="button" class="btn btn-default" onclick="bannerDel(this);"><i class="fa fa-remove"></i></button>
                                     </div>
                                 </td>
@@ -61,10 +61,59 @@
         <input type="hidden" name="no" value="">
     </form>
 
+    <div class="modal fade" id="banner-upload">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">BANNER 影像上傳</h4>
+                </div>
+
+                <form role="form" method="post" action="{{ URL_DASHBOARD2_BANNER_DO_SAVE }}" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="file-upload">
+                                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                                <div class="image-upload-wrap">
+                                    <input name="banner_image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/jpg,image/jpeg" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content">
+                                    <img class="file-upload-image" src="#" alt="your image" />
+                                    <div class="image-title-wrap">
+                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="no" value="">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('inner-js')
     <script>
+        var bannerUpload = function(el) {
+            var rowTr = $(el).closest("tr");
+            var bannerNo = rowTr.find('td[headers="no"]').text();
+
+            $('#banner-upload').find('input[name="no"]').val(bannerNo);
+            $('#banner-upload').modal('show');
+        };
+
         var bannerDel = function(el) {
             var rowTr = $(el).closest("tr");
             var bannerNo = rowTr.find('td[headers="no"]').text();
@@ -85,7 +134,6 @@
             $('#modal-object').find('.modal-body p').text(message);
             $('#modal-object').modal('show');
         };
-
         $('#modal-object #modal-confirm').on('click', function() {
             document.querySelector('#del-banner').submit();
         });
