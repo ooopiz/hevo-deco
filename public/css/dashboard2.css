@@ -7,6 +7,9 @@ table .hide_column {
 #banner-table img{
     height: 50px;
 }
+#news-table img {
+    height: 50px;
+}
 
 /*******************************************************************************
  * File upload input

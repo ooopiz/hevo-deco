@@ -101,7 +101,8 @@ Route::group([
 
         /* HotNews */
         Route::get('hotnews', 'HotNewsController@index');
-//        Route::post('hotnews/do_edit', 'HotNewsController@doEdit');
+        Route::post('hotnews/do_del', 'HotNewsController@doDelNews');
+        Route::post('hotnews/do_save', 'HotNewsController@doSaveNews');
 
         /* Categroies */
         Route::get('category', 'CategoryController@index');

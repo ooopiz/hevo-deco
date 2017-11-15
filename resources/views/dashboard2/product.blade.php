@@ -14,7 +14,7 @@
 
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Hover Data Table</h3>
+                    <h3 class="box-title">產品列表</h3>
 
                     <div class="pull-right box-tools">
                         <a href="{{ URL_DASHBOARD2_PRODUCT_NEW }}">

@@ -65,7 +65,8 @@ const URL_DASHBOARD2_BANNER_DO_DEL = '/dashboard2/banner/do_del';
 const URL_DASHBOARD2_BANNER_DO_SAVE = '/dashboard2/banner/do_save';
 
 const URL_DASHBOARD2_HOTNEWS = '/dashboard2/hotnews';
-//const URL_DASHBOARD2_HOTNEWS_DO_EDIT = '/dashboard2/hotnews/do_edit';
+const URL_DASHBOARD2_HOTNEWS_DO_DEL = '/dashboard2/hotnews/do_del';
+const URL_DASHBOARD2_HOTNEWS_DO_SAVE = '/dashboard2/hotnews/do_save';
 
 const URL_DASHBOARD2_CATEGORY = '/dashboard2/category';
 //const URL_DASHBOARD2_CATEGORY_DO_EDIT = '/dashboard2/category/do_edit';

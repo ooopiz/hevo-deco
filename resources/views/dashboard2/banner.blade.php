@@ -13,7 +13,7 @@
 
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Hover Data Table</h3>
+                    <h3 class="box-title">輪播大圖列表</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -56,12 +56,12 @@
         </div>
     </div>
 
-    <form id="del-banner" method="post" action="{{ URL_DASHBOARD2_BANNER_DO_DEL }}">
+    <form id="del-banner" method="post" action="{{ URL_DASHBOARD2_BANNER_DO_DEL }}" style="display: none">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="no" value="">
     </form>
 
-    <div class="modal fade" id="banner-upload">
+    <div id="banner-upload" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
