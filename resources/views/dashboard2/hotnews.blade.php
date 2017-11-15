@@ -125,6 +125,7 @@
             $('#edit-news').find('textarea[name="desc"]').val('');
             $('#edit-news').find('input[name="image"]').prop('required', true);
             $('#edit-news').modal('show');
+            removeUpload();
         };
         var newsEdit = function(el) {
             var rowTr = $(el).closest("tr");
