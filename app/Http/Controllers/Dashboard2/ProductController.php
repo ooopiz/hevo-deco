@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Dashboard2;
 
 use App\Repositories\CategoryListsRepository;
+use App\Repositories\MaterialImagesRepository;
+use App\Repositories\MaterialListsRepository;
 use App\Repositories\ProductsRepository;
 use App\Repositories\SeriesListsRepository;
+use App\Services\ImageManageService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,14 +22,24 @@ class ProductController extends Controller
     /** @var SeriesListsRepository */
     private $seriesListsRepository;
 
+    /** @var MaterialListsRepository */
+    private $materialListsRepository;
+
+    /** @var MaterialImagesRepository */
+    private $materialImagesRepository;
+
     public function __construct(
         ProductsRepository $productsRepository,
         CategoryListsRepository $categoryListsRepository,
-        SeriesListsRepository $seriesListsRepository)
+        SeriesListsRepository $seriesListsRepository,
+        MaterialListsRepository $materialListsRepository,
+        MaterialImagesRepository $materialImagesRepository)
     {
         $this->productsRepository = $productsRepository;
         $this->categoryListsRepository = $categoryListsRepository;
         $this->seriesListsRepository = $seriesListsRepository;
+        $this->materialListsRepository = $materialListsRepository;
+        $this->materialImagesRepository = $materialImagesRepository;
     }
 
     public function index()
@@ -111,7 +124,7 @@ class ProductController extends Controller
             ->with('message', array('class' => 'alert-success', 'content' => '儲存成功'));
     }
 
-    public function doDelProduct(Request $request)
+    public function doDelProduct(Request $request, ImageManageService $imageManageService)
     {
         $validateRules = array(
             'id'=>'required'
@@ -122,10 +135,15 @@ class ProductController extends Controller
 
         //TODO
         // 1. transaction
-        // 2. del images
-        $bool = $this->productsRepository->delete(['id' => $productId]);
+        $this->productsRepository->delete(['id' => $productId]);
         $this->categoryListsRepository->delete(['product_id' => $productId]);
         $this->seriesListsRepository->delete(['product_id' => $productId]);
+        $this->materialListsRepository->delete(['product_id' => $productId]);
+        $materialImages = $this->materialImagesRepository->findAllBy(['product_id' => $productId]);
+        $this->materialImagesRepository->delete(['product_id' => $productId]);
+        foreach ($materialImages as $materialImage) {
+            $imageManageService->delProductImage($materialImage->image_url);
+        }
 
         return redirect(URL_DASHBOARD2_PRODUCT)
             ->with('message', array('class' => 'alert-success', 'content' => '刪除成功'));
