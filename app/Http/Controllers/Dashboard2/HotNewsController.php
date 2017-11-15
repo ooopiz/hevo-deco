@@ -75,7 +75,8 @@ class HotNewsController extends Controller
             }
         }
 
-        return redirect(URL_DASHBOARD2_HOTNEWS);
+        return redirect(URL_DASHBOARD2_HOTNEWS)
+            ->with('message', array('class' => 'alert-success', 'content' => '存檔成功'));
     }
 
     public function doDelNews(Request $request, ImageManageService $imageManageService)

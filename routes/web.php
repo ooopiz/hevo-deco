@@ -94,7 +94,7 @@ Route::group([
     function() {
 //        Route::get('/', 'IndexController@index');
 
-        /* Bannner */
+        /* Banner */
         Route::get('banner', 'BannerController@index');
         Route::post('banner/do_del', 'BannerController@doDelBanner');
         Route::post('banner/do_save', 'BannerController@doSaveBanner');
@@ -104,17 +104,20 @@ Route::group([
         Route::post('hotnews/do_del', 'HotNewsController@doDelNews');
         Route::post('hotnews/do_save', 'HotNewsController@doSaveNews');
 
-        /* Categroies */
+        /* Categories */
         Route::get('category', 'CategoryController@index');
-//        Route::post('category/do_edit', 'CategoryController@doEdit');
+        Route::post('category/do_del', 'CategoryController@doDelCategory');
+        Route::post('category/do_save', 'CategoryController@doSaveCategory');
 
         /* Series */
         Route::get('series', 'SeriesController@index');
-//        Route::post('series/do_edit', 'SeriesController@doEdit');
+        Route::post('series/do_del', 'SeriesController@doDelSeries');
+        Route::post('series/do_save', 'SeriesController@doSaveSeries');
 
         /* Material */
         Route::get('material', 'MaterialController@index');
-//        Route::post('material/do_edit', 'MaterialController@doEdit');
+        Route::post('material/do_del', 'MaterialController@doDelMaterial');
+        Route::post('material/do_save', 'MaterialController@doSaveMaterial');
 
         /* Product */
         Route::get('product', 'ProductController@index');

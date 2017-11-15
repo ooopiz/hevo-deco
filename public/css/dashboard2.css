@@ -10,6 +10,9 @@ table .hide_column {
 #news-table img {
     height: 50px;
 }
+#material-table img {
+    height: 50px;
+}
 
 /*******************************************************************************
  * File upload input

@@ -69,24 +69,22 @@ const URL_DASHBOARD2_HOTNEWS_DO_DEL = '/dashboard2/hotnews/do_del';
 const URL_DASHBOARD2_HOTNEWS_DO_SAVE = '/dashboard2/hotnews/do_save';
 
 const URL_DASHBOARD2_CATEGORY = '/dashboard2/category';
-//const URL_DASHBOARD2_CATEGORY_DO_EDIT = '/dashboard2/category/do_edit';
+const URL_DASHBOARD2_CATEGORY_DO_DEL = '/dashboard2/category/do_del';
+const URL_DASHBOARD2_CATEGORY_DO_SAVE = '/dashboard2/category/do_save';
 
 const URL_DASHBOARD2_SERIES = '/dashboard2/series';
-//const URL_DASHBOARD2_SERIES_DO_EDIT = '/dashboard2/series/do_edit';
+const URL_DASHBOARD2_SERIES_DO_DEL = '/dashboard2/series/do_del';
+const URL_DASHBOARD2_SERIES_DO_SAVE = '/dashboard2/series/do_save';
 
 const URL_DASHBOARD2_MATERIAL = '/dashboard2/material';
-//const URL_DASHBOARD2_MATERIAL_EDIT = '/dashboard2/material/edit';
-//const URL_DASHBOARD2_MATERIAL_DO_EDIT = '/dashboard2/material/do_edit';
+const URL_DASHBOARD2_MATERIAL_DO_DEL = '/dashboard2/material/do_del';
+const URL_DASHBOARD2_MATERIAL_DO_SAVE = '/dashboard2/material/do_save';
 
 const URL_DASHBOARD2_PRODUCT = '/dashboard2/product';
 const URL_DASHBOARD2_PRODUCT_NEW = '/dashboard2/product/new';
 const URL_DASHBOARD2_PRODUCT_DO_SAVE = '/dashboard2/product/do_save';
 const URL_DASHBOARD2_PRODUCT_DO_DEL = '/dashboard2/product/do_del';
 //const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
-
-//const URL_DASHBOARD2_AUTHORITY_PRODUCT = '/dashboard2/authority/user';
-//const URL_DASHBOARD2_AUTHORITY_PRODUCT_EDIT = '/dashboard2/authority/user/edit';
-//const URL_DASHBOARD2_AUTHORITY_PRODUCT_DO_EDIT = '/dashboard2/authority/user/do_edit';
 
 //const URL_DASHBOARD2_PROFILE = '/dashboard2/profile';
 //const URL_DASHBOARD2_PROFILE_DO_PASSWORD_RESET = '/dashboard2/profile/do_password_reset';
