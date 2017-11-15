@@ -127,14 +127,9 @@ Route::group([
         Route::post('product/do_del', 'ProductController@doDelProduct');
 //        Route::post('product/do_edit', 'ProductController@doEdit');
 
-        /* Authority */
-//        Route::get('authority/user', 'AuthorityController@index');
-//        Route::get('authority/user/edit/{id?}', 'AuthorityController@edit')->where(['id' => '[0-9]+']);
-//        Route::post('authority/user/do_edit', 'AuthorityController@doEdit');
-
         /* Profile */
-//        Route::get('profile', 'ProfileController@index');
-//        Route::post('profile/do_password_reset', 'ProfileController@doPasswordReset');
+        Route::get('profile', 'ProfileController@index');
+        Route::post('profile/do_password_reset', 'ProfileController@doPasswordReset');
 
         /* Else */
         Route::get('else', 'ElseController@index');
