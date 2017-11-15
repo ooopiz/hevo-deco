@@ -137,6 +137,6 @@ Route::group([
 //        Route::post('profile/do_password_reset', 'ProfileController@doPasswordReset');
 
         /* Else */
-//        Route::get('else', 'ElseController@index');
-//        Route::post('else/do_update', 'ElseController@doUpdate');
+        Route::get('else', 'ElseController@index');
+        Route::post('else/do_update', 'ElseController@doUpdate');
     });

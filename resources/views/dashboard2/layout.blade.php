@@ -269,10 +269,10 @@ desired effect
                     <ul class="treeview-menu">
                         <li><a href="{{ URL_DASHBOARD2_BANNER }}"><i class="fa fa-link"></i> <span>Banner</span></a></li>
                         <li><a href="{{ URL_DASHBOARD2_HOTNEWS }}"><i class="fa fa-link"></i> <span>最新消息</span></a></li>
+                        <li><a href="{{ URL_DASHBOARD2_ELSE }}"><i class="fa fa-link"></i> <span>其它</span></a></li>
                     </ul>
                 </li>
                 {{--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Index</span></a></li>--}}
-
                 <li><a href="{{ URL_DASHBOARD2_CATEGORY }}"><i class="fa fa-link"></i> <span>類別管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_SERIES }}"><i class="fa fa-link"></i> <span>系列管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_MATERIAL }}"><i class="fa fa-link"></i> <span>材質管理</span></a></li>

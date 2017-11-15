@@ -86,11 +86,11 @@ const URL_DASHBOARD2_PRODUCT_DO_SAVE = '/dashboard2/product/do_save';
 const URL_DASHBOARD2_PRODUCT_DO_DEL = '/dashboard2/product/do_del';
 //const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
 
-//const URL_DASHBOARD2_PROFILE = '/dashboard2/profile';
-//const URL_DASHBOARD2_PROFILE_DO_PASSWORD_RESET = '/dashboard2/profile/do_password_reset';
+const URL_DASHBOARD2_PROFILE = '/dashboard2/profile';
+const URL_DASHBOARD2_PROFILE_DO_PASSWORD_RESET = '/dashboard2/profile/do_password_reset';
 
-//const URL_DASHBOARD2_ELSE = '/dashboard2/else';
-//const URL_DASHBOARD2_ELSE_DO_UPDATE = '/dashboard2/else/do_update';
+const URL_DASHBOARD2_ELSE = '/dashboard2/else';
+const URL_DASHBOARD2_ELSE_DO_UPDATE = '/dashboard2/else/do_update';
 
 
 /*

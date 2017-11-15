@@ -73,7 +73,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">最新消息 編輯</h4>
+                    <h4 class="modal-title">類別 編輯</h4>
                 </div>
                 <form role="form" method="post" action="{{ URL_DASHBOARD2_CATEGORY_DO_SAVE }}" enctype="multipart/form-data">
                     <div class="modal-body">
