@@ -96,6 +96,7 @@ Route::group([
 
         /* Bannner */
         Route::get('banner', 'BannerController@index');
+        Route::post('banner/do_del', 'BannerController@doDelBanner');
 //        Route::post('banner/do_edit', 'BannerController@doEdit');
 
         /* HotNews */

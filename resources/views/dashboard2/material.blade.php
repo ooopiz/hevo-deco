@@ -21,7 +21,6 @@
                             <th>id</th>
                             <th>SN</th>
                             <th>材質名稱</th>
-                            <th>顯示</th>
                             <th>描述</th>
                             <th>option</th>
                         </tr>
@@ -32,7 +31,6 @@
                                 <td>{{ $val->id }}</td>
                                 <td>{{ 'MAT' . str_pad($val->id, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td>{{ $val->name }}</td>
-                                <td></td>
                                 <td></td>
                                 <td>
                                     <div class="btn-group">
@@ -62,9 +60,14 @@
                 'paging'      : true,
                 'lengthChange': false,
                 'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
+                'ordering'    : false,
+                'info'        : false,
+                'autoWidth'   : false,
+                'columnDefs': [
+                    {targets: [0], className: 'hide_column'},
+                    {targets: [1], width: '50px'},
+                    {targets: [4], width: '100px'}
+                ]
             });
         })
     </script>

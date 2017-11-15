@@ -30,6 +30,8 @@
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <link rel="stylesheet" href="/dist/datatables.net/dataTables.bootstrap.min.css">
+
+    <link href="{{ asset('/css/dashboard2.css') }}" rel="stylesheet" type="text/css">
     @yield('inner-css')
 </head>
 <!--
@@ -304,6 +306,7 @@ desired effect
               -------------------------->
             @yield('content')
 
+            @include('dashboard2.include.modal')
         </section>
         <!-- /.content -->
     </div>

@@ -10,12 +10,8 @@
 
     <div class="row">
         <div class="col-xs-12">
-            @if(session()->has('message'))
-                <div class="alert {{ session()->get('message')['class']  }} alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    {{ session()->get('message')['content'] }}
-                </div>
-            @endif
+            @include('dashboard2.include.alert')
+
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Hover Data Table</h3>
@@ -86,49 +82,10 @@
         </div>
     </div>
 
-
-    <!-- modal -->
-    <div class="modal modal-warning fade" id="product-del-warning">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">title</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Message</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancel</button>
-                    <form method="post" action="{{ URL_DASHBOARD2_PRODUCT_DO_DEL }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="id" value="">
-                        <button type="submit" class="btn btn-outline">Confirm</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{--<div class="modal modal-danger fade" id="modal-danger">--}}
-        {{--<div class="modal-dialog">--}}
-            {{--<div class="modal-content">--}}
-                {{--<div class="modal-header">--}}
-                    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-                        {{--<span aria-hidden="true">&times;</span></button>--}}
-                    {{--<h4 class="modal-title">Danger Modal</h4>--}}
-                {{--</div>--}}
-                {{--<div class="modal-body">--}}
-                    {{--<p>One fine body&hellip;</p>--}}
-                {{--</div>--}}
-                {{--<div class="modal-footer">--}}
-                    {{--<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>--}}
-                    {{--<button type="button" class="btn btn-outline">Save changes</button>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+    <form id="del-product" method="post" action="{{ URL_DASHBOARD2_PRODUCT_DO_DEL }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="id" value="">
+    </form>
 
 @endsection
 
@@ -140,11 +97,17 @@
             var productName = rowTr.find('td[headers="name"]').text();
             var message = '是否確認刪除 ' + productName;
 
-            $('#product-del-warning').find('.modal-header .modal-title').text('刪除確認');
-            $('#product-del-warning').find('.modal-body p').text(message);
-            $('#product-del-warning').find('.modal-footer form input[name="id"]').val(productId);
-            $('#product-del-warning').modal('show');
+            $('#del-product').find('input[name="id"]').val(productId);
+
+            $('#modal-object').attr('class', 'modal modal-warning fade');
+            $('#modal-object').find('.modal-header .modal-title').text('確認刪除');
+            $('#modal-object').find('.modal-body p').text(message);
+            $('#modal-object').modal('show');
         };
+
+        $('#modal-object #modal-confirm').on('click', function() {
+            document.querySelector('#del-product').submit();
+        });
 
         $(function () {
             $('#product-table').DataTable({
@@ -152,8 +115,14 @@
                 'lengthChange': false,
                 'searching'   : false,
                 'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
+                'info'        : false,
+                'autoWidth'   : false,
+                'columnDefs': [
+                    {targets: [0], className: 'hide_column'},
+                    {targets: [1], width: '50px'},
+                    {targets: [7,9], className: 'hide_column'},
+                    {targets: [13], width: '100px'}
+                ]
             });
         })
     </script>
