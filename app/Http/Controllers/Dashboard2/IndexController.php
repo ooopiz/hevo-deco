@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard2;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +9,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return redirect(URL_DASHBOARD_BANNER);
+        return redirect(URL_DASHBOARD2_BANNER);
     }
 }
