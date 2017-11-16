@@ -13,7 +13,7 @@ const URL_SHOP = '/shop';
 const URL_ABOUT = '/about';
 
 /*
- *
+ * User
  */
 const URL_USER_LOGIN = '/user/login';
 const URL_USER_DO_LOGIN = '/user/do_login';
@@ -84,7 +84,8 @@ const URL_DASHBOARD2_PRODUCT = '/dashboard2/product';
 const URL_DASHBOARD2_PRODUCT_NEW = '/dashboard2/product/new';
 const URL_DASHBOARD2_PRODUCT_DO_SAVE = '/dashboard2/product/do_save';
 const URL_DASHBOARD2_PRODUCT_DO_DEL = '/dashboard2/product/do_del';
-//const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
+const URL_DASHBOARD2_PRODUCT_DO_ADD_MATERIAL = '/dashboard2/product/do_add_material';
+const URL_DASHBOARD2_PRODUCT_DO_DEL_MATERIAL = '/dashboard2/product/do_del_material';
 
 const URL_DASHBOARD2_PROFILE = '/dashboard2/profile';
 const URL_DASHBOARD2_PROFILE_DO_PASSWORD_RESET = '/dashboard2/profile/do_password_reset';
@@ -97,9 +98,9 @@ const URL_DASHBOARD2_ELSE_DO_UPDATE = '/dashboard2/else/do_update';
  *   API
  */
 const API_PRODUCT_IMAGES_GET = '/api/product/images/get';
-const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload';
-const API_PRODUCT_IMAGES_DELETE = '/api/product/images/delete';
-const API_PRODUCT_IMAGES_RESORT = '/api/product/images/resort';
+const API_PRODUCT_IMAGES_UPLOAD = '/api/product/images/upload'; //
+const API_PRODUCT_IMAGES_DELETE = '/api/product/images/delete'; //
+const API_PRODUCT_IMAGES_RESORT = '/api/product/images/resort'; //
 
 const API_BANNER_DO_DELETE = '/api/banner/do_delete';
 const API_HOTNEWS_DO_DELETE = '/api/hotnews/do_delete';

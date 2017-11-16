@@ -66,6 +66,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default" onclick="javascript:location.href='{{ URL_DASHBOARD2_PRODUCT . '/' . $val->id }}';"><i class="fa fa-edit"></i></button>
+                                        <button type="button" class="btn btn-default" onclick="javascript:location.href='{{ URL_DASHBOARD2_PRODUCT . '/' . $val->id .'/material' }}';">材質</button>
                                         <button type="button" class="btn btn-default" onclick="productDel(this);"><i class="fa fa-remove"></i></button>
                                     </div>
                                 </td>
@@ -123,7 +124,7 @@
                     {targets: [1], width: '60px'},
                     {targets: [4, 5, 6, 11, 12], width: '30'},
                     {targets: [7,9], className: 'hide_column'},
-                    {targets: [14], width: '100px'}
+                    {targets: [14], width: '130px'}
                 ]
             });
         })

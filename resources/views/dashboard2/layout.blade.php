@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="/dist/datatables.net/dataTables.bootstrap.min.css">
 
+    <link href="{{ asset('/css/dropzone.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/dashboard2.css') }}" rel="stylesheet" type="text/css">
     @yield('inner-css')
 </head>
@@ -212,6 +213,7 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
+<script src="{{ asset('/js/dropzone.min.js') }}"></script>
 <script src="{{ asset('/js/fileUploadInput.js') }}"></script>
 @yield('inner-js')
 </body>

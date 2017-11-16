@@ -125,7 +125,9 @@ Route::group([
         Route::get('product/{id?}', 'ProductController@product')->where(['id' => '[0-9]+']);
         Route::post('product/do_save', 'ProductController@doSaveProduct');
         Route::post('product/do_del', 'ProductController@doDelProduct');
-//        Route::post('product/do_edit', 'ProductController@doEdit');
+        Route::get('product/{id?}/material', 'ProductController@productMaterial')->where(['id' => '[0-9]+']);
+        Route::post('product/do_add_material', 'ProductController@doAddMaterial');
+        Route::post('product/do_del_material', 'ProductController@doDelMaterial');
 
         /* Profile */
         Route::get('profile', 'ProfileController@index');

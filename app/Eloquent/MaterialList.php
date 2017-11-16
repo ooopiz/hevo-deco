@@ -21,4 +21,9 @@ class MaterialList extends Model
     {
         return $this->belongsTo('App\Eloquent\Material', 'material_id', 'id');
     }
+
+    public function materialImages()
+    {
+        return $this->hasMany('App\Eloquent\MaterialImage', 'material_list_id', 'id');
+    }
 }

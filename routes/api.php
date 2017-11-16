@@ -18,9 +18,9 @@ use Illuminate\Http\Request;
 //});
 
 Route::get('product/images/get', 'Dashboard\ProductController@getImg');
-Route::post('product/images/upload', 'Dashboard\ProductController@uploadImg');
-Route::post('product/images/delete', 'Dashboard\ProductController@deleteImg');
-Route::post('product/images/resort', 'Dashboard\ProductController@resort');
+Route::post('product/images/upload', 'Dashboard2\ProductController@uploadImg'); //
+Route::post('product/images/delete', 'Dashboard2\ProductController@deleteImg');  //
+Route::post('product/images/resort', 'Dashboard2\ProductController@resort'); //
 
 Route::post('banner/do_delete', 'Dashboard\BannerController@doDelete');
 Route::post('hotnews/do_delete', 'Dashboard\HotNewsController@doDelete');
