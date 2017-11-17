@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
 
 <head>
     <meta charset="utf-8">
@@ -10,12 +10,8 @@
 
     <title>登入</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -102,10 +98,10 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
+    <!-- jQuery 3 -->
+    <script src="/dist/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

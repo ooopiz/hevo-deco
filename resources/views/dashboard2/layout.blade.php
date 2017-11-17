@@ -135,22 +135,22 @@ desired effect
                 <li class="header">menu</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="treeview active">
-                    <a href="#"><i class="fa fa-link"></i> <span>網站設定</span>
+                    <a href="#"><i class="fa fa-dashboard"></i> <span>網站設定</span>
                         <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ URL_DASHBOARD2_BANNER }}"><i class="fa fa-link"></i> <span>Banner</span></a></li>
-                        <li><a href="{{ URL_DASHBOARD2_HOTNEWS }}"><i class="fa fa-link"></i> <span>最新消息</span></a></li>
-                        <li><a href="{{ URL_DASHBOARD2_ELSE }}"><i class="fa fa-link"></i> <span>其它</span></a></li>
+                        <li><a href="{{ URL_DASHBOARD2_BANNER }}"><i class="fa fa-tv"></i> <span>Banner</span></a></li>
+                        <li><a href="{{ URL_DASHBOARD2_HOTNEWS }}"><i class="fa fa-newspaper-o"></i> <span>最新消息</span></a></li>
+                        <li><a href="{{ URL_DASHBOARD2_ELSE }}"><i class="fa fa-cog"></i> <span>其它</span></a></li>
                     </ul>
                 </li>
                 {{--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Index</span></a></li>--}}
                 <li><a href="{{ URL_DASHBOARD2_CATEGORY }}"><i class="fa fa-link"></i> <span>類別管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_SERIES }}"><i class="fa fa-link"></i> <span>系列管理</span></a></li>
                 <li><a href="{{ URL_DASHBOARD2_MATERIAL }}"><i class="fa fa-link"></i> <span>材質管理</span></a></li>
-                <li><a href="{{ URL_DASHBOARD2_PRODUCT }}"><i class="fa fa-link"></i> <span>產品管理</span></a></li>
+                <li><a href="{{ URL_DASHBOARD2_PRODUCT }}"><i class="fa fa-building-o"></i> <span>產品管理</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>

@@ -14,10 +14,9 @@
     
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-    <link href="{{ asset('/sb-admin/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/sb-admin/css/sb-admin.css') }}" rel="stylesheet">
-    <link href="{{ asset('/sb-admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('/css/pages.css') }}" rel="stylesheet">
+    <link href="/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet" >
+    <link href="/css/pages.css" rel="stylesheet">
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109562241-1"></script>
@@ -101,10 +100,10 @@
         </footer>
     </div>
 
-    {{--
-    <script src="{{ asset('/sb-admin/js/jquery.js') }}"></script>--}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{ asset('/sb-admin/js/bootstrap.min.js') }}"></script>
+    <!-- jQuery 3 -->
+    <script src="/dist/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
 
     @yield('inner-js')
 
