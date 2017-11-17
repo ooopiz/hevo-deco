@@ -165,7 +165,10 @@
             myDropzone.removeAllFiles(true);
             $('#product-upload').modal('show');
         };
+
+        uploadClickFlag = false;
         $('#upload-submit').on('click', function() {
+            uploadClickFlag = true;
             myDropzone.processQueue();
         });
 
@@ -235,22 +238,24 @@
                 addRemoveLinks: true
             });
 
-            myDropzone.on("addedfile", function(file) {
-                var acceptedFiles = myDropzone.options.acceptedFiles;
-                var acceptedFilesArray = acceptedFiles.split(',').map(function(item) {
-                    return item.trim();
-                });
-                if (!acceptedFilesArray.includes(file.type)) {
-                    //刪除檔案型態不符
-                    myDropzone.removeFile(file);
-                }
-            });
             myDropzone.on("maxfilesexceeded", function(file) {
                 // 刪除超過檔案數量限制的檔案
                 myDropzone.removeFile(file);
             });
+
+            // after myDropzone.processQueue();
+            myDropzone.on("complete", function(file) {
+                if (file.accepted != true) {
+                    myDropzone.removeFile(file);
+                    console.log('Remove ' + file.name);
+                }
+            });
             myDropzone.on("queuecomplete", function() {
-                location.reload();
+                if (uploadClickFlag == true) {
+                    console.log('queuecomplete');
+                    uploadClickFlag = false;
+                    location.reload();
+                }
             });
 
             // sortable
