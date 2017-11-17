@@ -39,9 +39,9 @@
                             <tr>
                                 <td headers="id">{{ $val->id }}</td>
                                 <td>{{ $i++ }}</td>
-                                <td headers="image_url">{{ IMAGE_URL . '/' . $val->image_url }}</td>
+                                <td headers="image_url">{{ IMAGE_NEWS . '/' . $val->image_url }}</td>
                                 <td>
-                                    <img src="{{ IMAGE_URL . $val->image_url }}" />
+                                    <img src="{{ IMAGE_NEWS . $val->image_url }}" />
                                 </td>
                                 <td headers="desc">{{ $val->desc }}</td>
                                 <td>{{ substr($val->created_at , 0 , 10) }}</td>

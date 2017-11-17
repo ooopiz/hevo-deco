@@ -98,7 +98,7 @@
                             @foreach($materialList->materialImages as $materialImage)
                                 <div class="col-xs-2" data-material-image-id="{{ $materialImage->id }}">
                                     <span class="badge bg-red">刪除</span>
-                                    <img class="img-thumbnail" src="{{ IMAGE_URL . $materialImage->image_url }}" />
+                                    <img class="img-thumbnail" src="{{ IMAGE_PRODUCT . $materialImage->image_url }}" />
                                 </div>
                             @endforeach
                         </div>

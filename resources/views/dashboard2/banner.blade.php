@@ -32,7 +32,7 @@
                                 <td headers="no">{{ $i }}</td>
                                 @if(isset($banner[$i]))
                                     <td headers="value">{{ $banner[$i]->value }}</td>
-                                    <td><img src="{{ IMAGE_URL . $banner[$i]->value }}" /></td>
+                                    <td><img src="{{ IMAGE_BANNER . $banner[$i]->value }}" /></td>
                                 @else
                                     <td headers="value"></td>
                                     <td></td>

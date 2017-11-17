@@ -38,8 +38,8 @@
                                 <td headers="id">{{ $val->id }}</td>
                                 <td headers="sn">{{ 'MAT' . str_pad($val->id, 3, '0', STR_PAD_LEFT) }}</td>
                                 <td headers="name">{{ $val->name }}</td>
-                                <td headers="image_url">{{ IMAGE_URL . $val->image_url }}</td>
-                                <td><img src="{{ IMAGE_URL . $val->image_url }}" /></td>
+                                <td headers="image_url">{{ IMAGE_MATERIAL . $val->image_url }}</td>
+                                <td><img src="{{ IMAGE_MATERIAL . $val->image_url }}" /></td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default" onclick="materialEdit(this);"><i class="fa fa-edit"></i></button>

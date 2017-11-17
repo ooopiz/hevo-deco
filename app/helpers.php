@@ -1,6 +1,9 @@
 <?php
 
-const IMAGE_URL = '/storage/';
+const IMAGE_BANNER = '/storage/banner/';
+const IMAGE_NEWS = '/storage/news/';
+const IMAGE_MATERIAL = '/storage/material/';
+const IMAGE_PRODUCT = '/storage/product/';
 
 /*
  * Pages
