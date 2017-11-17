@@ -161,7 +161,7 @@ class ProductController extends Controller
         // 載入關聯
         foreach($materialLists as $materialList) {
             $materialList->load(['materialImages' => function ($query) {
-                $query->orderBy('material_id', 'asc')->orderBy('order', 'asc');
+                $query->orderBy('material_id', 'asc')->orderBy('order', 'asc')->orderBy('id', 'asc');
             }]);
         }
         return view('dashboard2.product_material', compact('product', 'materialLists'));
