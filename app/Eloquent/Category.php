@@ -17,6 +17,6 @@ class Category extends Model
 
     public function categoryList()
     {
-        return $this->hasMany('App\Eloquent\SeriesList', 'series_id', 'id');
+        return $this->hasMany('App\Eloquent\CategoryList', 'category_id', 'id');
     }
 }
