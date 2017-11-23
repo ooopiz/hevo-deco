@@ -23,7 +23,7 @@
                 <div class="col-sm-6 item">
                     <a href="{{ URL_PRODUCT . '/' . $catList->product->id }}">
                                 @if($catList->product->materialImages->count() == 0)
-                                    <img class="img-thumbnail" src='http://placehold.it/410x350' />
+                                    <img class="img-thumbnail" src='http://placehold.it/400x400' />
                                 @elseif($catList->product->materialImages->count() == 1)
                                     <img class="img-thumbnail" src='{{ IMAGE_PRODUCT . $catList->product->materialImages[0]->image_url }}' />
                                 @else

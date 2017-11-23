@@ -57,7 +57,7 @@
                     <p>可接受訂製, 請直接聯繫我們告知需求</p>
                 </div>
 
-                <button>前往購買 / 訂購</button>
+                <button><a href="http://udesign.udnfunlife.com/mall/cus/cat/Cc1c01.do?dc_cateid_0=0_059_049_391&eventpage=202712311&kdid=eventPage">前往購買 / 訂購</a></button>
             </div>
         </div>
 

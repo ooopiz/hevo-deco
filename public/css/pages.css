@@ -44,6 +44,12 @@ a:hover {
     cursor: crosshair;
 }
 
+.img-thumbnail {
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
 /*******************************************************************************
  * header
  *******************************************************************************/
@@ -182,8 +188,6 @@ a:hover {
 #product-item-container .img-thumbnail {
     height: 400px;
     object-fit: cover;
-    padding: 0;
-    border-radius: 0;
 }
 
 #product-item-container .item {
@@ -193,8 +197,6 @@ a:hover {
 #category-item-container .img-thumbnail {
     height: 400px;
     object-fit: cover;
-    padding: 0;
-    border-radius: 0;
 }
 
 #category-item-container .item {
@@ -209,8 +211,6 @@ a:hover {
 #series-item-container .img-thumbnail {
     height: 400px;
     object-fit: cover;
-    padding: 0;
-    border-radius: 0;
 }
 
 #series-item-container .item {
@@ -259,22 +259,6 @@ a:hover {
  * Product detail
  *******************************************************************************/
 
-/*#product-material-list li{*/
-
-/*margin: 5px;*/
-
-/*}*/
-
-/*#product-material-list img{*/
-
-/*width: 35px;*/
-
-/*height: 35px;*/
-
-/*border-radius:100px;*/
-
-/*}*/
-
 #product-else {
     border-top: 1px solid #ddd;
     margin-top: 80px;
@@ -283,16 +267,6 @@ a:hover {
 #product-else h3 {
     text-align: center;
 }
-
-/*---右半介紹文字區---*/
-
-/*.product-intro {*/
-
-/*margin-left: 1rem;*/
-
-/*letter-spacing: 0.1rem;*/
-
-/*}*/
 
 .product-intro > h1 {
     font-size: 4rem;
@@ -318,7 +292,7 @@ a:hover {
     height: 8vh;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 50px;
+    margin-top: 1rem;
 }
 
 .textures > a {
