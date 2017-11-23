@@ -9,12 +9,14 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="list-group">
                     @foreach($categoryNav as $key => $val)
                         <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
                     @endforeach
                 </div>
+                
+                <hr class="divide-line">
 
                 <div class="list-group">
                     @foreach($seriesNav as $key => $val)
@@ -23,13 +25,13 @@
                 </div>
             </div>
 
-            <div id="series-item-container" class="col-sm-9">
+            <div id="series-item-container" class="col-sm-10">
                 <div class="row">
                     @foreach($series->seriesList as $serList)
                         <div class="col-sm-6 item">
                             <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)
-                                    <img class="img-thumbnail" src='http://placehold.it/410x350' />
+                                    <img class="img-thumbnail" src='http://placehold.it/450x450' />
                                 @elseif($serList->product->materialImages->count() == 1)
                                     <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}' />
                                 @else

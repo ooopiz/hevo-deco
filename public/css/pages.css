@@ -177,25 +177,18 @@ a:hover {
  *******************************************************************************/
 
 #product-item-container .img-thumbnail {
-    height: 350px;
+    height: 400px;
     object-fit: cover;
+    padding: 0;
+    border-radius: 0;
 }
 
 #product-item-container .item {
     height: 500px;
 }
-/* 不確定的
-.item a {
-    border-bottom: 0.3rem solid transparent;
-}
-
-.item a:hover {
-    text-decoration: none;
-    border-bottom: 0.3rem solid #b0bec5;
-}*/
 
 #category-item-container .img-thumbnail {
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     padding: 0;
     border-radius: 0;
@@ -211,7 +204,7 @@ a:hover {
 }
 
 #series-item-container .img-thumbnail {
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     padding: 0;
     border-radius: 0;
@@ -222,7 +215,7 @@ a:hover {
 }
 
 .item h4{
-    margin-top: 1.7rem;
+    margin-top: 1rem;
 }
 
 .item h4:hover{
