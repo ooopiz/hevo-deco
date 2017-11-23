@@ -42,6 +42,7 @@ a {
 a:hover {
     color: black;
     cursor: crosshair;
+    text-decoration: none;
 }
 
 .img-thumbnail {
@@ -340,7 +341,6 @@ a:hover {
     background-color: #36464e;
     border: none;
     width: 15rem;
-    color: white;
     border-radius: 2rem;
     padding: 1rem 2rem;
     margin-top: 3rem;
@@ -353,6 +353,9 @@ a:hover {
     -moz-box-shadow: 0px 0px 3px #36464e;
 }
 
+.product-intro > button a {
+    color: white;
+}
 
 /*******************************************************************************
  * Shop
