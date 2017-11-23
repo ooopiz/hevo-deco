@@ -121,7 +121,7 @@ a:hover {
 
 #footer .footer-item ul li {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.2rem;
 }
 
@@ -277,7 +277,7 @@ a:hover {
     font-size: 4rem;
     margin-top: 1.2rem;
     margin-bottom: -1rem;
-    width: 30rem;
+    width: 35rem;
 }
 
 .product-intro > h3 {
@@ -475,6 +475,12 @@ a:hover {
 }
 
 /*--------RWD--------*/
+@media (max-width: 1200px) {
+    .intro > span{
+        opacity: 0;
+    }
+}
+
 
 @media (max-width: 768px) {
     #header {
@@ -483,7 +489,6 @@ a:hover {
     #nav-main {
         border-bottom: 1px solid #ddd;
         padding: 12px 0 12px 0;
-        ;
     }
     .m-shift {
         position: fixed;
@@ -497,7 +502,33 @@ a:hover {
         z-index: 999;
     }
     .m-shift div {
-        width: 100%;
+        width: 80%;
         padding: 12px;
     }
+    
+    #home-product-list .product-item{
+        height: 400px;
+    }
+    
+    .product-types{
+        width: 100%;
+        margin: 0;
+    }
+    
+    .img-thumbnail{
+        width: 100%;
+    }
+    
+    .intro > span{
+        display: none;
+    }
+    
+    .brand-story img{
+        display: none;
+    }
+    
+    #footer .footer-item ul li{
+        margin-bottom: 1rem;
+    }
 }
+
