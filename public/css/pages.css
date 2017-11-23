@@ -187,21 +187,23 @@ a:hover {
  *******************************************************************************/
 
 #product-item-container .img-thumbnail {
-    height: 420px;
+    width: 90%;
     object-fit: cover;
 }
 
 #product-item-container .item {
     height: 500px;
+    margin-bottom: 2rem;
 }
 
 #category-item-container .img-thumbnail {
-    height: 420px;
+    width: 90%;
     object-fit: cover;
 }
 
 #category-item-container .item {
     height: 500px;
+    margin-bottom: 2rem;
 }
 
 .list-group-item {
@@ -210,12 +212,13 @@ a:hover {
 }
 
 #series-item-container .img-thumbnail {
-    height: 420px;
+    width: 90%;
     object-fit: cover;
 }
 
 #series-item-container .item {
     height: 500px;
+    margin-bottom: 5rem;
 }
 
 .item h4{
