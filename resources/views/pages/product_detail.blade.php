@@ -33,7 +33,7 @@
                         <img class="img-thumbnail" src="http://placehold.it/500x500">
                     @endif
                     @foreach($product->materialImages as $val)
-                        <img class="img-thumbnail" src="{{ IMAGE_URL . $val->image_url }}">
+                        <img class="img-thumbnail" src="{{ IMAGE_PRODUCT . $val->image_url }}">
                     @endforeach
                 </div>
             </div>
@@ -44,7 +44,7 @@
 
                 <div class="textures fade-in">
                     @foreach($product->materialLists as $matList)
-                        <a><img src="{{ IMAGE_URL . $matList->material->image_url }}"></a>
+                        <a><img src="{{ IMAGE_MATERIAL . $matList->material->image_url }}"></a>
                     @endforeach
                 </div>
                 <div class="dimensions">
@@ -71,7 +71,7 @@
                         @if($catList->product->materialImages->count() == 0)
                             <img class="img-thumbnail" src='http://placehold.it/400x400' />
                         @elseif($catList->product->materialImages->count() >= 1)
-                            <img class="img-thumbnail" src='{{ IMAGE_URL . $catList->product->materialImages[0]->image_url }}' />
+                            <img class="img-thumbnail" src='{{ IMAGE_PRODUCT . $catList->product->materialImages[0]->image_url }}' />
                         @endif
                     </a>
                 </div>

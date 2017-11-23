@@ -37,41 +37,47 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
  * Dashboard
  */
 Route::group([
-        'prefix' => 'dashboard',
-        'namespace' => 'Dashboard',
-        'middleware' => ['my_auth']
-    ],
+    'prefix' => 'dashboard',
+    'namespace' => 'Dashboard2',
+    'middleware' => ['my_auth']
+],
     function() {
         Route::get('/', 'IndexController@index');
 
-        /* Bannner */
+        /* Banner */
         Route::get('banner', 'BannerController@index');
-        Route::post('banner/do_edit', 'BannerController@doEdit');
+        Route::post('banner/do_del', 'BannerController@doDelBanner');
+        Route::post('banner/do_save', 'BannerController@doSaveBanner');
 
         /* HotNews */
         Route::get('hotnews', 'HotNewsController@index');
-        Route::post('hotnews/do_edit', 'HotNewsController@doEdit');
+        Route::post('hotnews/do_del', 'HotNewsController@doDelNews');
+        Route::post('hotnews/do_save', 'HotNewsController@doSaveNews');
 
-        /* Categroies */
+        /* Categories */
         Route::get('category', 'CategoryController@index');
-        Route::post('category/do_edit', 'CategoryController@doEdit');
+        Route::post('category/do_del', 'CategoryController@doDelCategory');
+        Route::post('category/do_save', 'CategoryController@doSaveCategory');
 
         /* Series */
         Route::get('series', 'SeriesController@index');
-        Route::post('series/do_edit', 'SeriesController@doEdit');
+        Route::post('series/do_del', 'SeriesController@doDelSeries');
+        Route::post('series/do_save', 'SeriesController@doSaveSeries');
 
         /* Material */
         Route::get('material', 'MaterialController@index');
-        Route::post('material/do_edit', 'MaterialController@doEdit');
+        Route::post('material/do_del', 'MaterialController@doDelMaterial');
+        Route::post('material/do_save', 'MaterialController@doSaveMaterial');
 
         /* Product */
         Route::get('product', 'ProductController@index');
-        Route::post('product/do_edit', 'ProductController@doEdit');
-
-        /* Authority */
-        Route::get('authority/user', 'AuthorityController@index');
-        Route::get('authority/user/edit/{id?}', 'AuthorityController@edit')->where(['id' => '[0-9]+']);
-        Route::post('authority/user/do_edit', 'AuthorityController@doEdit');
+        Route::get('product/new', 'ProductController@newProduct');
+        Route::get('product/{id?}', 'ProductController@product')->where(['id' => '[0-9]+']);
+        Route::post('product/do_save', 'ProductController@doSaveProduct');
+        Route::post('product/do_del', 'ProductController@doDelProduct');
+        Route::get('product/{id?}/material', 'ProductController@productMaterial')->where(['id' => '[0-9]+']);
+        Route::post('product/do_add_material', 'ProductController@doAddMaterial');
+        Route::post('product/do_del_material', 'ProductController@doDelMaterial');
 
         /* Profile */
         Route::get('profile', 'ProfileController@index');
@@ -80,4 +86,4 @@ Route::group([
         /* Else */
         Route::get('else', 'ElseController@index');
         Route::post('else/do_update', 'ElseController@doUpdate');
-});
+    });

@@ -2,13 +2,12 @@
 
 namespace App\Repositories;
 
-use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractRepository
 {
-    /**
-     * Define Model
-     */
+    /** @var Model */
     protected $model;
 
     public function getModel()
@@ -17,10 +16,10 @@ abstract class AbstractRepository
     }
 
     /**
-     * Create one record (return model)
+     * Create one record
      *
      * @param array $data
-     * @return mixed
+     * @return Model
      */
     public function createOne(array $data)
     {
@@ -31,7 +30,7 @@ abstract class AbstractRepository
      * Insert one record
      *
      * @param array $data
-     * @return bool (True | False)
+     * @return bool
      */
     public function insertOne(array $data)
     {
@@ -42,7 +41,12 @@ abstract class AbstractRepository
      * Insert multiple records
      *
      * @param array $data
-     * @return bool (True | False)
+     * EX: array(
+     *         ['column_name' => 'Ricky', 'column_sex' => '0'],
+     *         ['column_name' => 'Mary', 'column_sex' => '1']
+     *     );
+     *
+     * @return bool
      */
     public function insertAll(array $data)
     {
@@ -50,9 +54,22 @@ abstract class AbstractRepository
     }
 
     /**
+     * @param null $with
+     * @return Collection|static[]
+     */
+    public function all($with = null)
+    {
+        if (is_null($with)) {
+            return $this->model->all();
+        } else {
+            return $this->model->with($with)->get();
+        }
+    }
+
+    /**
      * @param $id
      * @param null $with (array | string)
-     * @return mixed
+     * @return Model
      */
     public function findOneById($id, $with = null)
     {
@@ -65,8 +82,8 @@ abstract class AbstractRepository
 
     /**
      * @param array $data
-     * @param null $with (array | string)
-     * @return mixed
+     * @param null $with
+     * @return Model|null|static
      */
     public function findOneBy(array $data, $with = null)
     {
@@ -79,8 +96,8 @@ abstract class AbstractRepository
 
     /**
      * @param array $data
-     * @param null $with (array | string)
-     * @return mixed
+     * @param null $with
+     * @return Collection|static[]
      */
     public function findAllBy(array $data , $with = null)
     {
@@ -93,28 +110,8 @@ abstract class AbstractRepository
 
     /**
      * @param array $data
-     * @return mixed
-     */
-    public function count(array $data)
-    {
-        return $this->model->where($data)->count();
-    }
-
-    /**
-     * @param array $data
-     * @return bool
-     */
-    public function isExists(array $data)
-    {
-        $count = $this->count($data);
-        $boolean = $count > 0 ? true : false;
-        return $boolean;
-    }
-
-    /**
-     * @param array $data
      * @param array|null $data2
-     * @return mixed (model)
+     * @return mixed
      */
     public function firstOrCreate(array $data, array $data2 = null)
     {
@@ -128,7 +125,7 @@ abstract class AbstractRepository
     /**
      * @param $where
      * @param $set
-     * @return Boolean
+     * @return bool
      */
     public function update($where, $set)
     {
@@ -138,7 +135,7 @@ abstract class AbstractRepository
     /**
      * @param array $data
      * @param array|null $data2
-     * @return mixed (model)
+     * @return Model
      */
     public function updateOrCreate(array $data, array $data2 = null)
     {
@@ -151,10 +148,19 @@ abstract class AbstractRepository
 
     /**
      * @param array $data
-     * @return mixed
+     * @return bool
      */
     public function delete(array $data)
     {
         return $this->model->where($data)->delete();
+    }
+
+    /**
+     * @param array $data
+     * @return int
+     */
+    public function count(array $data)
+    {
+        return $this->model->where($data)->count();
     }
 }

@@ -2,7 +2,7 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         var ext = input.files[0].name.substr(input.files[0].name.lastIndexOf('.') + 1);
         ext = ext.toLowerCase();
-        if (ext != 'jpg') {
+        if ((ext != 'jpg') && (ext != 'jpeg')) {
             alert('請放置 jpg 圖檔');
             $(input).val('');
             $('.image-upload-wrap').removeClass('image-dropping');
@@ -27,6 +27,11 @@ function removeUpload() {
     $('.image-upload-wrap').removeClass('image-dropping');
     $('.image-upload-wrap').show();
     $('.file-upload-input').val('');
+}
+function loadPreviewImageByUrl(url) {
+    $('.image-upload-wrap').hide();
+    $('.file-upload-image').attr('src', url);
+    $('.file-upload-content').show();
 }
 $('.image-upload-wrap').bind('dragover', function () {
     $('.image-upload-wrap').addClass('image-dropping');

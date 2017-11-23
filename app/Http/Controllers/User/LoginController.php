@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect(URL_DASHBOARD);
+            return redirect(URL_DASHBOARD2);
         }
         return view('user.login');
     }
@@ -34,7 +34,7 @@ class LoginController extends Controller
         $remember_me = true;
 
         if (Auth::attempt(['email' => $email, 'password' => $password], $remember_me)) {
-            return redirect(URL_DASHBOARD);
+            return redirect(URL_DASHBOARD2);
         } else {
             return redirect(URL_USER_LOGIN);
         }

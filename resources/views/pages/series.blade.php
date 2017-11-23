@@ -33,12 +33,12 @@
                                 @if($serList->product->materialImages->count() == 0)
                                     <img class="img-thumbnail" src='http://placehold.it/450x450' />
                                 @elseif($serList->product->materialImages->count() == 1)
-                                    <img class="img-thumbnail" src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}' />
+                                    <img class="img-thumbnail" src='{{ IMAGE_PRODUCT . $serList->product->materialImages[0]->image_url }}' />
                                 @else
                                     <img class="img-thumbnail"
-                                         src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}'
-                                         onmouseout="this.src='{{ IMAGE_URL . $serList->product->materialImages[0]->image_url }}';"
-                                         onmouseover="this.src='{{ IMAGE_URL . $serList->product->materialImages[1]->image_url }}';" />
+                                         src='{{ IMAGE_PRODUCT . $serList->product->materialImages[0]->image_url }}'
+                                         onmouseout="this.src='{{ IMAGE_PRODUCT . $serList->product->materialImages[0]->image_url }}';"
+                                         onmouseover="this.src='{{ IMAGE_PRODUCT . $serList->product->materialImages[1]->image_url }}';" />
                                 @endif
                                 <h4>{{ $serList->product->name }}</h4>
                             </a>
