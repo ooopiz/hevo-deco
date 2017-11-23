@@ -482,6 +482,11 @@ a:hover {
     .product-intro > p{
         width: 100%;
     }
+    
+     .product-types{
+        width: 95%;
+        margin: 0;
+    }
 }
 
 
@@ -523,13 +528,6 @@ a:hover {
     
     #series-item-container .img-thumbnail{
         width: 60%;
-    }
-    
-    
-    .product-types{
-        width: 90%;
-        margin: 0;
-        font-size: 1.1rem;
     }
     
     .img-thumbnail{
