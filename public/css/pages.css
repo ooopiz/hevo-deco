@@ -492,7 +492,7 @@ a:hover {
 
 @media (max-width: 768px) {
     #header .logo {
-        margin-top: 10%;
+        margin-top: 20%;
     }
     #nav-main {
         border-bottom: 1px solid #ddd;
@@ -516,22 +516,7 @@ a:hover {
     
     #home-product-list .product-item{
         height: 350px;
-    }
-    
-    #product-item-container .img-thumbnail{
-        width: 60%;
-    }
-    
-    #category-item-container .img-thumbnail{
-        width: 60%;
-    }
-    
-    #series-item-container .img-thumbnail{
-        width: 60%;
-    }
-    
-    .img-thumbnail{
-        width: 100%;
+        margin-bottom: 4rem;
     }
     
     .intro > span{
@@ -542,6 +527,10 @@ a:hover {
         display: none;
     }
     
+    .brand-story svg{
+        width: 60%;
+    }
+    
     #footer .footer-item ul li{
         margin-bottom: 1rem;
     }
@@ -549,15 +538,21 @@ a:hover {
 
 @media (max-width: 420px){
     
-    #header .logo {
-        margin-top: 20%;
-    }
-    
     #nav-main a {
         margin-right: 0.7rem;
     }
     
     #nav-main ul li{
         padding-right: 2.5rem;
+    }
+    
+    .intro > p{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    
+    .brand-story h2{
+        font-size: 3rem;
+        line-height: 3rem;
     }
 }
