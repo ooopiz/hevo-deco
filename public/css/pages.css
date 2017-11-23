@@ -192,7 +192,7 @@ a:hover {
 }
 
 #product-item-container .item {
-    height: 500px;
+    height: 25%;
     margin-bottom: 2rem;
 }
 
@@ -202,7 +202,7 @@ a:hover {
 }
 
 #category-item-container .item {
-    height: 500px;
+    height: 25%;
     margin-bottom: 2rem;
 }
 
@@ -217,7 +217,7 @@ a:hover {
 }
 
 #series-item-container .item {
-    height: 500px;
+    height: 25%;
     margin-bottom: 5rem;
 }
 
@@ -478,6 +478,10 @@ a:hover {
     .intro > span{
         opacity: 0;
     }
+    
+    .product-intro > p{
+        width: 100%;
+    }
 }
 
 
@@ -521,13 +525,11 @@ a:hover {
         width: 60%;
     }
     
-    .product-intro > p{
-        width: 90%;
-    }
     
     .product-types{
-        width: 100%;
+        width: 90%;
         margin: 0;
+        font-size: 1.1rem;
     }
     
     .img-thumbnail{
