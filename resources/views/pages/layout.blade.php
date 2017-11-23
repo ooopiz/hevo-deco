@@ -91,7 +91,7 @@
                         <li>隨時掌握新品訊息</li>
                         <li>
                             <div class="subscribe">
-                                <button href="http://eepurl.com/da8F-z">前往</button>
+                                <a href="http://eepurl.com/da8F-z">前往</a>
                             </div>
                         </li>
                     </ul>

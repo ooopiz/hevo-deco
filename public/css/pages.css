@@ -139,8 +139,8 @@ a:hover {
 
 }
 
-.subscribe button {
-    margin-top: 0.5rem;
+.subscribe a {
+    margin-top: 1rem;
     padding: 0.5rem 2rem;
     background-color: #ced7db;
     color: #778f9b;
@@ -187,7 +187,7 @@ a:hover {
  *******************************************************************************/
 
 #product-item-container .img-thumbnail {
-    height: 400px;
+    height: 420px;
     object-fit: cover;
 }
 
@@ -196,7 +196,7 @@ a:hover {
 }
 
 #category-item-container .img-thumbnail {
-    height: 400px;
+    height: 420px;
     object-fit: cover;
 }
 
@@ -210,7 +210,7 @@ a:hover {
 }
 
 #series-item-container .img-thumbnail {
-    height: 400px;
+    height: 420px;
     object-fit: cover;
 }
 
@@ -263,6 +263,10 @@ a:hover {
 #product-else {
     border-top: 1px solid #ddd;
     margin-top: 80px;
+}
+
+#product-else .img-thumbnail{
+    
 }
 
 #product-else h3 {
