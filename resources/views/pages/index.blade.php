@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div id="home-slide" class="owl-carousel owl-theme">
+        <div id="home-slide" class="owl-carousel owl-theme fade-in">
             @if($banner->isEmpty())
                 <div class="item">
                     <img src="http://placehold.it/1140x640">

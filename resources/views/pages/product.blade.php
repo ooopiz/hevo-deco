@@ -47,6 +47,29 @@
 </div>
 @section('inner-js')
 <script>
+    
+    $(function() {　
+            $(window).load(function() {　　
+                $(window).bind('scroll resize', function() {　　
+                    var $this = $(this);　　
+                    var $this_Top = $this.scrollTop();
+
+                    if ($this_Top > 150) {
+                        $('#nav-main').addClass('top-bar');
+                        $('#nav-main').stop().animate({
+                            top: "20px"
+                        });　　　
+                    }　　　　
+                    if ($this_Top < 150) {
+                        $('#nav-main').removeClass('top-bar');
+                        $('#nav-main').stop().animate({
+                            top: "0px"
+                        });　　　
+                    }　　
+                }).scroll();　
+            });
+        });
+    
     document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
 @endsection 
