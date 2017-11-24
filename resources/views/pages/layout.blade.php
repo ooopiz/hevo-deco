@@ -71,18 +71,18 @@
                 <div class="col-md-3 footer-item">
                     <h4>Social | 社群</h4>
                     <ul>
-                        <li><a href="https://www.facebook.com/hevodeco">Facebook</a></li>
-                        <li><a href="https://www.pinkoi.com/store/hevo?ref_itemlist_tid=gQZ7A5tz&ref_itemlist=dDxsWVu4">Pinkoi</a></li>
-                        <li><a href="https://www.instagram.com/hevo_deco/">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/hevodeco" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.pinkoi.com/store/hevo?ref_itemlist_tid=gQZ7A5tz&ref_itemlist=dDxsWVu4" target="_blank">Pinkoi</a></li>
+                        <li><a href="https://www.instagram.com/hevo_deco/" target="_blank">Instagram</a></li>
                     </ul>
 
                 </div>
                 <div class="col-md-3 footer-item">
                     <h4>Downloads | 型錄</h4>
                     <ul>
-                        <li><a href="https://www.dropbox.com/s/s6se79rfbiqry7f/hevodeco_aw17.pdf?dl=0">Brochure AW17</a></li>
-                        <li><a href="https://www.dropbox.com/s/p06l00c6r5qgzt3/HEVO%20%E5%93%81%E7%89%8C%E4%BB%8B%E7%B4%B9.pdf?dl=0">Media Kit</a></li>
-                        <li><a href="https://www.dropbox.com/s/zo3vuymbtyf7poh/customize.pdf?dl=0">Customization Guide</a></li>
+                        <li><a href="https://www.dropbox.com/s/s6se79rfbiqry7f/hevodeco_aw17.pdf?dl=0" target="_blank">Brochure AW17</a></li>
+                        <li><a href="https://www.dropbox.com/s/p06l00c6r5qgzt3/HEVO%20%E5%93%81%E7%89%8C%E4%BB%8B%E7%B4%B9.pdf?dl=0" target="_blank">Media Kit</a></li>
+                        <li><a href="https://www.dropbox.com/s/zo3vuymbtyf7poh/customize.pdf?dl=0" target="_blank">Customization Guide</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 footer-item">
@@ -91,7 +91,7 @@
                         <li>隨時掌握新品訊息</li>
                         <li>
                             <div class="subscribe">
-                                <a href="http://eepurl.com/da8F-z">前往</a>
+                                <a href="http://eepurl.com/da8F-z" target="_blank">前往</a>
                             </div>
                         </li>
                     </ul>

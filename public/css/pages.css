@@ -482,6 +482,7 @@ a:hover {
 .disclaimer h6{
     line-height: 2rem;
     font-weight: 500;
+    margin-bottom: -4rem;
 }
 
 /*--------RWD--------*/
