@@ -167,7 +167,7 @@ a:hover {
 
 #home-product-list .product-item {
     padding: 18px;
-    height: 600px;
+    height: 450px;
 }
 
 #home-product-list .product-item img {
@@ -330,7 +330,7 @@ a:hover {
     display: none;
     position: absolute;
     width: 65%;
-    top: 64%;
+    top: 52%;
     right: -12vh;
     background-color: #b1deda;
     color: #36464e;
@@ -481,7 +481,7 @@ a:hover {
 
 .disclaimer h6{
     line-height: 2rem;
-    font-weight: 500;
+    font-weight: lighter;
     margin-bottom: -4rem;
 }
 
@@ -508,7 +508,7 @@ a:hover {
     }
     #nav-main {
         border-bottom: 1px solid #ddd;
-        padding: 12px 0 12px 0;
+        padding: 12px 0 5px 0;
     }
     .m-shift {
         position: fixed;
@@ -527,7 +527,7 @@ a:hover {
     }
     
     #home-product-list .product-item{
-        height: 350px;
+        height: 10%;
         margin-bottom: 4rem;
     }
     
@@ -546,6 +546,19 @@ a:hover {
     #footer .footer-item ul li{
         margin-bottom: 1rem;
     }
+    
+    .product-types:last-child > a:last-child{
+        margin-bottom: 10%;
+    }
+    
+    .product-intro > h1 {
+        width: 100%;
+    }
+    
+    .dimensions > p {
+        margin-right: 1rem;
+    }
+    
 }
 
 @media (max-width: 420px){
