@@ -121,7 +121,7 @@ a:hover {
 
 #footer .footer-item ul li {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     letter-spacing: 0.2rem;
 }
 
@@ -471,6 +471,17 @@ a:hover {
     font-size: 1.6rem;
     letter-spacing: 0.3rem;
     line-height: 2.4rem;
+}
+
+.disclaimer{
+    text-align: center;
+    color: #ccc; 
+    margin-top: 6rem;
+}
+
+.disclaimer h6{
+    line-height: 2rem;
+    font-weight: 500;
 }
 
 /*--------RWD--------*/

@@ -36,6 +36,7 @@
                 <h6>家具家飾</h6>
                 <ul>
                     <li><a>訂購需求</a>&nbsp;&nbsp; 填寫</li>
+                    <li><a>商品型錄</a>&nbsp;&nbsp; 下載</li>
 
                 </ul>
             </div>
