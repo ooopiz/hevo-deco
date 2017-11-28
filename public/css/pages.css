@@ -56,7 +56,7 @@ a:hover {
  *******************************************************************************/
 
 #nav-main {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ced7db;
     padding: 24px;
 }
 
@@ -104,8 +104,13 @@ a:hover {
     filter: alpha(opacity=80);
 }
 
+/*******************************************************************************
+ * footer
+ *******************************************************************************/
+
+
 #footer {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ced7db;
     padding: 0 36px 0 36px;
 }
 
@@ -138,20 +143,81 @@ a:hover {
     border-bottom: 0.3rem solid #b0bec5;
 
 }
+#footer .subscribe{
+margin-top: 1rem;
+    }
 
-.subscribe a {
-    margin-top: 1rem;
+#footer .subscribe > a {
     padding: 0.5rem 2rem;
     background-color: #ced7db;
     color: #778f9b;
     border-style: none;
     border-radius: 2rem;
     -webkit-border-radius: 2rem;
+    transition: 0.7s;
+}
+
+#footer .subscribe > a:hover{
+    border-bottom: 0;
+    box-shadow: 0;
+    padding: 0.5rem 4rem;
 }
 
 .main-body {
     min-height: 500px;
 }
+
+.chat-trigger{
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #b0bec5;
+    border: 3px dashed #b0bec5;
+    padding: 1rem 3rem;
+    border-radius: 2.5rem;
+    transition: 0.7s;
+}
+
+.chat-trigger:hover{
+    color: #37474f;
+    border: 3px solid #b0bec5;
+}
+
+#chat-box{
+    display: none;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+}
+
+.btn-close{
+    font-size: 3.5rem;
+    color: #b0bec5;
+    background-color: white;
+    text-align: right;
+    padding: 0.8rem 0;
+    margin-bottom: -1rem;
+    margin-right: 0.1rem;
+}
+
+.btn-close:hover{
+    cursor: pointer;
+}
+
+.disclaimer{
+    text-align: center;
+    color: #aaa; 
+    margin-top: 6rem;
+}
+
+.disclaimer h6{
+    line-height: 2rem;
+    font-weight: lighter;
+    margin-bottom: -4rem;
+}
+
 
 /*******************************************************************************
  * Home
@@ -177,8 +243,12 @@ a:hover {
 }
 
 .item-header {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ced7db;
     margin: 0 0 15px 0;
+}
+
+.fb-content {
+    text-align: center;
 }
 
 
@@ -264,7 +334,7 @@ a:hover {
  *******************************************************************************/
 
 #product-else {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ced7db;
     margin-top: 80px;
 }
 
@@ -390,6 +460,7 @@ a:hover {
 .shop-info a {
     font-size: 3rem;
     border-bottom: 0.5rem solid #fff;
+    transition: 0.5s;
 }
 
 .shop-info a:hover {
@@ -473,17 +544,10 @@ a:hover {
     line-height: 2.4rem;
 }
 
-.disclaimer{
+.social-links{
     text-align: center;
-    color: #ccc; 
-    margin-top: 6rem;
 }
 
-.disclaimer h6{
-    line-height: 2rem;
-    font-weight: lighter;
-    margin-bottom: -4rem;
-}
 
 /*--------------------------------RWD-----------------------------------*/
 @media (max-width: 1200px) {
@@ -507,7 +571,7 @@ a:hover {
         margin-top: 20%;
     }
     #nav-main {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ced7db;
         padding: 12px 0 5px 0;
     }
     .m-shift {

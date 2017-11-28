@@ -7,7 +7,7 @@
                 @foreach($categories as $key => $val)
                 <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a> @endforeach
             </div>
-            
+
             <hr class="divide-line">
 
             <div class="list-group product-types">
@@ -43,34 +43,50 @@
 
         </div>
     </div>
-
 </div>
+
+<a onclick="popUpChatBox()" class="chat-trigger">聯絡百鐵</a>
+
+<div id="chat-box">
+    <div onclick="closeChatBox()" class="btn-close"><span>⊗</span></div>
+    <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="messages" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+        <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
+    </div>
+</div>
+
 @section('inner-js')
 <script>
-    
+    //固定頂層導覽列
     $(function() {　
-            $(window).load(function() {　　
-                $(window).bind('scroll resize', function() {　　
-                    var $this = $(this);　　
-                    var $this_Top = $this.scrollTop();
+        $(window).load(function() {　　
+            $(window).bind('scroll resize', function() {　　
+                var $this = $(this);　　
+                var $this_Top = $this.scrollTop();
 
-                    if ($this_Top > 150) {
-                        $('#nav-main').addClass('top-bar');
-                        $('#nav-main').stop().animate({
-                            top: "20px"
-                        });　　　
-                    }　　　　
-                    if ($this_Top < 150) {
-                        $('#nav-main').removeClass('top-bar');
-                        $('#nav-main').stop().animate({
-                            top: "0px"
-                        });　　　
-                    }　　
-                }).scroll();　
-            });
+                if ($this_Top > 150) {
+                    $('#nav-main').addClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "20px"
+                    });　　　
+                }　　　　
+                if ($this_Top < 150) {
+                    $('#nav-main').removeClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "0px"
+                    });　　　
+                }　　
+            }).scroll();　
         });
-    
+    });
+
     document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
+
+    function popUpChatBox() {
+        document.getElementById('chat-box').style.display = "inline-block";
+    }
+    
+    function closeChatBox(){
+        document.getElementById('chat-box').style.display = "none"; 
+    }
 </script>
-@endsection 
-@endsection
+@endsection @endsection

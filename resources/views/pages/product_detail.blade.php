@@ -64,8 +64,17 @@
         </div>
         @endforeach
     </div>
-
 </div>
+
+<a onclick="popUpChatBox()" class="chat-trigger">聯絡百鐵</a>
+
+<div id="chat-box">
+    <div onclick="closeChatBox()" class="btn-close"><span>⊗</span></div>
+    <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="messages" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+        <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
+    </div>
+</div>
+
 @endsection @section('inner-js')
 <script>
     //顯示與關閉可訂製訊息
@@ -75,6 +84,15 @@
 
     function infoOff() {
         document.querySelector(".info-customize").style.display = "none";
+    }
+    
+    //顯示留言框
+    function popUpChatBox() {
+        document.getElementById('chat-box').style.display = "inline-block";
+    }
+    
+    function closeChatBox(){
+        document.getElementById('chat-box').style.display = "none"; 
     }
 </script>
 

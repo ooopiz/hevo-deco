@@ -63,7 +63,11 @@
     </div>
 
 </div>
+<div class="social-links container">
+    <div class="fb-like" data-href="https://www.facebook.com/hevodeco/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
 
+
+</div>
 
 @section('inner-js')
 <script>

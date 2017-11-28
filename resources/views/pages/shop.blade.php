@@ -23,12 +23,14 @@
                 <h6>實體通路</h6>
                 <ul>
                     <li><a href="https://goo.gl/maps/YPWzHquAXST2" target="_blank">Ichijiku Cafe &amp; Living</a>&nbsp;&nbsp; 台北市永康街91-1號2樓</li>
+                    <li><a href="https://www.scenehomeware.com/shop/product/3262" target="_blank">光景｜咖啡道具生活用品</a>&nbsp;&nbsp; 台北市松山區民生東路三段130巷18弄11號1樓</li>
+                    <li><a href="https://goo.gl/maps/NpiWoUHANQS2" target="_blank">FabCafe Taipei</a>&nbsp;&nbsp;  八德路一段1號中三館一樓 <b>期間限定</b></li>
                     <li><a href="https://goo.gl/maps/GuMVwA69Nd52" target="_blank">小路上</a>&nbsp;&nbsp; 台北市羅斯福路二段77巷7號1-3F <b>期間限定</b></li>
                 </ul>
             </div>
         </div>
         <div class="col-md-10 col-md-offset-1">
-            <hr style="border-top:1px dashed #ced7db">
+            <hr style="border-top:1px dashed #ced7db" width="80%">
         </div>
         <div class="row">
             <div class="col-md-3 col-md-offset-2">
@@ -37,7 +39,7 @@
             <div class="col-md-7">
                 <h6>家具家飾</h6>
                 <ul>
-                    <li><a href="https://www.messenger.com/t/hevodeco" target="_blank">訂購需求</a>&nbsp;&nbsp; 填寫</li>
+                    <li><a href="https://www.facebook.com/messages/t/896973380414328" target="_blank">訂購需求</a>&nbsp;&nbsp; 填寫</li>
                     <li><a href="https://www.dropbox.com/s/s6se79rfbiqry7f/hevodeco_aw17.pdf?dl=0" target="_blank">商品型錄</a>&nbsp;&nbsp; 下載</li>
 
                 </ul>
