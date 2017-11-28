@@ -23,8 +23,8 @@
                 <h6>實體通路</h6>
                 <ul>
                     <li><a href="https://goo.gl/maps/YPWzHquAXST2" target="_blank">Ichijiku Cafe &amp; Living</a>&nbsp;&nbsp; 台北市永康街91-1號2樓</li>
-                    <li><a href="https://www.scenehomeware.com/shop/product/3262" target="_blank">光景｜咖啡道具生活用品</a>&nbsp;&nbsp; 台北市松山區民生東路三段130巷18弄11號1樓</li>
-                    <li><a href="https://goo.gl/maps/NpiWoUHANQS2" target="_blank">FabCafe Taipei</a>&nbsp;&nbsp;  八德路一段1號中三館一樓 <b>期間限定</b></li>
+                    <li><a href="https://www.scenehomeware.com/shop/product/3262" target="_blank">光景 scene homeware</a>&nbsp;&nbsp; 台北市松山區民生東路三段130巷18弄11號1樓</li>
+                    <li><a href="https://goo.gl/maps/NpiWoUHANQS2" target="_blank">FabCafe Taipei</a>&nbsp;&nbsp;  台北市八德路一段1號中三館一樓 <b>期間限定</b></li>
                     <li><a href="https://goo.gl/maps/GuMVwA69Nd52" target="_blank">小路上</a>&nbsp;&nbsp; 台北市羅斯福路二段77巷7號1-3F <b>期間限定</b></li>
                 </ul>
             </div>

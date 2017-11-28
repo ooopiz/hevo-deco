@@ -190,12 +190,13 @@ margin-top: 1rem;
     position: fixed;
     right: 2%;
     bottom: 2%;
+    z-index: 999;
 }
 
 .btn-close{
     font-size: 3.5rem;
     color: #b0bec5;
-    background-color: white;
+    background-color: transparent;
     text-align: right;
     padding: 0.8rem 0;
     margin-bottom: -1rem;
@@ -332,6 +333,10 @@ margin-top: 1rem;
 /*******************************************************************************
  * Product detail
  *******************************************************************************/
+
+.owl-theme, owl-carousel {
+    overflow: hidden;
+}
 
 #product-else {
     border-top: 1px solid #ced7db;

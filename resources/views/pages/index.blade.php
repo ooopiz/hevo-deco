@@ -36,8 +36,7 @@
     
     
     <div class="row fb-content">
-        <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="timeline" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote></div>
-        
+      <div class="fb-like" data-href="https://facebook.com/hevodeco" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     </div>
 </div>
 </div>
