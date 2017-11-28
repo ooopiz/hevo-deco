@@ -563,6 +563,22 @@ margin-top: 1rem;
         width: 95%;
         margin: 0;
     }
+    
+    .product-intro > h1 {
+        width: 100%;
+    }
+    
+    .dimensions > p {
+        margin-right: 1rem;
+    }
+    
+    #product-else h3{
+        font-size:1.7rem;
+    }
+    
+    .shop-info ul li{
+        margin-bottom: 0.2rem;
+    }
 }
 
 
@@ -615,13 +631,6 @@ margin-top: 1rem;
         margin-bottom: 10%;
     }
     
-    .product-intro > h1 {
-        width: 100%;
-    }
-    
-    .dimensions > p {
-        margin-right: 1rem;
-    }
     
 }
 
