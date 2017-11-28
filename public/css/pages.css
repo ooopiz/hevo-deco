@@ -3,6 +3,7 @@
  *******************************************************************************/
 body {
     word-wrap: break-word;
+    overflow-x: hidden;
 }
 
 header,
@@ -234,7 +235,7 @@ margin-top: 1rem;
 
 #home-product-list .product-item {
     padding: 18px;
-    height: 450px;
+    height: 500px;
 }
 
 #home-product-list .product-item img {
@@ -249,6 +250,7 @@ margin-top: 1rem;
 }
 
 .fb-content {
+    display: none;
     text-align: center;
 }
 
@@ -333,10 +335,6 @@ margin-top: 1rem;
 /*******************************************************************************
  * Product detail
  *******************************************************************************/
-
-.owl-theme, owl-carousel {
-    overflow: hidden;
-}
 
 #product-else {
     border-top: 1px solid #ced7db;
@@ -474,6 +472,14 @@ margin-top: 1rem;
     text-decoration: none;
 }
 
+.shop-info span{
+    margin: 0 0.5rem;
+}
+
+.shop-info p{
+    display: inline;
+}
+
 
 /*******************************************************************************
  * About
@@ -585,9 +591,15 @@ margin-top: 1rem;
         font-size:1.7rem;
     }
     
-    .shop-info ul li{
-        margin-bottom: 0.2rem;
+    .distributors li{
+        margin-bottom: 1.5rem;
     }
+    
+    .distributors p{
+        display: block;
+        margin-bottom: 0rem;
+    }
+    
 }
 
 
@@ -615,9 +627,17 @@ margin-top: 1rem;
         padding: 12px;
     }
     
+    .fb-content{
+        display: block;
+    }
+    
     #home-product-list .product-item{
         height: 10%;
         margin-bottom: 4rem;
+    }
+    
+    .intro{
+        margin: -2rem 0 2rem 0;
     }
     
     .intro > span{
@@ -632,12 +652,20 @@ margin-top: 1rem;
         width: 60%;
     }
     
+    .brand-story > .row{
+        margin-bottom: 5rem;
+    }
+    
     #footer .footer-item ul li{
         margin-bottom: 1rem;
     }
     
     .product-types:last-child > a:last-child{
         margin-bottom: 10%;
+    }
+    
+    .chat-trigger{
+        display: none;
     }
     
     
@@ -660,6 +688,10 @@ margin-top: 1rem;
     
     .brand-story h2{
         font-size: 3rem;
+        line-height: 3rem;
+    }
+    
+    .shop-info a{
         line-height: 3rem;
     }
 }

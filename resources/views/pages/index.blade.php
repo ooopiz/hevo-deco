@@ -33,12 +33,13 @@
         </div>
         @endforeach
     </div>
-    
-    
+
     <div class="row fb-content">
-      <div class="fb-like" data-href="https://facebook.com/hevodeco" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="timeline" data-width="400" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
+        </div>
     </div>
-</div>
+    </div>
 </div>
 
 @endsection @section('inner-js')
