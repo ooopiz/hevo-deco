@@ -555,6 +555,10 @@ margin-top: 1rem;
         opacity: 0;
     }
     
+    #home-slide{
+        padding: 0;
+    }
+    
     .product-intro > p{
         width: 100%;
     }
