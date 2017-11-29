@@ -55,6 +55,7 @@
 </div>
 
 @section('inner-js')
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     //固定頂層導覽列
     $(function() {　
@@ -63,13 +64,13 @@
                 var $this = $(this);　　
                 var $this_Top = $this.scrollTop();
 
-                if ($this_Top > 150) {
+                if ($this_Top > 250) {
                     $('#nav-main').addClass('top-bar');
                     $('#nav-main').stop().animate({
                         top: "20px"
                     });　　　
                 }　　　　
-                if ($this_Top < 150) {
+                if ($this_Top < 250) {
                     $('#nav-main').removeClass('top-bar');
                     $('#nav-main').stop().animate({
                         top: "0px"

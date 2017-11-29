@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<a onclick="popUpChatBox()" class="chat-trigger">聯絡百鐵</a>
+<a onclick="popUpChatBox()" class="chat-trigger">ϟ 聯絡百鐵</a>
 
 <div id="chat-box">
     <div onclick="closeChatBox()" class="btn-close"><span>▾</span></div>

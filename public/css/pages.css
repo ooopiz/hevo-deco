@@ -1,6 +1,7 @@
 /*******************************************************************************
  * Global
  *******************************************************************************/
+
 body {
     word-wrap: break-word;
     overflow-x: hidden;
@@ -59,6 +60,7 @@ a:hover {
 #nav-main {
     border-bottom: 1px solid #ced7db;
     padding: 24px;
+    word-break: keep-all;
 }
 
 #nav-main ul {
@@ -95,10 +97,10 @@ a:hover {
 }
 
 .top-bar {
-    width: 90%;
-    left: 5%;
+    width: 80%;
+    left: 10%;
     position: fixed;
-    margin-top: -8rem;
+    margin-top: -2rem;
     padding-bottom: 1rem;
     z-index: 999;
     background: rgba(255%, 255%, 255%, 0.8);
@@ -108,7 +110,6 @@ a:hover {
 /*******************************************************************************
  * footer
  *******************************************************************************/
-
 
 #footer {
     border-top: 1px solid #ced7db;
@@ -144,9 +145,10 @@ a:hover {
     border-bottom: 0.3rem solid #b0bec5;
 
 }
-#footer .subscribe{
-margin-top: 1rem;
-    }
+
+#footer .subscribe {
+    margin-top: 1rem;
+}
 
 #footer .subscribe > a {
     padding: 0.5rem 2rem;
@@ -158,7 +160,7 @@ margin-top: 1rem;
     transition: 0.7s;
 }
 
-#footer .subscribe > a:hover{
+#footer .subscribe > a:hover {
     border-bottom: 0;
     box-shadow: 0;
     padding: 0.5rem 4rem;
@@ -168,7 +170,7 @@ margin-top: 1rem;
     min-height: 500px;
 }
 
-.chat-trigger{
+.chat-trigger {
     position: fixed;
     right: 2%;
     bottom: 2%;
@@ -179,14 +181,15 @@ margin-top: 1rem;
     padding: 1rem 3rem;
     border-radius: 2.5rem;
     transition: 0.7s;
+    z-index: 999;
 }
 
-.chat-trigger:hover{
+.chat-trigger:hover {
     color: #37474f;
     border: 3px solid #b0bec5;
 }
 
-#chat-box{
+#chat-box {
     display: none;
     position: fixed;
     right: 2%;
@@ -194,7 +197,7 @@ margin-top: 1rem;
     z-index: 999;
 }
 
-.btn-close{
+.btn-close {
     font-size: 3.5rem;
     color: #b0bec5;
     background-color: transparent;
@@ -204,17 +207,17 @@ margin-top: 1rem;
     margin-right: 0.1rem;
 }
 
-.btn-close:hover{
+.btn-close:hover {
     cursor: pointer;
 }
 
-.disclaimer{
+.disclaimer {
     text-align: center;
-    color: #aaa; 
+    color: #aaa;
     margin-top: 6rem;
 }
 
-.disclaimer h6{
+.disclaimer h6 {
     line-height: 2rem;
     font-weight: lighter;
     margin-bottom: -4rem;
@@ -294,15 +297,15 @@ margin-top: 1rem;
     margin-bottom: 5rem;
 }
 
-.item h4{
+.item h4 {
     margin-top: 1rem;
 }
 
-.item h4:hover{
+.item h4:hover {
     text-decoration: none;
 }
 
-.item p{
+.item p {
     margin-top: -0.6rem;
 }
 
@@ -472,11 +475,11 @@ margin-top: 1rem;
     text-decoration: none;
 }
 
-.shop-info span{
+.shop-info span {
     margin: 0 0.5rem;
 }
 
-.shop-info p{
+.shop-info p {
     display: inline;
 }
 
@@ -492,10 +495,12 @@ margin-top: 1rem;
 }
 
 .intro > p {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    min-width: 900px;
     padding: 0;
     line-height: 4.2rem;
     letter-spacing: 0.1rem;
+    word-break: keep-all;
 }
 
 .intro > span {
@@ -555,51 +560,57 @@ margin-top: 1rem;
     line-height: 2.4rem;
 }
 
-.social-links{
+.social-links {
     text-align: center;
 }
 
 
 /*--------------------------------RWD-----------------------------------*/
+
 @media (max-width: 1200px) {
-    .intro > span{
+    .intro > span {
         opacity: 0;
     }
-    
-    #home-slide{
+
+    .intro > p {
+        font-size: 1.9rem;
+        min-width: 800px;
+    }
+
+    #home-slide {
         padding: 0;
     }
-    
-    .product-intro > p{
+
+    .product-intro > p {
         width: 100%;
     }
-    
-     .product-types{
+
+    .product-types {
         width: 95%;
         margin: 0;
     }
-    
+
     .product-intro > h1 {
         width: 100%;
     }
-    
+
     .dimensions > p {
         margin-right: 1rem;
     }
-    
-    #product-else h3{
-        font-size:1.7rem;
+
+    #product-else h3 {
+        font-size: 1.7rem;
     }
-    
-    .distributors li{
+
+    .distributors li {
         margin-bottom: 1.5rem;
     }
-    
-    .distributors p{
+
+    .distributors p {
         display: block;
         margin-bottom: 0rem;
     }
-    
+
 }
 
 
@@ -619,93 +630,103 @@ margin-top: 1rem;
         justify-content: space-between;
         margin: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: rgba(255%, 255%, 255%, 0.8);
+        filter: alpha(opacity=80);
         z-index: 999;
     }
     .m-shift div {
         width: 80%;
         padding: 12px;
     }
-    
-    .fb-content{
+
+    .fb-content {
         display: block;
     }
-    
-    #home-product-list .product-item{
+
+    #home-product-list .product-item {
         height: 10%;
         margin-bottom: 4rem;
     }
-    
-    .info-customize{
+
+    .info-customize {
         font-size: 1rem;
     }
-    
+
     .web-shops li,
-    .bespoke-furniture li{
+    .bespoke-furniture li {
         margin-bottom: 1rem;
     }
-    
-    .intro{
+
+    .intro {
         margin: -2rem 0 2rem 0;
+        display: block;
     }
-    
-    .intro > span{
+
+    .intro > p {
+        font-size: 1.6rem;
+        min-width: 400px;
+    }
+
+    .intro > span {
         display: none;
     }
-    
-    .brand-story img{
+
+    .brand-story img {
         display: none;
     }
-    
-    .brand-story svg{
+
+    .brand-story svg {
         width: 60%;
     }
-    
-    .brand-story > .row{
+
+    .brand-story > .row {
         margin-bottom: 5rem;
     }
-    
-    #footer .footer-item ul li{
+
+    #footer .footer-item ul li {
         margin-bottom: 1rem;
     }
-    
-    .product-types:last-child > a:last-child{
+
+    .product-types:last-child > a:last-child {
         margin-bottom: 10%;
     }
-    
-    .chat-trigger{
+
+    .chat-trigger {
         display: none;
     }
-    
-    
+
+
 }
 
-@media (max-width: 420px){
-    
+@media (max-width: 420px) {
+
     #nav-main a {
         margin-right: 0.7rem;
+        word-break: normal;
     }
-    
-    #nav-main ul li{
+
+    #nav-main ul li {
         padding-right: 2.5rem;
     }
-    
-    .intro > p{
-        font-size: 1.5rem;
+
+    .intro > p {
+        font-size: 1.3rem;
         line-height: 2rem;
+        min-width: 300px;
     }
-    
-    .brand-story h2{
+
+    .brand-story h2 {
         font-size: 3rem;
         line-height: 3rem;
     }
-    
-    .shop-info a{
+
+    .shop-info a {
         line-height: 3rem;
     }
 }
 
 /*----------------Animate-----------------*/
+
 .fade-in {
     animation: fade-in ease 1s;
     animation-iteration-count: 1;
@@ -772,4 +793,3 @@ margin-top: 1rem;
         -o-transform: translate(0px, 0px);
     }
 }
-

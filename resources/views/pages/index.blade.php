@@ -43,30 +43,13 @@
 </div>
 
 @endsection @section('inner-js')
-<script>
-    //固定頂層導覽列 
-    $(function() {　
-        $(window).load(function() {　　
-            $(window).bind('scroll resize', function() {　　
-                var $this = $(this);　　
-                var $this_Top = $this.scrollTop();
 
-                if ($this_Top > 150) {
-                    $('#nav-main').addClass('top-bar');
-                    $('#nav-main').stop().animate({
-                        top: "20px"
-                    });　　　
-                }　　　　
-                if ($this_Top < 150) {
-                    $('#nav-main').removeClass('top-bar');
-                    $('#nav-main').stop().animate({
-                        top: "0px"
-                    });　　　
-                }　　
-            }).scroll();　
-        });
-    });
+
+<script>
+    //顯示當前頁 ok
+    document.getElementById('nav-1').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
 <script>
     $('.owl-carousel').owlCarousel({
@@ -79,8 +62,5 @@
             }
         }
     });
-
-    //顯示當前頁 ok
-    document.getElementById('nav-1').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
 @endsection
