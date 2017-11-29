@@ -9,7 +9,8 @@
     <meta name="author" content="erco L., Ricky H.">
     <meta property="og:title" content="hevo | 日何百鐵">
     <meta property="og:url" content="http://www.hevodeco.com">
-    <meta property="og:image" content="https://i.imgur.com/5pL7NHC.jpg">
+    <meta property="og:image" content="http://i.imgur.com/5pL7NHC.jpg">
+    <meta property="og:image:secure_url" content="https://i.imgur.com/5pL7NHC.jpg">
     <meta property="og:description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.我們選擇賦予熟悉的鐵材嶄新功能,結合多種樣貌.天天能使用且人人可擁有,在日常中發掘鐵之優美.">
 
     <title>@yield('title')</title>
