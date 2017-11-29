@@ -45,10 +45,10 @@
     </div>
 </div>
 
-<a onclick="popUpChatBox()" class="chat-trigger">聯絡百鐵</a>
+<a onclick="popUpChatBox()" class="chat-trigger">ϟ 聯絡百鐵</a>
 
 <div id="chat-box">
-    <div onclick="closeChatBox()" class="btn-close"><span>⊗</span></div>
+    <div onclick="closeChatBox()" class="btn-close"><span>▾</span></div>
     <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="messages" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
         <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
     </div>

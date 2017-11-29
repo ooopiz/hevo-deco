@@ -636,6 +636,10 @@ margin-top: 1rem;
         margin-bottom: 4rem;
     }
     
+    .info-customize{
+        font-size: 1rem;
+    }
+    
     .web-shops li,
     .bespoke-furniture li{
         margin-bottom: 1rem;
