@@ -10,7 +10,7 @@
 </div>
 
 <div class="brand-banner container-fluid">
-    <img src="/images/about/about_banner.jpg">
+    <img src="/images/about/about_banner.jpg" title="百鐵日常">
 </div>
 
 <div class="brand-story container">
@@ -22,18 +22,18 @@
             </p>
         </div>
         <div class="col-md-4 col-md-offset-2">
-            <img src="/images/about/1-tx.png">
+            <img src="/images/about/1-tx.png" title="桌上的工廠">
         </div>
     </div>
 </div>
 <div class="brand-banner container-fluid">
-    <img src="/images/about/about_banner-2.jpg">
+    <img src="/images/about/about_banner-2.jpg" title="百鐵百樣">
 </div>
 
 <div class="brand-story container">
     <div class="row">
         <div class="col-md-4">
-            <img src="/images/about/2-pcs.png">
+            <img src="/images/about/2-pcs.png" title="鐵的平面">
         </div>
         <div class="col-md-6 col-md-offset-2">
             <h2>一片鐵<br>產出百種樣貌</h2>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="brand-banner container-fluid">
-    <img src="/images/about/about_banner-3.jpg">
+    <img src="/images/about/about_banner-3.jpg" title="黑手質感">
 </div>
 
 <div class="brand-story container">
@@ -58,13 +58,25 @@
             </p>
         </div>
         <div class="col-md-4 col-md-offset-2">
-            <img src="/images/about/3-bkh.png">
+            <img src="/images/about/3-bkh.png" title="黑手認證">
         </div>
     </div>
 
 </div>
 <div class="social-links container">
-    <div class="fb-like" data-href="https://www.facebook.com/hevodeco/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+
+    <span class="google-plus">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <g:plusone></g:plusone>
+    </span>
+
+    <span class="pin-save">
+        <a href="https://www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"><i class="fa fa-pinterest-square" aria-hidden="true"></i>
+        </a>
+    </span>
+
+    <span class="fb-like" data-href="https://www.facebook.com/hevodeco/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></span>
+
 
 
 </div>

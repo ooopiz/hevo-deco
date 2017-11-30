@@ -55,7 +55,7 @@
 </div>
 
 @section('inner-js')
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     //固定頂層導覽列
     $(function() {　
@@ -80,14 +80,29 @@
         });
     });
 
+    //add <link> in head
+    var head = document.getElementsByTagName('head')[0],
+        conURL = 'http://www.hevodeco.com/product',
+        linkTag = document.createElement('link');
+
+
+    linkTag.setAttribute('rel', 'canonical');
+    linkTag.href = conURL;
+    
+
+    head.appendChild(linkTag);
+    
+    //show now
     document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
 
+    
+    //fb-messenger box
     function popUpChatBox() {
         document.getElementById('chat-box').style.display = "inline-block";
     }
-    
-    function closeChatBox(){
-        document.getElementById('chat-box').style.display = "none"; 
+
+    function closeChatBox() {
+        document.getElementById('chat-box').style.display = "none";
     }
 </script>
 @endsection @endsection
