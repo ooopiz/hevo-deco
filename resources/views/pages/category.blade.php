@@ -50,4 +50,66 @@
         </div>
     </div>
 
+<a onclick="popUpChatBox()" class="chat-trigger">ϟ 聯絡百鐵</a>
+
+<div id="chat-box">
+    <div onclick="closeChatBox()" class="btn-close"><span>▾</span></div>
+    <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="messages" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+        <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
+    </div>
+</div>
+
+@endsection
+@section('inner-js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //固定頂層導覽列
+    $(function() {　
+        $(window).load(function() {　　
+            $(window).bind('scroll resize', function() {　　
+                var $this = $(this);　　
+                var $this_Top = $this.scrollTop();
+
+                if ($this_Top > 250) {
+                    $('#nav-main').addClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "20px"
+                    });　　　
+                }　　　　
+                if ($this_Top < 250) {
+                    $('#nav-main').removeClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "0px"
+                    });　　　
+                }　　
+            }).scroll();　
+        });
+    });
+
+    //add <link> in head
+    var head = document.getElementsByTagName('head')[0],
+        conURL = 'http://www.hevodeco.com/catagory',
+        linkTag = document.createElement('link');
+
+
+    linkTag.setAttribute('rel', 'canonical');
+    linkTag.href = conURL;
+    
+
+    head.appendChild(linkTag);
+    
+    //show now
+    document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
+
+    
+    //fb-messenger box
+    function popUpChatBox() {
+        document.getElementById('chat-box').style.display = "inline-block";
+    }
+
+    function closeChatBox() {
+        document.getElementById('chat-box').style.display = "none";
+    }
+</script>
+
 @endsection

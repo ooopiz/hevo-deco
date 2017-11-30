@@ -105,4 +105,5 @@
         document.getElementById('chat-box').style.display = "none";
     }
 </script>
-@endsection @endsection
+@endsection 
+@endsection

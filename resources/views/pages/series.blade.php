@@ -1,35 +1,26 @@
-@extends('pages.layout')
+@extends('pages.layout') @section('title', '系列 ｜日何百鐵') @section('inner-css') @endsection @section('content')
+<div class="container">
 
-@section('title', '系列 ｜日何百鐵')
-
-@section('inner-css')
-@endsection
-
-@section('content')
-    <div class="container">
-
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="list-group product-types">
-                    @foreach($categoryNav as $key => $val)
-                        <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
-                    @endforeach
-                </div>
-                
-                <hr class="divide-line">
-
-                <div class="list-group product-types">
-                    @foreach($seriesNav as $key => $val)
-                        <a href="{{ URL_SERIES . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a>
-                    @endforeach
-                </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group product-types">
+                @foreach($categoryNav as $key => $val)
+                <a href="{{ URL_CATEGORY . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a> @endforeach
             </div>
 
-            <div id="series-item-container" class="col-sm-10">
-                <div class="row">
-                    @foreach($series->seriesList as $serList)
-                        <div class="col-sm-6 item">
-                            <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
+            <hr class="divide-line">
+
+            <div class="list-group product-types">
+                @foreach($seriesNav as $key => $val)
+                <a href="{{ URL_SERIES . '/' . $val->id }}" class="list-group-item">{{ $val->name }}</a> @endforeach
+            </div>
+        </div>
+
+        <div id="series-item-container" class="col-sm-10">
+            <div class="row">
+                @foreach($series->seriesList as $serList)
+                <div class="col-sm-6 item">
+                    <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)
                                     <img class="img-thumbnail" src='http://placehold.it/450x450' />
                                 @elseif($serList->product->materialImages->count() == 1)
@@ -42,12 +33,72 @@
                                 @endif
                                 <h4>{{ $serList->product->name }}</h4>
                             </a>
-                            <p>{{ $serList->product->subtitle }}</p>
-                        </div>
-                    @endforeach
+                    <p>{{ $serList->product->subtitle }}</p>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
+<a onclick="popUpChatBox()" class="chat-trigger">ϟ 聯絡百鐵</a>
+
+<div id="chat-box">
+    <div onclick="closeChatBox()" class="btn-close"><span>▾</span></div>
+    <div class="fb-page" data-href="https://www.facebook.com/hevodeco/" data-tabs="messages" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+        <blockquote cite="https://www.facebook.com/hevodeco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hevodeco/">Hevo 日何百鐵</a></blockquote>
+    </div>
+</div>
+
+@endsection @section('inner-js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //固定頂層導覽列
+    $(function() {　
+        $(window).load(function() {　　
+            $(window).bind('scroll resize', function() {　　
+                var $this = $(this);　　
+                var $this_Top = $this.scrollTop();
+
+                if ($this_Top > 250) {
+                    $('#nav-main').addClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "20px"
+                    });　　　
+                }　　　　
+                if ($this_Top < 250) {
+                    $('#nav-main').removeClass('top-bar');
+                    $('#nav-main').stop().animate({
+                        top: "0px"
+                    });　　　
+                }　　
+            }).scroll();　
+        });
+    });
+
+    //add <link> in head
+    var head = document.getElementsByTagName('head')[0],
+        conURL = 'http://www.hevodeco.com/series',
+        linkTag = document.createElement('link');
+
+
+    linkTag.setAttribute('rel', 'canonical');
+    linkTag.href = conURL;
+
+
+    head.appendChild(linkTag);
+
+    //show now
+    document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
+
+
+    //fb-messenger box
+    function popUpChatBox() {
+        document.getElementById('chat-box').style.display = "inline-block";
+    }
+
+    function closeChatBox() {
+        document.getElementById('chat-box').style.display = "none";
+    }
+</script>
 
 @endsection
