@@ -97,7 +97,7 @@
                                 <label>有效</label>
                                 <select name="active" class="form-control">
                                     @foreach($commonPresenter->yesNoOptions() as $key => $val)
-                                        {{ $activeSelect = ($key == $product->display) ? true : false }}
+                                        {{ $activeSelect = ($key == $product->active) ? true : false }}
                                         <option value="{{ $key }}" @if($activeSelect) selected @endif>{{ $val }}</option>
                                     @endforeach
                                 </select>

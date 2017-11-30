@@ -34,7 +34,12 @@ class CategoryController extends Controller
         }
         // load relationship
         $category->load(['categoryList' => function ($query) {
-            $query->orderBy('product_id', 'asc');
+            $query
+                ->join('products', function ($join) {
+                    $join->on('products.id', '=', 'category_lists.product_id')
+                        ->where(array(['products.display', 'Y'], ['products.active', 'Y']));
+                })
+                ->orderBy('product_id', 'asc');
         }]);
         foreach($category->categoryList as $k1 => $catList) {
             $catList->load('product');
