@@ -41,11 +41,29 @@ a {
     cursor: auto;
 }
 
+a:link{
+    text-decoration: none;
+} 
+
+a:visited{
+    text-decoration: none;
+} 
+
 a:hover {
     color: black;
     cursor: crosshair;
     text-decoration: none;
 }
+
+a:active{
+    color: #263238;
+    text-decoration: none;
+}
+
+a:focus{
+    color: #263238;
+    text-decoration: none;
+} 
 
 .img-thumbnail {
     border: 0;
@@ -558,6 +576,7 @@ a:hover {
     font-size: 1.6rem;
     letter-spacing: 0.3rem;
     line-height: 2.4rem;
+    word-break: keep-all;
 }
 
 .social-links {
@@ -565,7 +584,7 @@ a:hover {
 }
 
 
-/*--------------------------------RWD-----------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------RWD----------------------------------------------------------------------------------------------------------------------------*/
 
 @media (max-width: 1200px) {
     .intro > span {
@@ -611,6 +630,11 @@ a:hover {
         margin-bottom: 0rem;
     }
 
+    .top-bar {
+        width: 95%;
+        left: 2.5%;
+    }
+
 }
 
 
@@ -630,13 +654,20 @@ a:hover {
         justify-content: space-between;
         margin: 0;
         width: 100%;
-        background-color: rgba(255%, 255%, 255%, 0.8);
+        background-color: rgba(255%, 255%, 255%, 0.9);
         filter: alpha(opacity=80);
         z-index: 999;
+        transition: 0.6s;
     }
     .m-shift div {
-        width: 80%;
+        width: 90%;
+        left: 5%;
         padding: 12px;
+    }
+    
+    .top-bar {
+        width: 100%;
+        left: 0;
     }
 
     .fb-content {
@@ -725,7 +756,7 @@ a:hover {
     }
 }
 
-/*----------------Animate-----------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------Animate----------------------------------------------------------------------------------------------------------------*/
 
 .fade-in {
     animation: fade-in ease 1s;
