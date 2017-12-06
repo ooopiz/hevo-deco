@@ -7,13 +7,13 @@
     <meta name="description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.我們選擇賦予熟悉的鐵材嶄新功能,結合多種樣貌.天天能使用且人人可擁有,在日常中發掘鐵之優美.">
     <meta name="keywords" content="metal,design,factory,金屬設計家具,客製化" />
     <meta name="author" content="erco L., Ricky H.">
-    <meta property="fb:admins" content="896973380414328"/>
-    <meta property="fb:pages" content="896973380414328"/>
+    <meta property="fb:admins" content="896973380414328" />
+    <meta property="fb:pages" content="896973380414328" />
     <meta property="og:title" content="hevo | 日何百鐵">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.hevodeco.com">
     <meta property="og:image" content="http://i.imgur.com/5pL7NHC.jpg">
-    <meta property="og:image:secure_url" content="https://i.imgur.com/5pL7NHC.jpg">   
+    <meta property="og:image:secure_url" content="https://i.imgur.com/5pL7NHC.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.">
@@ -56,6 +56,14 @@
                     <li><a id="nav-2" href="{{ URL_PRODUCT }}">Product | 產品</a></li>
                     <li><a id="nav-3" href="{{ URL_SHOP }}">Shop | 銷售通路</a></li>
                     <li><a id="nav-4" href="{{ URL_ABOUT }}">About | 關於百鐵</a></li>
+                </ul>
+            </div>
+            <div id="nav-small">
+                <ul>
+                    <li><a id="nav-small-1" href="{{ URL_HOME }}"><i class="fa fa-industry" aria-hidden="true"></i>首頁</a></li>
+                    <li><a id="nav-small-2" href="{{ URL_PRODUCT }}"><i class="fa fa-th-large" aria-hidden="true"></i>產品</a></li>
+                    <li><a id="nav-small-3" href="{{ URL_SHOP }}"><i class="fa fa-map" aria-hidden="true"></i>通路</a></li>
+                    <li><a id="nav-small-4" href="{{ URL_ABOUT }}"><i class="fa fa-bookmark" aria-hidden="true"></i>關於</a></li>
                 </ul>
             </div>
         </nav>
@@ -104,22 +112,22 @@
                 </div>
             </div>
             <div class="row disclaimer">
-                <h6>Copyright © 2017 hevo - All rights reserved<br>Creative Direction by erco Laii</h6>
+                <h6>Copyright © 2017 hevo - All rights reserved<br>Creative Direction by studio Laii</h6>
             </div>
         </footer>
     </div>
     <!--FB sdk-->
     <div id="fb-root"></div>
-        <script>
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=127843113974306';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=127843113974306';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- jQuery 3 -->
     <script src="/dist/js/jquery.min.js"></script>

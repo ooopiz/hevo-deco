@@ -84,5 +84,6 @@
 @section('inner-js')
 <script>
     document.getElementById('nav-4').style.borderBottom = "0.4rem solid #b0bec5";
+    document.getElementById('nav-small-4').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
 @endsection @endsection

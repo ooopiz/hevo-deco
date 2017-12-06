@@ -94,7 +94,7 @@
     function closeChatBox(){
         document.getElementById('chat-box').style.display = "none"; 
     }
-    
+    //show now
     document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
 

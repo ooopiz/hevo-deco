@@ -85,15 +85,14 @@
         conURL = 'http://www.hevodeco.com/product',
         linkTag = document.createElement('link');
 
-
     linkTag.setAttribute('rel', 'canonical');
     linkTag.href = conURL;
     
-
     head.appendChild(linkTag);
     
     //show now
     document.getElementById('nav-2').style.borderBottom = "0.4rem solid #b0bec5";
+    document.getElementById('nav-small-2').style.borderBottom = "0.4rem solid #b0bec5";
 
     
     //fb-messenger box

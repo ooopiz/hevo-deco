@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Din, Noto Sans TC, sans-serif;
+    font-family: Din, 'Noto Sans TC', '微軟正黑體', sans-serif;
     font-weight: bold;
     letter-spacing: 0.1rem;
 }
@@ -31,7 +31,7 @@ ul,
 li,
 p,
 a {
-    font-family: Din, Noto Sans TC, sans-serif;
+    font-family: Din, 'Noto Sans TC', '微軟正黑體', sans-serif;
     letter-spacing: 0.1rem;
     font-weight: lighter;
 }
@@ -41,29 +41,22 @@ a {
     cursor: auto;
 }
 
-a:link{
-    text-decoration: none;
-} 
-
-a:visited{
-    text-decoration: none;
-} 
-
 a:hover {
     color: black;
     cursor: crosshair;
     text-decoration: none;
 }
 
-a:active{
-    color: #263238;
+a:link,
+a:visited {
     text-decoration: none;
 }
 
-a:focus{
+a:active,
+a:focus {
     color: #263238;
     text-decoration: none;
-} 
+}
 
 .img-thumbnail {
     border: 0;
@@ -103,6 +96,11 @@ a:focus{
     background-color: transparent !important;
     border-bottom: 0.3rem dashed #b0bec5;
     text-decoration: none;
+}
+
+#nav-small {
+    display: none;
+    /*未來小螢幕導覽列使用icon*/
 }
 
 
@@ -394,12 +392,12 @@ a:focus{
 }
 
 .textures > a {
-    cursor: pointer;
+    cursor: normal;
 
 }
 
 .textures > a:hover {
-    opacity: 0.7;
+    cursor: normal;
 }
 
 .textures > a > img {
@@ -586,12 +584,12 @@ a:focus{
     width: 90%;
 }
 
-.pin-save i{
+.pin-save i {
     font-size: 2.5rem;
     color: #bd081c;
 }
 
-.pin-save a:hover{
+.pin-save a:hover {
     cursor: pointer;
 }
 
@@ -677,7 +675,7 @@ a:focus{
         left: 2.5%;
         padding: 12px;
     }
-    
+
     .top-bar {
         width: 100%;
         left: 0;
@@ -744,13 +742,37 @@ a:focus{
 
 @media (max-width: 420px) {
 
-    #nav-main a {
-        margin-right: 0.7rem;
-        word-break: normal;
+    #nav-main {
+        display: none;
     }
 
-    #nav-main ul li {
-        padding-right: 2.5rem;
+    #nav-small{
+        display: flex;
+    }  
+    
+    #nav-small ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 0 0 -15%;
+        text-align: center;
+    }
+
+    #nav-small ul li {
+        padding: 0 15% 0 0;
+        display: inline-block;
+        
+    }
+    
+    #nav-small i{
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        color: #455A64;
+        width: 3rem;
+    }
+    
+    #nav-small a{
+        color: #607D8B;
     }
 
     .intro > p {
@@ -768,6 +790,8 @@ a:focus{
         line-height: 3rem;
     }
 }
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------------------Animate----------------------------------------------------------------------------------------------------------------*/
 
@@ -837,3 +861,6 @@ a:focus{
         -o-transform: translate(0px, 0px);
     }
 }
+
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);

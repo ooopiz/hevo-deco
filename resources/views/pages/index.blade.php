@@ -48,6 +48,7 @@
 <script>
     //顯示當前頁 ok
     document.getElementById('nav-1').style.borderBottom = "0.4rem solid #b0bec5";
+    document.getElementById('nav-small-1').style.borderBottom = "0.4rem solid #b0bec5";
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
