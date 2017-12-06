@@ -34,8 +34,14 @@ class SeriesController extends Controller
         }
         // load relationship
         $series->load(['seriesList' => function ($query) {
-            $query->orderBy('product_id', 'asc');
+            $query
+                ->join('products', function ($join) {
+                    $join->on('products.id', '=', 'series_lists.product_id')
+                        ->where(array(['products.display', 'Y'], ['products.active', 'Y']));
+                })
+                ->orderBy('product_id', 'asc');
         }]);
+
         foreach ($series->seriesList as $k1 => $catList) {
             $catList->load('product');
 

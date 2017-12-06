@@ -22,7 +22,7 @@
                 <div class="col-sm-6 item">
                     <a href="{{ URL_PRODUCT . '/' . $serList->product->id }}">
                                 @if($serList->product->materialImages->count() == 0)
-                                    <img class="img-thumbnail" src='http://placehold.it/450x450' />
+                                    <img class="img-thumbnail" src='http://placehold.it/750?text=Waiting upload' />
                                 @elseif($serList->product->materialImages->count() == 1)
                                     <img class="img-thumbnail" src='{{ IMAGE_PRODUCT . $serList->product->materialImages[0]->image_url }}' />
                                 @else

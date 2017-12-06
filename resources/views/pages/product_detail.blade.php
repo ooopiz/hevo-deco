@@ -21,7 +21,7 @@
         <div class="col-sm-7">
             <div class="owl-carousel owl-theme">
                 @if($product->materialImages->count() == 0)
-                <img class="img-thumbnail" src="http://placehold.it/500x500"> @endif @foreach($product->materialImages as $val)
+                <img class="img-thumbnail" src="http://placehold.it/750?text=Waiting upload"> @endif @foreach($product->materialImages as $val)
                 <img class="img-thumbnail" src="{{ IMAGE_PRODUCT . $val->image_url }}"> @endforeach
             </div>
         </div>

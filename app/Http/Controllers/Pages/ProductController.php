@@ -37,7 +37,12 @@ class ProductController extends Controller
         // 載入關聯
         foreach($categories as $key => $cat) {
             $cat->load(['categoryList' => function ($query) {
-                $query->orderBy('product_id', 'asc');
+                $query
+                    ->join('products', function ($join) {
+                        $join->on('products.id', '=', 'category_lists.product_id')
+                            ->where(array(['products.display', 'Y'], ['products.active', 'Y']));
+                    })
+                    ->orderBy('product_id', 'asc');
             }]);
 
             foreach($cat->categoryList as $k1 => $catList) {
