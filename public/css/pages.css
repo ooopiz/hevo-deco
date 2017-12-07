@@ -754,12 +754,12 @@ a:focus {
         width: 100%;
         display: flex;
         justify-content: space-around;
-        padding: 0 0 0 -15%;
+        padding: 0 0 0 -17%;
         text-align: center;
     }
 
     #nav-small ul li {
-        padding: 0 15% 0 0;
+        padding: 0 17% 0 0;
         display: inline-block;
         
     }
@@ -776,14 +776,16 @@ a:focus {
     }
 
     .intro > p {
-        font-size: 1.3rem;
-        line-height: 2rem;
-        min-width: 300px;
+        display: none;
     }
 
     .brand-story h2 {
         font-size: 3rem;
         line-height: 3rem;
+    }
+    
+    .social-links{
+        width: 100%;
     }
 
     .shop-info a {
