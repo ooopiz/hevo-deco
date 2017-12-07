@@ -17,6 +17,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="非機械大量製造,也不是帶著距離的藝術品.由台灣傳統工廠老職人手工製作的日常生活用品.希望讓數十載製作經驗延續,運用想像力創造鈑金可能.">
+    <meta name="p:domain_verify" content="2751b27e746f46c5a983fe161a0a8ec4"/>
 
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
