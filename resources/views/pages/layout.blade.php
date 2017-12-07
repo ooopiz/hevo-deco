@@ -87,7 +87,7 @@
                     <h4>Social | 社群</h4>
                     <ul>
                         <li><a href="https://www.facebook.com/hevodeco" target="_blank">Facebook</a></li>
-                        <li><a href="https://www.pinkoi.com/store/hevo?ref_itemlist_tid=gQZ7A5tz&ref_itemlist=dDxsWVu4" target="_blank">Pinkoi</a></li>
+                        <li><a href="https://www.pinterest.co.uk/hevodeco/pins/" target="_blank">Pinterest</a></li>
                         <li><a href="https://www.instagram.com/hevo_deco/" target="_blank">Instagram</a></li>
                     </ul>
 
