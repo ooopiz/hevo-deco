@@ -21,10 +21,13 @@
                 <li><a href="https://www.scenehomeware.com/shop/product/3262" target="_blank">光景Scene Homeware</a><span>&nbsp;</span>
                     <p>台北市松山區民生東路三段130巷18弄11號1樓</p>
                 </li>
+                <li><a href="https://goo.gl/maps/GuMVwA69Nd52" target="_blank">小路上</a><span>&nbsp;</span>
+                    <p>台北市羅斯福路二段77巷7號1-3F</p></li>
+                <li><a href="https://www.facebook.com/cubexlife" target="_blank">Cubex</a><span>&nbsp;</span>
+                    <p>台北市大安區大安路一段169巷6號1F</p></li>    
                 <li><a href="https://goo.gl/maps/NpiWoUHANQS2" target="_blank">FabCafe Taipei</a><span>&nbsp;</span>
                     <p>台北市八德路一段1號中三館一樓</p><b> 期間限定</b></li>
-                <li><a href="https://goo.gl/maps/GuMVwA69Nd52" target="_blank">小路上</a><span>&nbsp;</span>
-                    <p>台北市羅斯福路二段77巷7號1-3F</p><b> 期間限定</b></li>
+                
             </ul>
         </div>
     </div>
