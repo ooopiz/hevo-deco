@@ -79,7 +79,7 @@
                     <h4>Contact | 聯絡方式</h4>
                     <ul>
                         <li>hevodeco&#64;gmail.com</li>
-                        <li>+886 &#57;6&#49;-&#x30;&#48;6-89&#53;</li>
+                        <li>Line ID:sanys33</li>
                         <li>GMT +8 10:00~18:00</li>
                     </ul>
                 </div>
